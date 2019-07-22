@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anne Savage on Charlotte M. Jones-Todd</title>
+    <link>/authors/anne-savage/</link>
+    <description>Recent content in Anne Savage on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/anne-savage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Identifying prognostic structural features in tissue sections of colon cancer patients using point pattern analysis</title>
+      <link>/publication/cancer/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/cancer/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

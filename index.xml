@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Charlotte M. Jones-Todd</title>
+    <link>/</link>
+    <description>Recent content on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modelling occurrence times of earthquakes</title>
+      <link>/project/summerearthquakes/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/summerearthquakes/</guid>
+      <description>&lt;p&gt;Earthquakes evolve through contagious mechanisms: the occurrence of one earthquake typically causes aftershocks. The timestamps of earthquakes form a point pattern in time. We can use a temporal self-exciting point processes to describe how each earthquake increases the likelihood of another event (an aftershock) occurring. However, as well as the self-excitement properties of the system there are also earthquakes naturally occurring (main events) through independent processes. This project will model the occurrences of earthquakes in time to infer the background intensity of earthquakes (main events) as well as those occurring as a direct result of another (aftershocks).&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills and be familiar with maximum likelihood estimation. A good grade in STATS 310 would be an advantage.&lt;/p&gt;
+
+&lt;p&gt;Click &lt;a href=&#34;https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/undergraduate-scholarships/summer-research-scholarships/how-to-apply.html&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to apply&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visualising spatial processes in R</title>
+      <link>/project/summerviz/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/summerviz/</guid>
+      <description>&lt;p&gt;Often data are both spatially and temporally correlated. We can fit models to estimate this spatial dependence over time. However, visualising the estimated dependence can be challenging because we also have a level of uncertainty related to our estimates that we need to convey to the reader. This project will explore different ways of visualising results from spatial models and develop R functions to do so.&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills.&lt;/p&gt;
+
+&lt;p&gt;Click &lt;a href=&#34;https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/undergraduate-scholarships/summer-research-scholarships/how-to-apply.html&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; to apply&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>acoustic spatial capture-recapture</title>
+      <link>/software/ascr/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/software/ascr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A spatiotemporal multispecies model of a semicontinuous response</title>
+      <link>/publication/multispecies/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/multispecies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Identifying prognostic structural features in tissue sections of colon cancer patients using point pattern analysis</title>
+      <link>/publication/cancer/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/cancer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Understanding species distribution in dynamic populations: a new approach using spatio‐temporal point process models</title>
+      <link>/publication/crane/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/crane/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
