@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>honours on Charlotte M. Jones-Todd</title>
+    <link>/tags/honours/</link>
+    <description>Recent content in honours on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/honours/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Murder in New Zealand</title>
+      <link>/project/murder/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/murder/</guid>
+      <description>&lt;p&gt;The recently published database &lt;a href=&#34;https://interactives.stuff.co.nz/2019/the-homicide-report/index.html&#34; target=&#34;_blank&#34;&gt;The Homicide Report&lt;/a&gt; is the first publicly searchable database of homicides in New Zealand. This project will use the data (2004&amp;ndash;2019) to explore the any spatial and/or temporal patterns in the homicide data.&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quantitative microbial risk assessment</title>
+      <link>/project/qmra/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/qmra/</guid>
+      <description>&lt;p&gt;To estimate the risk of infection, and illness, from exposure to microorganisms whilst swimming quantitative microbiological risk assessment (QMRA) is often used. Based on the measured concentration of microbes in the water QMRA involves considering how many microbes are likely to be ingested, and the dose-response model for the microbe, to infer the probability of a swimmer becoming infected. However, there is often more than one model that represents the dose-response relationship for a single microbe.&lt;/p&gt;
+
+&lt;p&gt;The aim of this project is to develop a QMRA framework that incorporates the added uncertainty relating to multiple dose-response models for a microbe.&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 and 330 would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
