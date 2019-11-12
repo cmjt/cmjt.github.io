@@ -25,19 +25,5 @@
 </description>
     </item>
     
-    <item>
-      <title>Visualising spatial processes in R</title>
-      <link>/project/summerviz/</link>
-      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/project/summerviz/</guid>
-      <description>&lt;p&gt;Often data are both spatially and temporally correlated. We can fit models to estimate this spatial dependence over time. However, visualising the estimated dependence can be challenging because we also have a level of uncertainty related to our estimates that we need to convey to the reader. This project will explore different ways of visualising results from spatial models and develop R functions to do so.&lt;/p&gt;
-
-&lt;p&gt;The student will require good R programming skills.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/undergraduate-scholarships/summer-research-scholarships/how-to-apply.html&#34; target=&#34;_blank&#34;&gt;Applications&lt;/a&gt; now closed&lt;/p&gt;
-</description>
-    </item>
-    
   </channel>
 </rss>

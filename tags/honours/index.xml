@@ -6,10 +6,48 @@
     <description>Recent content in honours on Charlotte M. Jones-Todd</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/tags/honours/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analysing activity data from osteoarthritis patients</title>
+      <link>/project/sedentary/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/sedentary/</guid>
+      <description>&lt;p&gt;This project is co-supervised with &lt;a href=&#34;http://www.science.auckland.ac.nz/people/profile/rebecca-meiring&#34; target=&#34;_blank&#34;&gt;Dr Rebecca Meiring&lt;/a&gt; from Exercise Sciences. The purpose of this project is to analyse data collected on osteoarthritis patient mobility pre- and post-joint replacement surgery to infer if patient mobility has improved.&lt;/p&gt;
+
+&lt;p&gt;This project will involve data cleaning, manipulation, and visualisation. In addition, the student should expect to be heavily involved in statistical model development. The project is good preparation for those students looking to go into industry. Ideally the student should have good R programming skills; a good grade in STATS 380 would also be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spatial modelling of sensor networks</title>
+      <link>/project/sensor/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/sensor/</guid>
+      <description>&lt;p&gt;This project is co-supervised with &lt;a href=&#34;https://unidirectory.auckland.ac.nz/profile/david-williams&#34; target=&#34;_blank&#34;&gt;Professor David Williams&lt;/a&gt; from Chemical Sciences. This project will develop statistical methodology for modelling low resolution sensor networks and assessing the reliability of low cost sensors.&lt;/p&gt;
+
+&lt;p&gt;This project will involve data cleaning, manipulation, and visualisation. In addition, the student should expect to be heavily involved in statistical model development. The project is good preparation for those students looking to go into industry. Ideally the student should have good R programming skills and a good grade in STATS 380.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Femicide in Australia</title>
+      <link>/project/femicide/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/femicide/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.google.com.au/maps/d/viewer?mid=1WEjK9o99Qm734bKyizsOY_4XPDUgvnp2&amp;amp;ll=-27.545476629424474%2C135.4058944836213&amp;amp;z=4&amp;amp;fbclid=IwAR1ZmZ497DabSn3NDLK_Xhe8n63748V0njO9eUFZCoKiQzOrpwO3FmQ_DlU&#34; target=&#34;_blank&#34;&gt;Australian Femicide &amp;amp; Child Death Map&lt;/a&gt;, created by &lt;a href=&#34;https://www.facebook.com/AustralianFemicideMap/&#34; target=&#34;_blank&#34;&gt;Sherele Moody&lt;/a&gt;, documents the stories of women or children lost to violence or neglect in Australia.&lt;/p&gt;
+
+&lt;p&gt;This project will use the documented data to explore and gain further insight into any spatial and temporal patterns of femicide across Australia. In addition, this project will investigate relationships between victim characteristics and other known factors surrounding their death.&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills and will be expected to learn web scraping techniques. A good grade in STATS 380 would also be an advantage.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Murder in New Zealand</title>
@@ -17,9 +55,9 @@
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/murder/</guid>
-      <description>&lt;p&gt;The recently published database &lt;a href=&#34;https://interactives.stuff.co.nz/2019/the-homicide-report/index.html&#34; target=&#34;_blank&#34;&gt;The Homicide Report&lt;/a&gt; is the first publicly searchable database of homicides in New Zealand. This project will use the data (2004&amp;ndash;2019) to explore any spatial and/or temporal patterns in the homicide data.&lt;/p&gt;
+      <description>&lt;p&gt;The recently published database &lt;a href=&#34;https://interactives.stuff.co.nz/2019/the-homicide-report/index.html&#34; target=&#34;_blank&#34;&gt;The Homicide Report&lt;/a&gt; is the first publicly searchable database of homicides in New Zealand. This project will use the data (2004&amp;ndash;2019) to explore any spatial and temporal patterns in homicides across New Zealand. In addition, this project will investigate relationships between victim characteristics and other known factors surrounding their death.&lt;/p&gt;
 
-&lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 would be an advantage.&lt;/p&gt;
+&lt;p&gt;The student will require good R programming skills and will be expected to be proficient in data cleaning techniques; a good grade in STATS 380 would be an advantage.&lt;/p&gt;
 </description>
     </item>
     
@@ -34,6 +72,20 @@
 &lt;p&gt;The aim of this project is to develop a QMRA framework that incorporates the added uncertainty relating to multiple dose-response models for a microbe.&lt;/p&gt;
 
 &lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 and 330 would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visualising spatial processes in R</title>
+      <link>/project/viz/</link>
+      <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/viz/</guid>
+      <description>&lt;p&gt;Often data are both spatially and temporally correlated. We can fit models to estimate this spatial dependence over time. However, visualising the estimated dependence can be challenging because we also have a level of uncertainty related to our estimates that we need to convey to the reader. This project will explore different ways of visualising results from spatial models and develop R functions to do so.&lt;/p&gt;
+
+&lt;p&gt;The student will require good R programming skills.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/undergraduate-scholarships/summer-research-scholarships/how-to-apply.html&#34; target=&#34;_blank&#34;&gt;Applications&lt;/a&gt; now closed&lt;/p&gt;
 </description>
     </item>
     
