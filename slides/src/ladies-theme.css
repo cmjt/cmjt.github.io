@@ -1,0 +1,49 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css");
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+.small {
+    font-size: 50%;
+}
+.large {
+    font-size: 150%;
+}
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+}
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+.title-slide h1 {
+    font-family: 'Bangers', sans-serif;
+}
+.title-slide {
+    background: #C0C0C0;
+}
+
+.overlay{
+    position: absolute;
+    left: 150px;
+}
+.overlay-r{
+    position: absolute;
+    right: 400px;
+}
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  font-size: 70%;
+}
+.inverse{
+    background:  #C0C0C0;
+}
