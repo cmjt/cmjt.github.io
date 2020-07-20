@@ -3,7 +3,7 @@ title: "Me, myself, and R"
 subtitle: "R-Ladies AKL"
 author: "Charlotte M. Jones-Todd <br> ![](img/twitter.svg)@cmjonestodd"
 institute: "University of Auckland"
-date: "![](img/slides.png){width=5%} [cmjt.github.io/slides/rladies](cmjt.github.io/slides/rladies)"
+date: "![](img/slides.png){width=5%} [cmjt.github.io/slides/rladies](https://cmjt.github.io/slides/rladies)"
 header-includes:
    - \usepackage{xcolor}
    - \usepackage{amsmath}
@@ -410,6 +410,6 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 <br>
 .center[`r icon::fa_github()` @cmjt]
 <br>
-.center[<i class="fas fa-images"></i>  [cmjt.github.io/slides/rladies](cmjt.github.io/slides/rladies)]
+.center[<i class="fas fa-images"></i>  [cmjt.github.io/slides/rladies](https://cmjt.github.io/slides/rladies)]
 
 ]

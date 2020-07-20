@@ -7,11 +7,6 @@
   --panel-tab-color: currentColor;
   --panel-tab-color-active: currentColor;
   --panel-tab-color-hover: currentColor;
-  --panel-tab-background-color: unset;
-  --panel-tab-background-color-active: unset;
-  --panel-tab-background-color-hover: unset;
-  --panel-tab-border-color-active: currentColor;
-  --panel-tab-border-color-hover: currentColor;
   --panel-tab-inactive-opacity: 0.5;
   --panel-tab-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 }
@@ -20,7 +15,7 @@
   box-sizing: border-box;
 }
 
-.panelset .panel-tabs {
+.panel-tabs {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: horizontal;
@@ -31,15 +26,14 @@
   -webkit-box-align: center;
           align-items: center;
   border-bottom: 2px solid var(--panel-tabs-border-bottom);
-  padding: 0;
 }
 
-.panelset .panel-tabs * {
+.panel-tabs * {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
 
-.panelset .panel-tabs .panel-tab {
+.panel-tab {
   min-height: 50px;
   display: -webkit-box;
   display: flex;
@@ -54,41 +48,30 @@
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   color: var(--panel-tab-color);
-  background-color: var(--panel-tab-background-color);
-  list-style: none;
 }
 
-.panelset .panel-tabs .panel-tab > a {
-  color: currentColor;
-  text-decoration: none;
-}
-
-.panelset .panel-tabs .panel-tab:hover {
-  border-bottom-color: var(--panel-tab-border-color-hover);
+.panel-tab:hover {
+  border-bottom-color: currentColor;
   color: var(--panel-tab-color-hover);
-  background-color: var(--panel-tab-background-color-hover);
   opacity: 1;
   cursor: pointer;
 }
 
-.panelset .panel-tabs .panel-tab:focus {
+.panel-tab:focus {
   outline: none;
-  color: var(--panel-tab-color-hover);
-  border-bottom-color: var(--panel-tab-border-color-hover);
-  background-color: var(--panel-tab-background-color-hover);
+  border-bottom-color: var(--panel-tab-color-active);
 }
 
-.panelset .panel-tabs .panel-tab.panel-tab-active {
-  border-top-color: var(--panel-tab-border-color-active);
+.panel-tab.panel-tab-active {
+  border-top-color: currentColor;
   color: var(--panel-tab-color-active);
-  background-color: var(--panel-tab-background-color-active);
   opacity: 1;
 }
 
-.panelset .panel {
+.panel {
   display: none;
 }
 
-.panelset .panel-active {
+.panel-active {
   display: block;
 }

@@ -17,8 +17,7 @@
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/sensor/</guid>
-      <description>&lt;p&gt;This project is co-supervised with &lt;a href=&#34;https://unidirectory.auckland.ac.nz/profile/david-williams&#34; target=&#34;_blank&#34;&gt;Professor David Williams&lt;/a&gt; from Chemical Sciences. This project will develop statistical methodology for modelling low resolution sensor networks and assessing the reliability of low cost sensors.&lt;/p&gt;
-
+      <description>&lt;p&gt;This project is co-supervised with &lt;a href=&#34;https://unidirectory.auckland.ac.nz/profile/david-williams&#34;&gt;Professor David Williams&lt;/a&gt; from Chemical Sciences. This project will develop statistical methodology for modelling low resolution sensor networks and assessing the reliability of low cost sensors.&lt;/p&gt;
 &lt;p&gt;This project will involve data cleaning, manipulation, and visualisation. In addition, the student should expect to be heavily involved in statistical model development. The project is good preparation for those students looking to go into industry. Ideally the student should have good R programming skills and a good grade in STATS 380.&lt;/p&gt;
 </description>
     </item>
@@ -40,9 +39,7 @@
       
       <guid>/project/qmra/</guid>
       <description>&lt;p&gt;To estimate the risk of infection, and illness, from exposure to microorganisms whilst swimming quantitative microbiological risk assessment (QMRA) is often used. Based on the measured concentration of microbes in the water QMRA involves considering how many microbes are likely to be ingested, and the dose-response model for the microbe, to infer the probability of a swimmer becoming infected. However, there is often more than one model that represents the dose-response relationship for a single microbe.&lt;/p&gt;
-
 &lt;p&gt;The aim of this project is to develop a QMRA framework that incorporates the added uncertainty relating to multiple dose-response models for a microbe.&lt;/p&gt;
-
 &lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 and 330 would be an advantage.&lt;/p&gt;
 </description>
     </item>
@@ -54,8 +51,7 @@
       
       <guid>/project/viz/</guid>
       <description>&lt;p&gt;Often data are both spatially and temporally correlated. We can fit models to estimate this spatial dependence over time. However, visualising the estimated dependence can be challenging because we also have a level of uncertainty related to our estimates that we need to convey to the reader. This project will explore different ways of visualising results from spatial models and develop &lt;code&gt;R&lt;/code&gt; functions to do so.&lt;/p&gt;
-
-&lt;p&gt;This project will be co-supervised by &lt;a href=&#34;https://earo.me/&#34; target=&#34;_blank&#34;&gt;Earo Wang&lt;/a&gt;. Good programming skills are required.&lt;/p&gt;
+&lt;p&gt;This project will be co-supervised by &lt;a href=&#34;https://earo.me/&#34;&gt;Earo Wang&lt;/a&gt;. Good programming skills are required.&lt;/p&gt;
 </description>
     </item>
     

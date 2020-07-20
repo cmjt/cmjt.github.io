@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 ## R-Ladies AKL
 ### Charlotte M. Jones-Todd <br> <img src="img/twitter.svg" /><span class="citation">@cmjonestodd</span>
 ### University of Auckland
-### <img src="img/slides.png" style="width:5.0%" /> <a href="cmjt.github.io/slides/rladies" class="uri">cmjt.github.io/slides/rladies</a>
+### <img src="img/slides.png" style="width:5.0%" /> <a href="https://cmjt.github.io/slides/rladies">cmjt.github.io/slides/rladies</a>
 
 ---
 
@@ -296,14 +296,14 @@ an_object_I_have_not_created
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 *## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -311,7 +311,7 @@ count: false
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -319,7 +319,7 @@ count: false
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -327,7 +327,7 @@ count: false
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -336,7 +336,7 @@ library(hexr)
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -344,7 +344,7 @@ library(hexr)
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -354,7 +354,7 @@ library(sp)
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -362,7 +362,7 @@ library(sp)
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -373,7 +373,7 @@ library(ggplot2)
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -381,7 +381,7 @@ library(ggplot2)
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -393,7 +393,7 @@ example &lt;- hexr::get_hexr_data()
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 
 ]
 
@@ -401,7 +401,7 @@ example &lt;- hexr::get_hexr_data()
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -414,7 +414,7 @@ sf &lt;- sf::st_as_sf(example)
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 ![](rladies_files/figure-html/hexr_auto_7_output-1.png)&lt;!-- --&gt;
 ]
 
@@ -422,7 +422,7 @@ sf &lt;- sf::st_as_sf(example)
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -436,7 +436,7 @@ ggplot(sf) +
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 ![](rladies_files/figure-html/hexr_auto_8_output-1.png)&lt;!-- --&gt;
 ]
 
@@ -444,7 +444,7 @@ ggplot(sf) +
 count: false
  
 
-.panel1-hexr-auto[
+.left-panel-hexr-auto[
 
 ```r
 ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
@@ -458,28 +458,26 @@ ggplot(sf) +
 ```
 ]
  
-.panel2-hexr-auto[
+.right-panel-hexr-auto[
 ![](rladies_files/figure-html/hexr_auto_9_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.panel1-hexr-auto {
-  color: black;
-  width: 38.6060606060606%;
+.left-panel-hexr-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
   float: left;
+  font-size: 80%
+}
+.right-panel-hexr-auto {
+  width: 59.4059405940594%;
+  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-hexr-auto {
-  color: black;
-  width: 59.3939393939394%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-hexr-auto {
-  color: black;
-  width: NA%;
+.middle-panel-hexr-auto {
+  width: 0%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -495,14 +493,14 @@ ggplot(sf) +
 count: false
  
 
-.panel1-region-auto[
+.left-panel-region-auto[
 
 ```r
 *sf &lt;- hexr::prep_hex(sf)
 ```
 ]
  
-.panel2-region-auto[
+.right-panel-region-auto[
 
 ]
 
@@ -510,7 +508,7 @@ count: false
 count: false
  
 
-.panel1-region-auto[
+.left-panel-region-auto[
 
 ```r
 sf &lt;- hexr::prep_hex(sf)  
@@ -519,28 +517,26 @@ sf &lt;- hexr::prep_hex(sf)
 ```
 ]
  
-.panel2-region-auto[
+.right-panel-region-auto[
 ![](rladies_files/figure-html/region_auto_2_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.panel1-region-auto {
-  color: black;
-  width: 38.6060606060606%;
+.left-panel-region-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
   float: left;
+  font-size: 80%
+}
+.right-panel-region-auto {
+  width: 59.4059405940594%;
+  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-region-auto {
-  color: black;
-  width: 59.3939393939394%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-region-auto {
-  color: black;
-  width: NA%;
+.middle-panel-region-auto {
+  width: 0%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -556,14 +552,14 @@ sf &lt;- hexr::prep_hex(sf)
 count: false
  
 
-.panel1-hexes-auto[
+.left-panel-hexes-auto[
 
 ```r
 *ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150))
 ```
 ]
  
-.panel2-hexes-auto[
+.right-panel-hexes-auto[
 ![](rladies_files/figure-html/hexes_auto_1_output-1.png)&lt;!-- --&gt;
 ]
 
@@ -571,7 +567,7 @@ count: false
 count: false
  
 
-.panel1-hexes-auto[
+.left-panel-hexes-auto[
 
 ```r
 ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
@@ -579,7 +575,7 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 ```
 ]
  
-.panel2-hexes-auto[
+.right-panel-hexes-auto[
 ![](rladies_files/figure-html/hexes_auto_2_output-1.png)&lt;!-- --&gt;
 ]
 
@@ -587,7 +583,7 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 count: false
  
 
-.panel1-hexes-auto[
+.left-panel-hexes-auto[
 
 ```r
 ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
@@ -597,7 +593,7 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 ```
 ]
  
-.panel2-hexes-auto[
+.right-panel-hexes-auto[
 ![](rladies_files/figure-html/hexes_auto_3_output-1.png)&lt;!-- --&gt;
 ]
 
@@ -605,7 +601,7 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 count: false
  
 
-.panel1-hexes-auto[
+.left-panel-hexes-auto[
 
 ```r
 ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
@@ -617,28 +613,26 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 ```
 ]
  
-.panel2-hexes-auto[
+.right-panel-hexes-auto[
 ![](rladies_files/figure-html/hexes_auto_4_output-1.png)&lt;!-- --&gt;
 ]
 
 &lt;style&gt;
-.panel1-hexes-auto {
-  color: black;
-  width: 38.6060606060606%;
+.left-panel-hexes-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
   float: left;
+  font-size: 80%
+}
+.right-panel-hexes-auto {
+  width: 59.4059405940594%;
+  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-hexes-auto {
-  color: black;
-  width: 59.3939393939394%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-hexes-auto {
-  color: black;
-  width: NA%;
+.middle-panel-hexes-auto {
+  width: 0%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -657,14 +651,14 @@ ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +
 count: false
  
 
-.panel1-mfe-auto[
+.left-panel-mfe-auto[
 
 ```r
 *available &lt;- hexr::mfe_data(key = key)
 ```
 ]
  
-.panel2-mfe-auto[
+.right-panel-mfe-auto[
 
 ]
 
@@ -672,7 +666,7 @@ count: false
 count: false
  
 
-.panel1-mfe-auto[
+.left-panel-mfe-auto[
 
 ```r
 available &lt;- hexr::mfe_data(key = key)  
@@ -680,13 +674,13 @@ available &lt;- hexr::mfe_data(key = key)
 ```
 ]
  
-.panel2-mfe-auto[
+.right-panel-mfe-auto[
 
 ```
 ## 'data.frame':	235 obs. of  3 variables:
-##  $ Title   : Factor w/ 592 levels "Absolute contribution of key sources",..: 7 8 50 40 41 45 88 100 95 98 ...
-##  $ Abstract: Factor w/ 593 levels "- AccumulatedFrame dataset to accompany National water allocation statistics for environmental reporting; 2018 "| __truncated__,..: 396 64 419 279 108 508 98 306 358 61 ...
-##  $ Layerid : Factor w/ 593 levels "data.mfe.govt.nz:layer-103527",..: 172 105 131 174 134 139 66 188 207 85 ...
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
 ```
 ]
 
@@ -694,7 +688,7 @@ available &lt;- hexr::mfe_data(key = key)
 count: false
  
 
-.panel1-mfe-auto[
+.left-panel-mfe-auto[
 
 ```r
 available &lt;- hexr::mfe_data(key = key)  
@@ -703,13 +697,13 @@ str(available)
 ```
 ]
  
-.panel2-mfe-auto[
+.right-panel-mfe-auto[
 
 ```
 ## 'data.frame':	235 obs. of  3 variables:
-##  $ Title   : Factor w/ 592 levels "Absolute contribution of key sources",..: 7 8 50 40 41 45 88 100 95 98 ...
-##  $ Abstract: Factor w/ 593 levels "- AccumulatedFrame dataset to accompany National water allocation statistics for environmental reporting; 2018 "| __truncated__,..: 396 64 419 279 108 508 98 306 358 61 ...
-##  $ Layerid : Factor w/ 593 levels "data.mfe.govt.nz:layer-103527",..: 172 105 131 174 134 139 66 188 207 85 ...
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
 ```
 
 ```
@@ -719,7 +713,7 @@ str(available)
 ## attr(,"nlayers")
 ## [1] 1
 ## OGR data source with driver: LIBKML 
-## Source: "/home/cjon911/Git/webpage/static/slides/layer-5331846ed1ae84e42.kml", layer: "layer-53318"
+## Source: "/home/charlotte/Git/webpage/static/slides/layer-5331813c99180f9c.kml", layer: "layer-53318"
 ## with 77 features
 ## It has 67 fields
 ```
@@ -729,7 +723,7 @@ str(available)
 count: false
  
 
-.panel1-mfe-auto[
+.left-panel-mfe-auto[
 
 ```r
 available &lt;- hexr::mfe_data(key = key)  
@@ -739,13 +733,13 @@ mfe &lt;- hexr::get_mfe_data(id = "layer-53318", key = key)
 ```
 ]
  
-.panel2-mfe-auto[
+.right-panel-mfe-auto[
 
 ```
 ## 'data.frame':	235 obs. of  3 variables:
-##  $ Title   : Factor w/ 592 levels "Absolute contribution of key sources",..: 7 8 50 40 41 45 88 100 95 98 ...
-##  $ Abstract: Factor w/ 593 levels "- AccumulatedFrame dataset to accompany National water allocation statistics for environmental reporting; 2018 "| __truncated__,..: 396 64 419 279 108 508 98 306 358 61 ...
-##  $ Layerid : Factor w/ 593 levels "data.mfe.govt.nz:layer-103527",..: 172 105 131 174 134 139 66 188 207 85 ...
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
 ```
 
 ```
@@ -755,7 +749,7 @@ mfe &lt;- hexr::get_mfe_data(id = "layer-53318", key = key)
 ## attr(,"nlayers")
 ## [1] 1
 ## OGR data source with driver: LIBKML 
-## Source: "/home/cjon911/Git/webpage/static/slides/layer-5331846eddf8374c.kml", layer: "layer-53318"
+## Source: "/home/charlotte/Git/webpage/static/slides/layer-5331813c973edd7c3.kml", layer: "layer-53318"
 ## with 77 features
 ## It has 67 fields
 ```
@@ -768,23 +762,21 @@ mfe &lt;- hexr::get_mfe_data(id = "layer-53318", key = key)
 ]
 
 &lt;style&gt;
-.panel1-mfe-auto {
-  color: black;
-  width: 38.6060606060606%;
+.left-panel-mfe-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
   float: left;
+  font-size: 80%
+}
+.right-panel-mfe-auto {
+  width: 59.4059405940594%;
+  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-mfe-auto {
-  color: black;
-  width: 59.3939393939394%;
-  float: left;
-  padding-left: 1%;
-  font-size: 80%
-}
-.panel3-mfe-auto {
-  color: black;
-  width: NA%;
+.middle-panel-mfe-auto {
+  width: 0%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -875,7 +867,7 @@ class: inverse
 &lt;br&gt;
 .center[<i class="fab  fa-github "></i> @cmjt]
 &lt;br&gt;
-.center[&lt;i class="fas fa-images"&gt;&lt;/i&gt;  [cmjt.github.io/slides/rladies](cmjt.github.io/slides/rladies)]
+.center[&lt;i class="fas fa-images"&gt;&lt;/i&gt;  [cmjt.github.io/slides/rladies](https://cmjt.github.io/slides/rladies)]
 
 ]
     </textarea>
