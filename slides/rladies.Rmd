@@ -193,9 +193,12 @@ knitr::include_graphics("https://d1b10bmlvqabco.cloudfront.net/attach/k2tzpqr1rj
 ]
 
 .panel[.panel-name[RShiny]
+
 .center[
-<iframe src="https://cmjt.shinyapps.io/pdfplay/" width="900"  height="500"></iframe>
+`r icon::fa_desktop()` [https://cmjt.shinyapps.io/pdfplay/](https://cmjt.shinyapps.io/pdfplay/)
+<iframe src="https://cmjt.shinyapps.io/pdfplay/" width="900"  height="400"></iframe>
 ]
+
 ]
 
 .panel[.panel-name[aRt]
@@ -210,9 +213,9 @@ knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-il
 ```{r errors, echo = TRUE, error = TRUE}
 data <- read.csv("data_file_not_in_my_working_directory.csv")
 
-library(some_library_I_have_not_insalled)
+library(some_library_I_have_not_installed)
 
-some_function_I_spelled_wrong(x = x)
+some_function_I_spelled_worng(x = x)
 
 an_object_I_have_not_created
 
@@ -378,6 +381,7 @@ class: inverse
 * but feel free to steal from me too
    - [<i class="fas fa-images"></i> slides](https://github.com/cmjt/webpage) 
    - [<i class="fas fa-book-open"></i> teaching gifs](https://github.com/cmjt/statbiscuits)
+   - [<i class="fas fa-signal"></i> RShiny distribution explorer](https://cmjt.shinyapps.io/pdfplay/)	
 
 ---
 
