@@ -23,6 +23,45 @@
     </item>
     
     <item>
+      <title>(Statistical) Adventure/Puzzle game</title>
+      <link>/project/puzzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/puzzle/</guid>
+      <description>&lt;p&gt;This project will give you free rein to develop a point and click adventure game with an
+educational focus. The game developed will allow players to explore the theories that
+underpin statistical methodology, It will allow players to adventure their way through
+probability distributions and estimation techniques taught in statistical theory courses.
+The student will be expected to be heavily involved in the creative design process. This
+project will require the student to have some understanding of the statistical theory involved.&lt;/p&gt;
+&lt;p&gt;Familiarity with the game engine Unity (or equivalent) would be an advantage; good grades
+in CS335 and/or CS373 would also be highly desirable.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data scraping and wrangling</title>
+      <link>/project/biostats/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/biostats/</guid>
+      <description>&lt;p&gt;Have a hand in designing memorable worksheets for my future students. Can you one up &lt;a href=&#34;https://cmjt.github.io/statbiscuits/&#34;&gt;ClusterDucks&lt;/a&gt;? Help your future peers grasp some fundamental statistical concepts.&lt;/p&gt;
+&lt;p&gt;This project will mainly involve data scraping, cleaning, and visualisation. Documentation of workflow is expected as are reasonable programming skills. Familiarity with Rmarkdown would be beneficial. A good grasp of the statistical techniques taught at levels three and above would be advantageous, but not essential. A creative streak would also be an advantage!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interactive tutorials in RShiny</title>
+      <link>/project/bior/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/bior/</guid>
+      <description>&lt;p&gt;The aim of this project is to develop an suite of &lt;code&gt;R&lt;/code&gt; code exercises catered specifically towards biostatistic students new to &lt;code&gt;R&lt;/code&gt;. The end goal is an &lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;RShiny&lt;/a&gt;/&lt;a href=&#34;https://rstudio.github.io/learnr/&#34;&gt;learnr&lt;/a&gt; application with a comprehensive suite of interactive tutorials designed to lead users new to &lt;code&gt;R&lt;/code&gt; through the essential skills required for many biostat courses at the University of Auckland.&lt;/p&gt;
+&lt;p&gt;The student should have good &lt;code&gt;R&lt;/code&gt; programming skills but is not expected to necessarily have come across  &lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;RShiny&lt;/a&gt; or &lt;a href=&#34;https://rstudio.github.io/learnr/&#34;&gt;learnr&lt;/a&gt;. You will be working closely with me to develop appropriate  materials for the tutorials; a creative streak would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Quantitative microbial risk assessment</title>
       <link>/project/qmra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -31,6 +70,17 @@
       <description>&lt;p&gt;To estimate the risk of infection, and illness, from exposure to microorganisms whilst swimming quantitative microbiological risk assessment (QMRA) is often used. Based on the measured concentration of microbes in the water QMRA involves considering how many microbes are likely to be ingested, and the dose-response model for the microbe, to infer the probability of a swimmer becoming infected. However, there is often more than one model that represents the dose-response relationship for a single microbe.&lt;/p&gt;
 &lt;p&gt;The aim of this project is to develop a QMRA framework that incorporates the added uncertainty relating to multiple dose-response models for a microbe.&lt;/p&gt;
 &lt;p&gt;The student will require good R programming skills. A good grade in STATS 380 and 330 would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What happens if we ignore self-excitement in point process models?</title>
+      <link>/project/selfpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project/selfpp/</guid>
+      <description>&lt;p&gt;Events cluster in time and space: tweets go viral, flurries of nearby earthquakes occur in quick succession. Temporal and spatial proximity are major factors in the chain reaction of events. However, how and why these spatiotemporal clusters form is much more complex: the mechanisms that generate clusters of events are often self-exciting.&lt;/p&gt;
+&lt;p&gt;This project will look at what happens when self-excitement is ignored. No familiarity with point processes is needed; however, strong R programming skills are required and familiarity with C++ would be advantageous. Good grades in STATS310 and STATS330 would also be an advantage.&lt;/p&gt;
 </description>
     </item>
     

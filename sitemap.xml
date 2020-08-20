@@ -33,21 +33,6 @@
   </url>
   
   <url>
-    <loc>/software/ascr/</loc>
-    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/gui/</loc>
-    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/software/</loc>
-    <lastmod>2019-07-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/admin/</loc>
     <lastmod>2019-02-11T00:00:00+00:00</lastmod>
   </url>
@@ -163,6 +148,14 @@
   </url>
   
   <url>
+    <loc>/project/puzzle/</loc>
+  </url>
+  
+  <url>
+    <loc>/software/ascr/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/bara/</loc>
   </url>
   
@@ -171,7 +164,15 @@
   </url>
   
   <url>
-    <loc>/project/rivers/</loc>
+    <loc>/project/biostats/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/gui/</loc>
+  </url>
+  
+  <url>
+    <loc>/project/bior/</loc>
   </url>
   
   <url>
@@ -183,6 +184,10 @@
   </url>
   
   <url>
+    <loc>/software/</loc>
+  </url>
+  
+  <url>
     <loc>/popty/bara/</loc>
   </url>
   
@@ -191,7 +196,15 @@
   </url>
   
   <url>
-    <loc>/project/viz/</loc>
+    <loc>/tags/summer/</loc>
+  </url>
+  
+  <url>
+    <loc>/project/rivers/</loc>
+  </url>
+  
+  <url>
+    <loc>/project/selfpp/</loc>
   </url>
   
 </urlset>
