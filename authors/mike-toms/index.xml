@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mike Toms on Charlotte M. Jones-Todd</title>
-    <link>/authors/mike-toms/</link>
+    <link>https://cmjt.github.io/authors/mike-toms/</link>
     <description>Recent content in Mike Toms on Charlotte M. Jones-Todd</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/authors/mike-toms/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://cmjt.github.io/authors/mike-toms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A spatiotemporal multispecies model of a semicontinuous response</title>
-      <link>/publication/multispecies/</link>
+      <link>https://cmjt.github.io/publication/multispecies/</link>
       <pubDate>Wed, 04 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/publication/multispecies/</guid>
+      <guid>https://cmjt.github.io/publication/multispecies/</guid>
       <description></description>
     </item>
     

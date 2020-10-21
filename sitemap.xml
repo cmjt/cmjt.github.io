@@ -1,210 +1,239 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://cmjt.github.io/</loc>
+    <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/project/</loc>
+    <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/project/sensor/</loc>
     <lastmod>2019-11-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/honours/</loc>
+    <loc>https://cmjt.github.io/tags/</loc>
     <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/masters/</loc>
+    <loc>https://cmjt.github.io/tags/honours/</loc>
     <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/</loc>
+    <loc>https://cmjt.github.io/tags/masters/</loc>
     <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/sensor/</loc>
-    <lastmod>2019-11-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-11-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
+    <loc>https://cmjt.github.io/authors/admin/</loc>
     <lastmod>2019-02-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/2/</loc>
+    <loc>https://cmjt.github.io/publication_types/2/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/andrea-sorianoredondo/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/andrew-stanbury/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/geoff-m-hilton/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/janine-b.-illian/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/leigh-lock/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/publication_types/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/publication/</loc>
     <lastmod>2019-02-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/andrea-sorianoredondo/</loc>
+    <loc>https://cmjt.github.io/tags/source-themes/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/stephen-c-votier/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/authors/stuart-bearhop/</loc>
+    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cmjt.github.io/publication/crane/</loc>
     <lastmod>2019-02-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/andrew-stanbury/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <loc>https://cmjt.github.io/authors/anne-savage/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <loc>https://cmjt.github.io/authors/ben-c.-stevenson/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/geoff-m-hilton/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <loc>https://cmjt.github.io/authors/david-j.-harrison/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/janine-b.-illian/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/leigh-lock/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/source-themes/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/stephen-c-votier/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/stuart-bearhop/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/crane/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/anne-savage/</loc>
+    <loc>https://cmjt.github.io/publication/cancer/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/ben-c.-stevenson/</loc>
+    <loc>https://cmjt.github.io/authors/james-l.-bown/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/david-j.-harrison/</loc>
+    <loc>https://cmjt.github.io/authors/peter-caie/</loc>
     <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/publication/cancer/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/james-l.-bown/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/peter-caie/</loc>
-    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/multispecies/</loc>
+    <loc>https://cmjt.github.io/publication/multispecies/</loc>
     <lastmod>2017-10-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/ben-swallow/</loc>
+    <loc>https://cmjt.github.io/authors/ben-swallow/</loc>
     <lastmod>2017-10-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/mike-toms/</loc>
+    <loc>https://cmjt.github.io/authors/mike-toms/</loc>
     <lastmod>2017-10-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/puzzle/</loc>
+    <loc>https://cmjt.github.io/project/puzzle/</loc>
   </url>
   
   <url>
-    <loc>/software/ascr/</loc>
+    <loc>https://cmjt.github.io/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/bara/</loc>
+    <loc>https://cmjt.github.io/project/biostats/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://cmjt.github.io/project/bior/</loc>
   </url>
   
   <url>
-    <loc>/project/biostats/</loc>
+    <loc>https://cmjt.github.io/popty/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/gui/</loc>
+    <loc>https://cmjt.github.io/project/qmra/</loc>
   </url>
   
   <url>
-    <loc>/project/bior/</loc>
+    <loc>https://cmjt.github.io/software/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/popty/</loc>
+    <loc>https://cmjt.github.io/popty/bara/</loc>
   </url>
   
   <url>
-    <loc>/project/qmra/</loc>
+    <loc>https://cmjt.github.io/popty/starter/</loc>
   </url>
   
   <url>
-    <loc>/software/</loc>
+    <loc>https://cmjt.github.io/project/rivers/</loc>
   </url>
   
   <url>
-    <loc>/popty/bara/</loc>
+    <loc>https://cmjt.github.io/project/selfpp/</loc>
   </url>
   
   <url>
-    <loc>/popty/starter/</loc>
+    <loc>https://cmjt.github.io/software/ascr/</loc>
   </url>
   
   <url>
-    <loc>/tags/summer/</loc>
+    <loc>https://cmjt.github.io/tags/bara/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/rivers/</loc>
+    <loc>https://cmjt.github.io/tags/gui/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/project/selfpp/</loc>
+    <loc>https://cmjt.github.io/tags/summer/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

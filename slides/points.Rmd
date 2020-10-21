@@ -1,0 +1,642 @@
+---
+title: "Modelling systematic effects and latent phenomena in point referenced data"
+subtitle: ""
+author: "Charlotte M. Jones-Todd <br> ![](img/twitter.svg)@cmjonestodd"
+institute: "![](img/uoa.png){width=5%} University of Auckland"
+date: "![](img/slides.png){width=5%} [PollEv.com/cjonestodd303](https://pollev.com/cjonestodd303)"
+header-includes:
+   - \usepackage{xcolor}
+   - \usepackage{amsmath}
+   - \usepackage{animate}
+output:
+  xaringan::moon_reader:
+    css: ["src/default-theme.css"]
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+--- 
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(message = FALSE,cache = TRUE, echo = FALSE, warning = FALSE, fig.align='center')
+
+```
+
+
+
+```{r, echo=FALSE,  out.width="40%"}
+knitr::include_graphics("img/recaptcha.jpg")
+```
+
+---
+
+### Counting dots?
+
+
+```{r pps,fig.width=15,fig.height=5}
+library(spatstat)
+set.seed(4321)
+locs <- cbind(runif(100),runif(100))
+pp <- ppp(locs[,1], locs[,2])
+win <- owin()
+par(mfrow = c(1,3), mar = c(0,0,0,0))
+## point pattern
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+## quadrat count
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+q <- quadratcount(pp,5,5)
+plot(q,add = TRUE,cex = 1.5)
+## quad count finer matrix
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+q <- quadratcount(pp,10,10)
+plot(q,add = TRUE,cex = 1.5)
+```
+
+---
+
+### Stroma and Tumour cells...
+
+.center[
+```{r, fig.align='center', out.width="100%"}
+knitr::include_graphics("img/cancer_im.png")
+```
+]
+
+
+---
+
+### How would you summarize the structure? 
+#### [PollEv.com/cjonestodd303](https://pollev.com/cjonestodd303)
+
+.center[
+```{r, fig.align='center', out.width="100%"}
+knitr::include_graphics("img/cancer_pp.png")
+```
+]
+
+
+---
+
+### Poll
+
+<iframe src="https://www.polleverywhere.com/free_text_polls/s03EqxE3myyI1pt55CdP1?preview=true&controls=none" width="100%" height="100%" frameBorder="0"></iframe>
+
+---
+
+### `r emo::ji("palm_tree")` The Palm likelihood approach
+
+ + The Palm intensity is a function of distance $r$, characterised by the parameter vector $\theta$: $\lambda(r; \theta)$
+
+ + It describes how the point density varies as a function of distance $r$ from an arbitrarily chosen point. 
+  
+ + It returns the expected intensity of a point process at a distance $r$ from an arbitrarily chosen point. 
+  
+.center[
+```{r, fig.align='center', out.width="80%"}
+knitr::include_graphics("img/cancer_nn.png")
+```
+]
+
+---
+
+#### Results
+
++ **Void process**
+  + Strong evidence to suggest that stroma daughter density in patients that died was lower than in
+those that were alive at follow up. 
+  + Weak evidence  to suggest that stroma parent density in patients that died was lower than in those that were alive at follow up. 
+  
++ **Thomas process**
+  + Strong evidence to suggest that stroma nuclei patterns of patients who died from CRC have on
+average a lower number of daughters per parent,
+  + Evidence to suggest that tumour parent density is lower in patient’s who died from CRC.
+  
++ **Matérn process**
+  + Strong evidence to suggest that stroma nuclei patterns of patients who died from CRC have on
+average a lower number of daughters per parent.
+  + Evidence to suggest that tumour parent density is lower in patient’s who died from CRC.
+
+
+---
+### But what about the unknown...
+
+```{r ppr,fig.width=15,fig.height=5}
+library(spatstat)
+set.seed(4321)
+locs <- cbind(runif(100),runif(100))
+pp <- ppp(locs[,1], locs[,2])
+win <- owin()
+par(mfrow = c(1,3), mar = c(0,0,0,0))
+## point pattern
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+## quadrat count
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+q <- quadratcount(pp,5,5)
+plot(q,add = TRUE,cex = 1.5)
+## quad count finer matrix
+plot(locs,axes = "F",pch = 20,xlab = "",ylab = "",xlim = c(0,1),ylim = c(0,1),col = "darkgrey")
+plot(win,add = TRUE)
+q <- quadratcount(pp,10,10)
+plot(q,add = TRUE,cex = 1.5)
+```
+
+
+---
+### But what about the unknown...
+
+#### How low can you go?
+
+.center[
+```{r animation,  fig.show='animate', animation.hook='gifski'}
+cols <- RColorBrewer::brewer.pal(9, "Blues")
+s <- seq(5,50,5)
+for(i in 1:length(s)){
+  q <- quadratcount(pp,s[i],s[i])
+  image(q,axes = FALSE,col = cols)
+}
+```
+]
+
+---
+### But what about the unknown...
+
+```{r cont, fig.width = 8, fig.height=8}
+image(density(pp)$v,axes = FALSE,col = cols)
+points(locs,pch = 20)
+```
+
+---
+### But what about the unknown...
+
+### Random fields
+
+```{r rfs, fig.width=15,fig.height=5, fig.align='center'}
+library(spatstat)
+spatstat.options(npixel=300)
+sigma2x <- c(1,1,3)
+kappax <- c(2,3,10)
+rangex <- sqrt(8*1)/kappax
+beta0 <- 3
+library(RandomFields)
+set.seed(5432)
+fields <- points <- list()
+for (i in 1:3){
+    lg.s <- rLGCP('matern', beta0,
+                  var=sigma2x[i], scale=1/kappax[i], nu=1)
+    ## points
+    points[[i]] <- cbind(lg.s$x, lg.s$y)[,2:1]
+    ## exponential of LGRF
+    Lam <- attr(lg.s, 'Lambda')
+    fields[[i]] <- log(Lam$v)
+}
+layout(matrix(c(0,1,2,3,4,
+                0,0,0,0),nrow = 2,byrow = TRUE),respect = TRUE,
+       widths = c(0.4,3,3,3,3),
+       heights = c(3,0.2))
+
+par(mar = c(0,0,0,0),xpd = TRUE,oma = c(0,0,0,0))
+x <- seq(1,5, length.out = 100)
+plot(x, rSPDE::matern.covariance(x, kappa = kappax[1], nu = 1, sigma = sqrt(sigma2x[1])),
+     type = "l", ylab ="", xlab = "",lwd = 2,xaxt = "n")
+mtext(line = 0.5, side = 1, "Distances between points")
+mtext(line = 2,side = 2, expression(C[z]))
+lines(x,rSPDE::matern.covariance(x, kappa = kappax[2], nu = 1, sigma = sqrt(sigma2x[2])), lty = 2,lwd = 2)
+lines(x,rSPDE::matern.covariance(x, kappa = kappax[3], nu = 1, sigma = sqrt(sigma2x[3])), lty = 3,lwd = 2)
+legend("topright",bty = "n", lty = 1:3,lwd = 2, legend = c("i)","ii)", "iii)"),cex = 2)
+## fields
+image(fields[[1]],axes = FALSE,  col = RColorBrewer::brewer.pal(9, "Blues"),asp = 1)
+points(points[[1]],pch = 20)
+legend(-0.05,0.1,bty = "n", cex = 2,legend = "i)")
+box()
+image(fields[[2]],axes = FALSE,  col = RColorBrewer::brewer.pal(9, "Blues"), asp = 1)
+points(points[[2]],pch = 20)
+legend(-0.05,0.1,,bty = "n", cex = 2,legend = "ii)")
+box()
+image(fields[[3]],axes = FALSE,  col = RColorBrewer::brewer.pal(9, "Blues"),asp = 1)
+points(points[[3]],pch = 20)
+legend(-0.05,0.1,,bty = "n", cex = 2,legend = "iii)")
+box()
+```
+
+---
+### `r emo::ji("bed")` Bed sheets?
+
+.center[
+```{r spde,fig.height=8,fig.width=8,fig.align='center'}
+library(plotly)
+n <- seq(-4,4,length.out = 10)
+n <- rep(n, each = 10) 
+z <- outer(X = n,Y = n,function(X,Y) sin(X)*cos(Y))
+## smoother
+n <- seq(-4,4,length.out = 100)
+z2 <-  outer(X = n,Y = n,function(X,Y) sin(X)*cos(Y)) + 2
+
+p <- plot_ly(showscale = FALSE) %>%
+  add_surface(z = ~z, cmin = min(z), cmax = max(z), colorscale = list(c(0, 1), c("#F7FBFF", "#08306B"))) %>%
+  add_surface(z = ~z2, cmin = min(z2), cmax = max(z2),colorscale = list(c(0, 1), c("#F7FBFF", "#08306B")), opacity = 0.98) %>%
+layout(
+    title = "",
+    scene = list(
+      xaxis = list(title = "",zeroline = FALSE,showline = FALSE,showticklabels = FALSE,showgrid= FALSE),
+      yaxis = list(title = "",zeroline = FALSE,showline = FALSE,showticklabels = FALSE,showgrid= FALSE),
+      zaxis = list(title = "",zeroline = FALSE,showline = FALSE,showticklabels = FALSE,showgrid= FALSE)
+    )) %>% config(displayModeBar = FALSE)
+p
+```
+]
+
+.footnote[[Lindgren, F., Rue, H., and Lindström, J. (2011). An explicit link between Gaussian fields and
+Gaussian Markov random fields: the stochastic partial differential equation approach. Journal
+of the Royal Statistical Society: Series B (Statistical Methodology), 73(4):423–498.](https://rss.onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-9868.2011.00777.x)]
+---
+
+### `r emo::ji("knife")` Cutting up space 
+
+```{r mesh,fig.height=7,fig.width=7}
+library(INLA)
+mesh <- inla.mesh.2d(loc = cbind(runif(100),runif(100)),max.edge = c(0.1,0.3),cutoff = 0.07)
+image(z2,axes = FALSE,col = cols)
+plot(mesh,main = "",add = TRUE)
+points(mesh$loc,pch = 20)
+```
+
+.footnote[[Lindgren, F., Rue, H., and Lindström, J. (2011). An explicit link between Gaussian fields and
+Gaussian Markov random fields: the stochastic partial differential equation approach. Journal
+of the Royal Statistical Society: Series B (Statistical Methodology), 73(4):423–498.](https://rss.onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-9868.2011.00777.x)]
+
+---
+### Murders in NZ as a LGCP
+
+.pull-left[
+<br>
+<br>
+<br>
+<br>
+<br>
+$$\Lambda(\mathbf{s}) =  \text{exp}(\beta_0  + G(\mathbf{s}))$$
+$$\Lambda(\mathbf{s}) =  \text{exp}(\beta_0  +  \Sigma_{k = 1}^{n_{\text{covs}}} \alpha_k\: x_q(\mathbf{s}) + G(\mathbf{s}))$$
+]
+
+.pull-right[
+```{r murders, fig.align='center',fig.width=8,fig.height=8}
+library(stelfi)
+## nz data
+data(murders_nz)
+data(nz)
+## data wrangling
+coordinates(murders_nz) <- c("Longitude","Latitude")
+proj4string(murders_nz) <- CRS("+proj=longlat +datum=WGS84")
+murders_nz <-  spTransform(murders_nz, 
+                           CRS("+proj=nzmg +lat_0=-41.0 +lon_0=173.0 +x_0=2510000.0 +y_0=6023150.0 +ellps=intl +units=m"))
+nz_clip <- stplanr::gclip(nz,murders_nz)
+plot(murders_nz);plot(nz, add = TRUE)
+
+```
+]
+
+.footnote[Work with Charlie Timings, honours student]
+
+---
+### Murders in NZ as a LGCP
+
+```{r dual mesh,cache = TRUE,message = FALSE, fig.width=8,fig.height=8}
+mesh <- inla.mesh.2d(loc.domain = broom::tidy(nz_clip)[,1:2],
+                     max.edge = c(85000,105000), cutoff = 85000)
+weights <- stelfi::get_weights(mesh = mesh, sp = nz, plot = TRUE)
+```
+*Delauney triangulation of the domain (white) overlain on the Voronoi diagram representing the weights (area surrounding) of each mesh node (diamonds). Observations are plotted as circles, mesh nodes outwith the domain are shown in white.*
+
+.footnote[Work with Charlie Timings, honours student]
+
+
+---
+### Murders in NZ as a LGCP
+
+
+```{r plot weights, fig.width=8,fig.height=8}
+## function below is a wrapper for
+## the book.dual.mesh() function supplied
+## in the INLA-SPDE tutorial mentioned above
+dual_mesh <- stelfi:::inla.mesh.dual(mesh)
+## expected number per mesh node
+ins <- which(weights != 0)
+pal <- scales::col_numeric("Blues",weights[ins]/1000^2)
+cols <- pal(weights[ins]/1000^2)
+plot(dual_mesh[ins], col = cols)
+plot(nz, add = TRUE)
+## fields::image.plot(zlim = range(weights[ins]/1000^2),col = sort(cols, TRUE), legend.only = TRUE, legend.width = 2, nlevel = 10, legend.shrink = 0.5)
+```
+*Voronoi diagram of the weights (shown as areas in km2 around each mesh node).*
+
+.footnote[Work with Charlie Timings, honours student]
+
+---
+### Murders in NZ as a LGCP
+
+```{r mod1}
+## lgcp model
+fit <- fit_lgcp_inla(mesh = mesh, locs = coordinates(murders_nz), sp = nz_clip,
+                     return.attributes = TRUE)
+
+```
+
+
+```{r murders_fit, fig.align='center',fig.width=8,fig.height=8}
+fields <- stelfi::get_fields(fit, mesh, mean = TRUE)
+grfs <- fields[[1]]
+r <- range(grfs)
+proj = INLA::inla.mesh.projector(mesh, dims = c(300,300))
+field.proj = INLA::inla.mesh.project(proj, grfs)
+image(list(x = proj$x, y=proj$y, z = field.proj),col = RColorBrewer::brewer.pal(9, "Blues"), 
+      axes = FALSE, zlim = r,asp = 1)
+plot(nz,add = TRUE)
+
+```
+
+.footnote[Work with Charlie Timings, honours student]
+
+
+---
+### Murders in NZ as a LGCP
+
+```{r mod2}
+cov <- fit$summary.linear.predictor$mean[1:(mesh$n + nrow(murders_nz))] #+ rnorm(mesh$n + nrow(murders_nz))
+covariate <- data.frame(f = cov)
+## model fitting
+fit <- fit_lgcp_inla(mesh = mesh, locs = coordinates(murders_nz),covariates = covariate, sp = nz_clip,
+                     return.attributes = TRUE)
+
+```
+
+```{r murders_cov, fig.align='center',fig.width=8,fig.height=8}
+## the random field
+fields <- stelfi::get_fields(fit, mesh, mean = TRUE)
+grfs <- fields[[1]]
+proj = INLA::inla.mesh.projector(mesh, dims = c(300,300))
+field.proj = INLA::inla.mesh.project(proj, grfs)
+image(list(x = proj$x, y=proj$y, z = field.proj),col = RColorBrewer::brewer.pal(9, "Blues"), 
+      axes = FALSE, zlim = r,asp = 1)
+plot(nz,add = TRUE)
+```
+
+.footnote[Work with Charlie Timings, honours student]
+
+---
+### Multiple (shared) random fields
+#### A marked point pattern
+
+$$\Lambda(\mathbf{s},t) =  \text{exp}(\beta_0  + G(\mathbf{s},t))$$
+--
+
+Let the mark, $m(\mathbf{s}, t)$, be a binary variable indicating the presence or absence
+of something, so  $m(\mathbf{s}, t) \sim \text{Bernoulli}(p(\mathbf{s}, t))$. 
+
+--
+
+In addition to the intensity we also model the marks:
+
+$$p(\mathbf{s}, t) = \text{logit}^{-1}(\alpha_0 + \Sigma_{k = 1}^{n_{\text{covs}}} \alpha_k\: x_q(\mathbf{s},t) + \beta\:G(\mathbf{s},t) + g(\mathbf{s},t))$$
+
+---
+### Multiple (shared) random fields
+#### A multi-species model
+
+Let $z_{ik}$ be a binary indicator of the $k^{th}$ species' presence ( $k = 1,2,3 =$ sparrowhawk, collared dove, house sparrow) at site $i$. Then $z_{ik} \sim \text{Bernoulli}(p_{ik})$, where $p_{ik}$ is the probability of presence of the $k^{th}$ species at site $i$. Letting $d_{ik}$ be the density of the $k^{th}$ species at location $i$, then $d_{ik}$ is given by, 
+
+$$d_{ik} = \left\{\begin{array}{ll} \text{Gamma}(a_{ik},b_{ik})  &\text{with probability}\; p_{ik}\\
+ 0,  & \textrm{otherwise,} \end{array}\right.$$
+ 
+with shape and scale parameters $(a_{ik},b_{ik})$ respectively, so that $E[d_{k}] = a_k\,b_k =  \mu_k$.
+
+--
+The join model is given by,
+
+$$\begin{aligned}
+\text{sparrowhawk} &\left\{ 
+  \begin{array}{l}
+    \text{logit}(p_{i1}) =   \mathbf{x_1}\{{\mathbf{s}_i,t}\}  \\ 
+    \text{log}(\mu_{i1}) = \beta_{1} \mathbf{x_1}\{{\mathbf{s}_i,t}\}, \\
+    \end{array}
+  \right.\\
+  \text{collared dove} &\left\{
+  \begin{array}{l}
+    \text{logit}(p_{i2}) =  \mathbf{x_2}\{{\mathbf{s}_i,t}\}  \\ 
+    \text{log}(\mu_{i2}) =  \beta_{2} \mathbf{x_2}\{{\mathbf{s}_i,t}\}, \\
+    \end{array}
+  \right.\\
+  \text{house sparrow} &\left\{
+  \begin{array}{l}
+    \text{logit}(p_{i3}) = \alpha +  \gamma_{1} \mathbf{x_1}\{{\mathbf{s}_i,t}\} + \gamma_{2} \mathbf{x_2}\{{\mathbf{s}_i,t}\} + \mathbf{x_3}\{{\mathbf{s}_i,t}\} \\
+\text{log}(\mu_{i3}) = \alpha_{y} + \gamma_{3} \mathbf{x_1}\{{\mathbf{s}_i,t}\} + \gamma_{4} \mathbf{x_2}\{{\mathbf{s}_i,t}\} + \beta_3\mathbf{x_3}\{{\mathbf{s}_i,t}\}.\\ 
+    \end{array}
+  \right.\\ 
+\end{aligned}$$
+
+
+Each $\mathbf{x_j}\{{\mathbf{s}_i,t}\} (j=1,2,3)$ is a spatio-temporal random effect modelled by a SPDE model 
+ 
+---
+### Other work: Self-exciting fields
+
+.center[![](https://cmjt.github.io/project/selfpp/featured_hua3418a03230c5d04b557dd56e4a5f8f4_30096_720x0_resize_lanczos_2.png)]
+
+---
+### Other work: Network distances
+
+.center[![](img/attacks.gif)]
+
+---
+### Other work: Network distances
+.center[![](img/networks.gif)]
+
+
+---
+
+### References
+
+ + [**Jones-Todd, C. M.**, Caie, P., Illian, J. B., Stevenson, B. C., Savage, A., Harrison D, J., & Bown, J. (2019) Identifying prognostic structural features in tissue sections of colon cancer patients using point pattern analysis. *Statistics in Medicine*, 38 (8), 1421–1441.](https://onlinelibrary.wiley.com/doi/pdf/10.1002/sim.8046)
+ 
+ + [**Jones-Todd, C. M.**, Swallow, B., Illian, J. B., & Toms, M. (2018) A spatio-temporal multi-species model of a semi-continuous response. *Journal of the Royal Statistical Society, Series C (Applied Statistics)*, 67 (3), 705–722.](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssc.12250)
+
+ + [Soranio-Redondo, A., **Jones-Todd, C. M.**, Bearhop, S., Hilton, G. M., Lock, L., Stanbury, A., Votier, S. C., & Illian, J. B. (2019) Understanding species distribution in dynamic populations: a new approach using spatio-temporal point process models. *Ecography*, 42 (6), 1092–1102.](https://onlinelibrary.wiley.com/doi/pdf/10.1111/ecog.03771)
+ 
+ + [Python, A.,  Illian, J. B., **Jones-Todd, C. M.**, & Blàngiardo, M. A Bayesian approach to modelling subnational spatial dynamics of worldwide non-state terrorism, 2010–2016. (2019) *Journal of the Royal Statistical Society, Series  A (Statistics in Society)*, 182 (1), 323–344.](https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/rssa.12384)
+ 
+ + **Jones-Todd, C. M.**, Pirotta, E., Durban, J., Claridge, D., Baird, R., Falcone, E., Schorr, G., Watwood,S., & Thomas, L.  *(Under review after resubmission)* Continuous-time discrete-space models of marine mammal exposure to Navy sonar.
+
+---
+
+### Diolch am wrando 
+
+```{r, eval = FALSE, echo = FALSE}
+## linux <sudo apt-get install cowsay>
+```
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+```{r dragon, echo = FALSE,eval = TRUE, comment = ""}
+system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
+```
+]
+]
+
+
+.pull-right[
+<br>
+<br>
+<br>
+.center[`r icon::fa_twitter(colour = "#00ACEE")` @cmjonestodd]
+<br>
+.center[`r icon::fa_github()` @cmjt]
+<br>
+.center[<i class="fas fa-images"></i>  [cmjt.github.io/slides/points](https://cmjt.github.io/slides/points)]
+]
+<!-- ### Other work: Marine mammal exposure to Navy sonar -->
+
+<!-- .center[ -->
+<!-- ```{r track, out.width="50%"} -->
+<!-- knitr::include_graphics("img/autec.png") -->
+<!-- ``` -->
+<!-- ] -->
+
+<!-- --- -->
+
+<!-- ### Marine mammal exposure to Navy sonar -->
+<!-- #### Discrete-space continuous-time -->
+
+
+
+<!-- Let $q_{rs}(t,z(t))$ represent the immediate risk of moving from one state $r$ to another state $s$: -->
+
+<!-- $$q_{rs}(t,z(t)) = \text{lim}_{\delta t \rightarrow 0} \mathbb{P}(S(t + \delta t) = s|S(t) = r)/\delta t.$$ -->
+
+<!-- These transition rates form a square matrix $\bf{Q}$ with elements $q_{rs}$. -->
+
+<!-- -- -->
+
+
+<!-- Here $q_{rr}=-\Sigma_{s{\neq}r}q_{rs}$ (i.e., the rows of **Q** sum to zero and $q_{rs}\geq0$ for $r{\neq}s$). -->
+
+<!-- -- -->
+
+<!-- We have $r, s = \{1,2\}$ where state $1=$ off-range (i.e., outside the area used by the Navy for military operations) and state $2=$ on-range: -->
+
+<!-- $$\begin{array}{ccc} -->
+<!--   \bf{Q} = -->
+<!--   \left [\begin{array}{cc} -->
+<!--     q_{1 1} & q_{1 2} \\ -->
+<!--       q_{2 1} & q_{2 2} -->
+<!--     \end{array}\right ] & \text{where} \: q_{r r} = -q_{r s}, & \text{for}\: r \neq s. -->
+<!--   \end{array}$$ -->
+
+
+<!-- --- -->
+
+<!-- ### Marine mammal exposure to Navy sonar -->
+<!-- #### Including exposure information -->
+
+
+<!-- We let  -->
+
+<!-- <br> -->
+
+<!-- $$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\beta_{0,rs} + u_{k, rs}) + \beta_{1,rs}\text{exp}(- \beta_{2,rs} \mathbf{z}_k(t)),$$ -->
+
+<!-- where -->
+
+
+<!-- $$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 & \text{during exposure} \\ \geq 0 & \text{otherwise}\end{array} \right.$$ -->
+
+
+<!-- is the number of days since an individual was exposed to a sonar event and $\beta_{2,rs} \geq 0$ $\forall\: r \neq s$. -->
+
+
+
+<!-- --- -->
+
+<!-- ```{r echo = FALSE} -->
+<!-- library(xaringanExtra) -->
+<!-- xaringanExtra::use_panelset() -->
+<!-- ``` -->
+
+
+<!-- .panelset[ -->
+<!-- .panel[.panel-name[93232] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale1.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[11164] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale2.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[111670] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale3.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[129715] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale4.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[129719] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale5.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[129720] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale6.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- .panel[.panel-name[129721] -->
+<!-- .center[ -->
+<!-- <br> -->
+<!-- <br> -->
+<!-- ```{r, echo = FALSE,fig.height = 3,out.width = "80%"} -->
+<!-- knitr::include_graphics("img/whale7.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- ] -->
+<!-- ] -->
+
