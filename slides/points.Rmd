@@ -8,6 +8,8 @@ header-includes:
    - \usepackage{xcolor}
    - \usepackage{amsmath}
    - \usepackage{animate}
+includes:
+      in_header: mathjax.html
 output:
   xaringan::moon_reader:
     css: ["src/default-theme.css"]
