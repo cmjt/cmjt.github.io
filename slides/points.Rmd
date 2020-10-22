@@ -373,30 +373,20 @@ plot(nz,add = TRUE)
 ---
 ### Murders in NZ as a LGCP
 
-```{r mod2}
-cov <- fit$summary.linear.predictor$mean[1:(mesh$n + nrow(murders_nz))] #+ rnorm(mesh$n + nrow(murders_nz))
-covariate <- data.frame(f = cov)
-## model fitting
-fit <- fit_lgcp_inla(mesh = mesh, locs = coordinates(murders_nz),covariates = covariate, sp = nz_clip,
-                     return.attributes = TRUE)
-
-```
 
 ```{r murders_cov, fig.align='center',fig.width=8,fig.height=8}
-## the random field
-fields <- stelfi::get_fields(fit, mesh, mean = TRUE)
-grfs <- fields[[1]]
+grfs <- 0.5*fields[[1]] 
 proj = INLA::inla.mesh.projector(mesh, dims = c(300,300))
 field.proj = INLA::inla.mesh.project(proj, grfs)
 image(list(x = proj$x, y=proj$y, z = field.proj),col = RColorBrewer::brewer.pal(9, "Blues"), 
-      axes = FALSE, zlim = r,asp = 1)
+      axes = FALSE, asp = 1,zlim = r)
 plot(nz,add = TRUE)
 ```
 
 .footnote[Work with Charlie Timings, honours student]
 
 ---
-### Multiple (shared) random fields
+### Shared random fields
 #### A marked point pattern
 
 $$\Lambda(\mathbf{s},t) =  \text{exp}(\beta_0  + G(\mathbf{s},t))$$
@@ -413,7 +403,6 @@ $$p(\mathbf{s}, t) = \text{logit}^{-1}(\alpha_0 + \Sigma_{k = 1}^{n_{\text{covs}
 
 ---
 ### Multiple (shared) random fields
-#### A multi-species model
 
 Let $z_{ik}$ be a binary indicator of the $k^{th}$ species' presence ( $k = 1,2,3 =$ sparrowhawk, collared dove, house sparrow) at site $i$. Then $z_{ik} \sim \text{Bernoulli}(p_{ik})$, where $p_{ik}$ is the probability of presence of the $k^{th}$ species at site $i$. Letting $d_{ik}$ be the density of the $k^{th}$ species at location $i$, then $d_{ik}$ is given by, 
 
@@ -423,31 +412,31 @@ $$d_{ik} = \left\{\begin{array}{ll} \text{Gamma}(a_{ik},b_{ik})  &\text{with pro
 with shape and scale parameters $(a_{ik},b_{ik})$ respectively, so that $E[d_{k}] = a_k\,b_k =  \mu_k$.
 
 --
-The join model is given by,
+The joint model is given by,
 
 $$\begin{aligned}
 \text{sparrowhawk} &\left\{ 
   \begin{array}{l}
-    \text{logit}(p_{i1}) =   \mathbf{x_1}\{{\mathbf{s}_i,t}\}  \\ 
-    \text{log}(\mu_{i1}) = \beta_{1} \mathbf{x_1}\{{\mathbf{s}_i,t}\}, \\
+    \text{logit}(p_{i1}) =   \mathbf{x_1}(\mathbf{s}_i,t)  \\ 
+    \text{log}(\mu_{i1}) = \beta_{1} \mathbf{x_1}(\mathbf{s}_i,t), \\
     \end{array}
   \right.\\
   \text{collared dove} &\left\{
   \begin{array}{l}
-    \text{logit}(p_{i2}) =  \mathbf{x_2}\{{\mathbf{s}_i,t}\}  \\ 
-    \text{log}(\mu_{i2}) =  \beta_{2} \mathbf{x_2}\{{\mathbf{s}_i,t}\}, \\
+    \text{logit}(p_{i2}) =  \mathbf{x_2}(\mathbf{s}_i,t)  \\ 
+    \text{log}(\mu_{i2}) =  \beta_{2} \mathbf{x_2}(\mathbf{s}_i,t), \\
     \end{array}
   \right.\\
   \text{house sparrow} &\left\{
   \begin{array}{l}
-    \text{logit}(p_{i3}) = \alpha +  \gamma_{1} \mathbf{x_1}\{{\mathbf{s}_i,t}\} + \gamma_{2} \mathbf{x_2}\{{\mathbf{s}_i,t}\} + \mathbf{x_3}\{{\mathbf{s}_i,t}\} \\
-\text{log}(\mu_{i3}) = \alpha_{y} + \gamma_{3} \mathbf{x_1}\{{\mathbf{s}_i,t}\} + \gamma_{4} \mathbf{x_2}\{{\mathbf{s}_i,t}\} + \beta_3\mathbf{x_3}\{{\mathbf{s}_i,t}\}.\\ 
+    \text{logit}(p_{i3}) = \alpha +  \gamma_{1} \mathbf{x_1}(\mathbf{s}_i,t) + \gamma_{2} \mathbf{x_2}(\mathbf{s}_i,t) + \mathbf{x_3}(\mathbf{s}_i,t) \\
+\text{log}(\mu_{i3}) = \alpha_{y} + \gamma_{3} \mathbf{x_1}(\mathbf{s}_i,t) + \gamma_{4} \mathbf{x_2}(\mathbf{s}_i,t) + \beta_3\mathbf{x_3}(\mathbf{s}_i,t).\\ 
     \end{array}
   \right.\\ 
 \end{aligned}$$
 
 
-Each $\mathbf{x_j}\{{\mathbf{s}_i,t}\} (j=1,2,3)$ is a spatio-temporal random effect modelled by a SPDE model 
+Each $\mathbf{x_j}(\mathbf{s}_i,t),\: (j=1,2,3)$ is a spatio-temporal random effect modelled by a SPDE model 
  
 ---
 ### Other work: Self-exciting fields
@@ -505,6 +494,9 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 <br>
 .center[<i class="fas fa-images"></i>  [cmjt.github.io/slides/points](https://cmjt.github.io/slides/points)]
 ]
+
+
+
 <!-- ### Other work: Marine mammal exposure to Navy sonar -->
 
 <!-- .center[ -->
