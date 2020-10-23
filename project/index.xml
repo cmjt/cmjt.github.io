@@ -54,6 +54,30 @@ in CS335 and/or CS373 would also be highly desirable.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Develop an R-shiny tool to allow to calculate site-adjusted water quality guidelines</title>
+      <link>https://cmjt.github.io/project/water/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/water/</guid>
+      <description>&lt;p&gt;Co-supervised by &lt;a href=&#34;https://niwa.co.nz/people/jennifer-gadd&#34; target=&#34;_blank&#34;&gt;Dr Jennifer Gadd&lt;/a&gt;, head of the Urban Aquatic Environments group at &lt;a href=&#34;https://niwa.co.nz/&#34; target=&#34;_blank&#34;&gt;NIWA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The water quality guidelines for zinc in freshwater are based on a species sensitivity distribution (SSD), which has a probabilistic model, such as log-normal, log-logistic or Burr Type III, fitted to calculate guidelines (at varying percentile levels). The method for zinc first requires the individual data values for the SSD to be adjusted to a standard water quality, either default values, or to user-added values. These are three multiple linear regression models used for this (one each for fish, invertebrates and algae) to account for the fact that zinc is less toxic in the presence of dissolved organic carbon (DOC), calcium and magnesium (hardness) and at low pH. An R shiny tool is required that would allow people to calculate the guideline at whatever pH, hardness and DOC they want, based on what they measure in their water.  The data need to be adjusted based on each MLR model, then the SSD generated, and guidelines calculated.&lt;/p&gt;
+
+&lt;p&gt;The student should have good &lt;code&gt;R&lt;/code&gt; programming skills but is not expected have come across  &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34;&gt;RShiny&lt;/a&gt;; a creative streak would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Estimating parameters of a void process using a Bayesian approach</title>
+      <link>https://cmjt.github.io/project/void/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/void/</guid>
+      <description>&lt;p&gt;This project will involve using a Bayesian approach to estimate parameters of a void point process. No prior knowledge of point processes is required; however, a student should be comfortable with the concepts covered in STATS730 and STATS731.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Interactive tutorials in RShiny</title>
       <link>https://cmjt.github.io/project/bior/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
