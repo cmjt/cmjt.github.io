@@ -1,0 +1,17 @@
+base
+spatstat.data
+nlme
+rpart
+spatstat
+sp
+RandomFieldsUtils
+RandomFields
+ggplot2
+plotly
+Matrix
+foreach
+INLA
+TMB
+Rcpp
+stelfi
+sf
