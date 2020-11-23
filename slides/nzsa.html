@@ -4,8 +4,6 @@
     <title>Marine mammal exposure to Navy sonar: a continuous-time discrete-space model</title>
     <meta charset="utf-8" />
     <meta name="author" content="Charlotte M. Jones-Todd   @cmjonestodd" />
-    <link href="nzsa_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
-    <script src="nzsa_files/anchor-sections/anchor-sections.js"></script>
     <link href="nzsa_files/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link href="nzsa_files/panelset/panelset.css" rel="stylesheet" />
     <script src="nzsa_files/panelset/panelset.js"></script>
@@ -66,21 +64,17 @@ background-image: url("img/tag.jpg")
 
 For each coordinate `\(c = 1,2\)` of the observed location of an animal at time `\(t\)` ( `\(t = 1,2,...,n\)` ):
 
-&lt;br&gt;
-
-.footnote[Fitted using the **R** package **argosTrack** Albertsen, C. M. (2017). **argosTrack**:  Fit  Movement Models to Argos Data for Marine Animals.  R package version 1.1.0.] 
 
 --
+
  - instantaneous velocity of the animal `\(v_{ct}\)` is described by a Ornstein-Uhlenbeck process;
  
-
 --
-&lt;br&gt;
+
  - integrating over the velocity process gives the location process `\(\mu_{ct}\)`;
 
 --
 
-&lt;br&gt;
  - measurement equation is given by `\(y_{ct} = \mu_{ct} + \epsilon_{ct}\)`, where `\(y_{ct}\)` is the `\(c\)`th coordinate of the observed location of an animal at time `\(t\)` with measurement error term `\(\epsilon_{ct}\)`. The joint distribution of `\(\epsilon_{1t}\)` and `\(\epsilon_{2t}\)` is a bivariate `\(t\)`-distribution. 
 
 
@@ -90,7 +84,7 @@ For each coordinate `\(c = 1,2\)` of the observed location of an animal at time 
 ### Continuous-time correlated random walk model (CTCRW) 
 
 .center[
-&lt;img src="img/track_example.png" width="640" height="500" /&gt;
+&lt;img src="img/track_example.png" width="640" height="400" /&gt;
 ]
 
 .footnote[Fitted using the **R** package **argosTrack** Albertsen, C. M. (2017). **argosTrack**:  Fit  Movement Models to Argos Data for Marine Animals.  R package version 1.1.0.] 

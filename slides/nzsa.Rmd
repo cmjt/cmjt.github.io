@@ -74,21 +74,17 @@ knitr::include_graphics("img/whale.gif")
 
 For each coordinate $c = 1,2$ of the observed location of an animal at time $t$ ( $t = 1,2,...,n$ ):
 
-<br>
-
-.footnote[Fitted using the **R** package **argosTrack** Albertsen, C. M. (2017). **argosTrack**:  Fit  Movement Models to Argos Data for Marine Animals.  R package version 1.1.0.] 
 
 --
+
  - instantaneous velocity of the animal $v_{ct}$ is described by a Ornstein-Uhlenbeck process;
  
-
 --
-<br>
+
  - integrating over the velocity process gives the location process $\mu_{ct}$;
 
 --
 
-<br>
  - measurement equation is given by $y_{ct} = \mu_{ct} + \epsilon_{ct}$, where $y_{ct}$ is the $c$th coordinate of the observed location of an animal at time $t$ with measurement error term $\epsilon_{ct}$. The joint distribution of $\epsilon_{1t}$ and $\epsilon_{2t}$ is a bivariate $t$-distribution. 
 
 
@@ -98,7 +94,7 @@ For each coordinate $c = 1,2$ of the observed location of an animal at time $t$ 
 ### Continuous-time correlated random walk model (CTCRW) 
 
 .center[
-```{r track,eval = TRUE, echo = FALSE,out.height=500}
+```{r track,eval = TRUE, echo = FALSE,out.height=400}
 knitr::include_graphics("img/track_example.png")
 ```
 ]
