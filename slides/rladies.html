@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Me, myself, and R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Charlotte M. Jones-Todd   @cmjonestodd" />
+    <link href="rladies_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="rladies_files/panelset/panelset.js"></script>
+    <link href="rladies_files/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/ladies-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Me, myself, and R
+## R-Ladies AKL
+### Charlotte M. Jones-Todd <br> <img src="img/twitter.svg" /><span class="citation">@cmjonestodd</span>
+### University of Auckland
+### <img src="img/slides.png" style="width:5.0%" /> <a href="https://cmjt.github.io/slides/rladies">cmjt.github.io/slides/rladies</a>
+
+---
+
+
+
+
+## Prifysgol Aberystwyth
+
+.pull-right[
+![](https://upload.wikimedia.org/wikipedia/en/e/ea/Uwa_crest_colour-new.png)
+]
+
+.animate__animated.animate__rollIn.animate__slower[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.pull-left[
+&lt;img src="https://preview.redd.it/evam7q9ml9l21.jpg?width=960&amp;crop=smart&amp;auto=webp&amp;s=41a7c8616b4e60ed7166191c7618c5c0f734d08f" width="70%" /&gt;
+]]
+
+---
+
+## University of St Andrews
+
+.animate__animated.animate__rollIn.animate__slower[
+.pull-left[
+&lt;div class="figure"&gt;
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png" alt="Artwork by @allison_horst" width="70%" /&gt;
+&lt;p class="caption"&gt;Artwork by @allison_horst&lt;/p&gt;
+&lt;/div&gt;
+]]
+
+.pull-right[
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/University_of_St_Andrews_arms.svg/200px-University_of_St_Andrews_arms.svg.png)
+]
+
+
+.overlay-r[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.large[
+<i class="fab  fa-github "></i> <i class="fab  fa-git-square "></i> <i class="fab  fa-linux "></i> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/48px-EmacsIcon.svg.png)&lt;!-- --&gt;
+]
+]
+---
+
+## NIWA
+
+.animate__animated.animate__rollIn.animate__slower[
+.pull-left[
+&lt;div class="figure"&gt;
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/welcome_to_rstats_twitter.png" alt="Artwork by @allison_horst" width="70%" /&gt;
+&lt;p class="caption"&gt;Artwork by @allison_horst&lt;/p&gt;
+&lt;/div&gt;
+]]
+
+
+.pull-right[
+![](https://i.vimeocdn.com/portrait/26128833_300x300.webp)
+]
+
+---
+
+## NIWA
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="https://www.nesi.org.nz/sites/default/files/media/software%20carpentry%20logo.png" width="45%" /&gt;
+]
+
+
+.pull-left[
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+```r
+files &lt;- list.files(pattern = ".csv")
+files &lt;- lapply(files, read.csv)
+res &lt;- do.call('rbind',files)
+```
+]
+
+
+--
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.overlay[
+.pull-left[
+&lt;div class="figure"&gt;
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/tidyverse_celestial.png" alt="Artwork by @allison_horst" width="50%" /&gt;
+&lt;p class="caption"&gt;Artwork by @allison_horst&lt;/p&gt;
+&lt;/div&gt;
+]
+]
+
+
+---
+
+
+## University of Auckland
+
+.animate__animated.animate__rollIn.animate__slower[
+.pull-left[
+
+&lt;img src="https://pics.me.me/yours-is-the-worst-code-ihave-ever-run-but-it-60917985.png" width="70%" /&gt;
+]]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-eXMxc_sEOwFYHehTYyYGTZUyRnTDA_0B7A818ihjuwR69Cc&amp;s)
+]
+---
+
+## Teaching 
+
+
+
+.center[
+![](https://raw.githubusercontent.com/cmjt/statbiscuits/master/gifs/perp.gif)
+]
+
+.footnote[<i class="fas  fa-desktop "></i> [cmjt.github.io/statbiscuits](cmjt.github.io/slides/statbiscuits)]
+
+---
+
+## Teaching
+
+.panelset[
+ .panel[.panel-name[Gifs]
+.center[
+![](img/f-test.gif)
+]
+]
+
+.panel[.panel-name[Stats memes]
+.pull-left[
+&lt;img src="https://d1b10bmlvqabco.cloudfront.net/attach/k2tzpqr1rjh2mv/k7cg6fnhql5w4/kaljzm66qd65/aov.jpg" width="80%" /&gt;
+]
+.pull-right[
+![](https://d1b10bmlvqabco.cloudfront.net/attach/k2tzpqr1rjh2mv/k7cg6fnhql5w4/karrfqoxqnxo/unnamed.jpg)
+]
+]
+
+.panel[.panel-name[RShiny]
+
+.center[
+<i class="fas  fa-desktop "></i> [https://cmjt.shinyapps.io/pdfplay/](https://cmjt.shinyapps.io/pdfplay/)
+&lt;iframe src="https://cmjt.shinyapps.io/pdfplay/" width="900"  height="400"&gt;&lt;/iframe&gt;
+]
+
+]
+
+.panel[.panel-name[aRt]
+.center[
+&lt;div class="figure"&gt;
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/other-stats-artwork/type_1_errors.png" alt="Artwork by @allison_horst" width="60%" /&gt;
+&lt;p class="caption"&gt;Artwork by @allison_horst&lt;/p&gt;
+&lt;/div&gt;
+]
+]
+.panel[.panel-name[live coding  😱]
+
+
+```r
+data &lt;- read.csv("data_file_not_in_my_working_directory.csv")
+```
+
+```
+## Error in file(file, "rt"): cannot open the connection
+```
+
+```r
+library(some_library_I_have_not_installed)
+```
+
+```
+## Error in library(some_library_I_have_not_installed): there is no package called 'some_library_I_have_not_installed'
+```
+
+```r
+some_function_I_spelled_worng(x = x)
+```
+
+```
+## Error in some_function_I_spelled_worng(x = x): could not find function "some_function_I_spelled_worng"
+```
+
+```r
+an_object_I_have_not_created
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'an_object_I_have_not_created' not found
+```
+
+
+]
+]
+
+---
+
+### Research
+
+.panelset[
+ .panel[.panel-name[Pretty plot]
+ .center[
+&lt;img src="https://pbs.twimg.com/media/DuKns0KX4AAvApq?format=jpg&amp;name=small" width="40%" /&gt;
+]
+]
+
+.panel[.panel-name[Paper]
+
+[
+&lt;img src="img/cancer.png" width="50%" /&gt;
+](http://onlinelibrary.wiley.com/doi/abs/10.1002/sim.8046)
+
+]
+]
+
+
+
+---
+
+### Research
+
+.panelset[
+ .panel[.panel-name[Pretty plot]
+.center[
+&lt;img src="img/selfe.png" width="50%" /&gt;
+]
+]
+
+.panel[.panel-name[Likelihood]
+
+&lt;img src="img/code.png" width="50%" /&gt;
+
+
+]
+]
+
+---
+
+## Vizualising rivers
+
+
+.center[
+&lt;img src="https://pbs.twimg.com/media/ETMf11xVAAAEfMw?format=png&amp;name=small" height="90%" /&gt;
+]
+
+.footnote[<i class="fas  fa-desktop "></i> [https://gist.github.com/cmjt/238e6d01f5870f6c32e7870f51987650](https://gist.github.com/cmjt/238e6d01f5870f6c32e7870f51987650)]
+
+---
+
+
+
+
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+*## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+*library(hexr)
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+*library(sp)
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+*library(ggplot2)
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+library(ggplot2)  
+*example &lt;- hexr::get_hexr_data()
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+library(ggplot2)  
+example &lt;- hexr::get_hexr_data()  
+*sf &lt;- sf::st_as_sf(example)
+```
+]
+ 
+.right-panel-hexr-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+library(ggplot2)  
+example &lt;- hexr::get_hexr_data()  
+sf &lt;- sf::st_as_sf(example)  
+*ggplot(sf)
+```
+]
+ 
+.right-panel-hexr-auto[
+![](rladies_files/figure-html/hexr_auto_7_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+library(ggplot2)  
+example &lt;- hexr::get_hexr_data()  
+sf &lt;- sf::st_as_sf(example)  
+ggplot(sf) +  
+*   geom_sf()
+```
+]
+ 
+.right-panel-hexr-auto[
+![](rladies_files/figure-html/hexr_auto_8_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hexr-auto[
+
+```r
+## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT  ## devtools::install_github("cmjt/hexr") ## UNDER DEVELOPMENT
+library(hexr)  
+library(sp)  
+library(ggplot2)  
+example &lt;- hexr::get_hexr_data()  
+sf &lt;- sf::st_as_sf(example)  
+ggplot(sf) +  
+    geom_sf()  
+```
+]
+ 
+.right-panel-hexr-auto[
+![](rladies_files/figure-html/hexr_auto_9_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.left-panel-hexr-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-hexr-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-hexr-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-auto[
+
+```r
+*sf &lt;- hexr::prep_hex(sf)
+```
+]
+ 
+.right-panel-region-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-region-auto[
+
+```r
+sf &lt;- hexr::prep_hex(sf)  
+
+*ggplot(sf,aes(colour = REGION)) + geom_sf()
+```
+]
+ 
+.right-panel-region-auto[
+![](rladies_files/figure-html/region_auto_2_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-hexes-auto[
+
+```r
+*ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150))
+```
+]
+ 
+.right-panel-hexes-auto[
+![](rladies_files/figure-html/hexes_auto_1_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hexes-auto[
+
+```r
+ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
+*   hexr::geom_rivers(fill = "grey80", color = "white",lwd = 0.1)
+```
+]
+ 
+.right-panel-hexes-auto[
+![](rladies_files/figure-html/hexes_auto_2_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hexes-auto[
+
+```r
+ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
+    hexr::geom_rivers(fill = "grey80", color = "white",lwd = 0.1) +  
+*   hexr::geom_river_fill(aes(var = DISTSEA/max(DISTSEA), seg = 1),
+*                          fill = "#D95F02",lwd = 0.1, colour = "white")
+```
+]
+ 
+.right-panel-hexes-auto[
+![](rladies_files/figure-html/hexes_auto_3_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hexes-auto[
+
+```r
+ggplot(sf,aes(x = X, y = Y,river_id = NETWORK,xbins = 150)) +  
+    hexr::geom_rivers(fill = "grey80", color = "white",lwd = 0.1) +  
+    hexr::geom_river_fill(aes(var = DISTSEA/max(DISTSEA), seg = 1),  
+                           fill = "#D95F02",lwd = 0.1, colour = "white") +  
+*   hexr::geom_river_fill(aes(var = DISTSEA/max(DISTSEA),seg = 2),
+*                          fill = "#00FFFF",lwd = 0.1, colour = "white")
+```
+]
+ 
+.right-panel-hexes-auto[
+![](rladies_files/figure-html/hexes_auto_4_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.left-panel-hexes-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-hexes-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-hexes-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+
+
+
+count: false
+ 
+
+.left-panel-mfe-auto[
+
+```r
+*available &lt;- hexr::mfe_data(key = key)
+```
+]
+ 
+.right-panel-mfe-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-mfe-auto[
+
+```r
+available &lt;- hexr::mfe_data(key = key)  
+*str(available)
+```
+]
+ 
+.right-panel-mfe-auto[
+
+```
+## 'data.frame':	235 obs. of  3 variables:
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-mfe-auto[
+
+```r
+available &lt;- hexr::mfe_data(key = key)  
+str(available)  
+*mfe &lt;- hexr::get_mfe_data(id = "layer-53318", key = key)
+```
+]
+ 
+.right-panel-mfe-auto[
+
+```
+## 'data.frame':	235 obs. of  3 variables:
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
+```
+
+```
+## [1] "layer-53318"
+## attr(,"driver")
+## [1] "LIBKML"
+## attr(,"nlayers")
+## [1] 1
+## OGR data source with driver: LIBKML 
+## Source: "/home/charlotte/Git/webpage/static/slides/layer-5331813c99180f9c.kml", layer: "layer-53318"
+## with 77 features
+## It has 67 fields
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-mfe-auto[
+
+```r
+available &lt;- hexr::mfe_data(key = key)  
+str(available)  
+mfe &lt;- hexr::get_mfe_data(id = "layer-53318", key = key)  
+*class(mfe)
+```
+]
+ 
+.right-panel-mfe-auto[
+
+```
+## 'data.frame':	235 obs. of  3 variables:
+##  $ Title   : chr  "Ammoniacal nitrogen trends, 1989–2013" "Ammoniacal nitrogen, 2009–2013" "BOMEC_15_Class_region" "Benthic protection areas (2016 report)" ...
+##  $ Abstract: chr  "Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen is transferred from land to water"| __truncated__ "\"Small amounts of nitrogen are a natural component of healthy rivers. Nitrogen in rivers can vary due to diffe"| __truncated__ "The 15 class Benthic-Optimised Marine Environment Classification (BOMEC). The BOMEC divides the benthic environ"| __truncated__ "New Zealand’s four million km2 marine environment is diverse, with a range of coastal habitats and offshore sea"| __truncated__ ...
+##  $ Layerid : chr  "data.mfe.govt.nz:layer-53318" "data.mfe.govt.nz:layer-52721" "data.mfe.govt.nz:layer-52748" "data.mfe.govt.nz:layer-53494" ...
+```
+
+```
+## [1] "layer-53318"
+## attr(,"driver")
+## [1] "LIBKML"
+## attr(,"nlayers")
+## [1] 1
+## OGR data source with driver: LIBKML 
+## Source: "/home/charlotte/Git/webpage/static/slides/layer-5331813c973edd7c3.kml", layer: "layer-53318"
+## with 77 features
+## It has 67 fields
+```
+
+```
+## [1] "SpatialPointsDataFrame"
+## attr(,"package")
+## [1] "sp"
+```
+]
+
+&lt;style&gt;
+.left-panel-mfe-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-mfe-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-mfe-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+---
+
+
+
+## #dataviz  🤔
+
+.center[
+![](https://pbs.twimg.com/media/EKbXSzlVAAAN50C?format=png&amp;name=small)
+]
+
+---
+
+
+
+class: inverse
+
+## Unwitting helpers
+
+
+&lt;br&gt;
+&lt;br&gt;
+
+* @earowang: [intro to ⚔️aringan](https://slides.earo.me/rladiesakl20)
+
+* @annafergussonnz:  [everything 🆒 🐱](https://twitter.com/annafergussonnz)
+
+* ...
+
+--
+
+* basically you put something on <i class="fab  fa-twitter " style="color:#00ACEE;"></i> or <i class="fab  fa-github "></i> and I will steal it
+
+--
+
+* but feel free to steal from me too
+   - [&lt;i class="fas fa-images"&gt;&lt;/i&gt; slides](https://github.com/cmjt/webpage) 
+   - [&lt;i class="fas fa-book-open"&gt;&lt;/i&gt; teaching gifs](https://github.com/cmjt/statbiscuits)
+   - [&lt;i class="fas fa-signal"&gt;&lt;/i&gt; RShiny distribution explorer](https://cmjt.shinyapps.io/pdfplay/)	
+
+---
+
+class: inverse
+
+## Diolch am wrando
+
+	
+
+
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+
+```
+ [1] " ____________"                                                               
+ [2] "&lt; Questions? &gt;"                                                              
+ [3] " ------------"                                                               
+ [4] "      \\                    / \\  //\\"                                      
+ [5] "       \\    |\\___/|      /   \\//  \\\\"                                   
+ [6] "            /0  0  \\__  /    //  | \\ \\    "                               
+ [7] "           /     /  \\/_/    //   |  \\  \\  "                               
+ [8] "           @_^_@'/   \\/_   //    |   \\   \\ "                              
+ [9] "           //_^_/     \\/_ //     |    \\    \\"                             
+[10] "        ( //) |        \\///      |     \\     \\"                           
+[11] "      ( / /) _|_ /   )  //       |      \\     _\\"                          
+[12] "    ( // /) '/,_ _ _/  ( ; -.    |    _ _\\.-~        .-~~~^-."              
+[13] "  (( / / )) ,-{        _      `-.|.-~-.           .~         `."             
+[14] " (( // / ))  '/\\      /                 ~-. _ .-~      .-~^-.  \\"          
+[15] " (( /// ))      `.   {            }                   /      \\  \\"         
+[16] "  (( / ))     .----~-.\\        \\-'                 .~         \\  `. \\^-."
+[17] "             ///.----..&gt;        \\             _ -~             `.  ^-`  ^-_"
+[18] "               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~"  
+[19] "                                                                  /.-~"      
+```
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.center[<i class="fab  fa-twitter " style="color:#00ACEE;"></i> @cmjonestodd]
+&lt;br&gt;
+.center[<i class="fab  fa-github "></i> @cmjt]
+&lt;br&gt;
+.center[&lt;i class="fas fa-images"&gt;&lt;/i&gt;  [cmjt.github.io/slides/rladies](https://cmjt.github.io/slides/rladies)]
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

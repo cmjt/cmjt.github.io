@@ -1,0 +1,253 @@
+---
+title: "The role of random fields in modelling spatiotemporal point pattern data"
+subtitle: "AISC, October 8--10th 2021"
+author: "Charlotte M. Jones-Todd"
+institute: "![](img/uoa-logo.png ){width=3%} University of Auckland <br> ![](img/twitter.svg){width=3%}@cmjonestodd "
+date: ""
+header-includes:
+   - \usepackage{xcolor}
+   - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    css: ["src/simple.css", metropolis, rladies-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+     
+--- 
+# `r fontawesome::fa("check")` I'm not a robot
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(message = FALSE,cache = TRUE, echo = FALSE, warning = FALSE, fig.align='center')
+
+```
+
+
+
+```{r, echo=FALSE,  out.width="40%"}
+knitr::include_graphics("img/recaptcha.jpg")
+```
+
+---
+# A log-Gaussian Cox process
+
+<br>
+
+Intensity surface $\rightarrow$ $\{\Lambda(\boldsymbol{x}): x \in {\rm I\!R}^{2+1}\}$ .small[for 2D space and 1D time]
+ <br>
+ <br>
+ <br>
+
+Overall spatiotemporal intensity 
+$\mu = \int_{{\rm I\!R^{2+1}}} \Lambda(\boldsymbol{x})dx$ where $$\Lambda(\boldsymbol{x}) = \textrm{exp}(\text{X}\beta + Z(\boldsymbol{x}) + \eta(\boldsymbol{x})).$$
+<br>
+ <br>
+
+For Gaussian random field, $Z(\boldsymbol{x})$, with mean $\boldsymbol{\mu}$, and variance-covariance matrix $\boldsymbol{Q}^{-1}$ (with parameters $\rho$ and $\sigma^2_z$).
+
+---
+# Random fields
+
+```{r, echo=FALSE,  out.width="60%"}
+knitr::include_graphics("img/rfs.png")
+```
+
+
+---
+# Voronoi and Delaunay: the marriage
+
+ <br>
+
+```{r, echo=FALSE,  out.width="100%"}
+knitr::include_graphics("img/mesh_plots.png")
+```
+
+
+---
+# `r fontawesome::fa("box")` Can I gift wrap that for you? 
+
+ <br>
+ <br>
+
+<img width=400 height=400 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCgRXxn4qNpSgkI4qHW-1SCWpJH-nHJWwiYg&usqp=CAU"/><img width=400 height=400 src="https://havefunbiking.com/wp-content/uploads/2016/12/hfb007.jpg"/>
+
+
+---
+# `r fontawesome::fa("box")` Can I gift wrap that for you? 
+
+ <br>
+ <br>
+
+```{r, echo=FALSE,  out.width="100%"}
+knitr::include_graphics("img/horse_mesh_example.png")
+```
+
+.footnote[Work with Haiyi Shi] 
+
+---
+# `r fontawesome::fa("trophy")` And the winner is... 
+
+  $\text{radius-edge ratio} = \frac{R}{l_{\text{min}}} = \frac{1}{2\text{sin}\theta}$
+  
+  $\text{radius ratio} = \frac{r}{R}$
+ 
+<img width=400 height=400 src="img/triang_properties.png"/><img width=400 height=400 src="img/horse_mesh_attributes.png"/>
+
+
+.footnote[Work with Haiyi Shi] 
+---
+# So...
+
+ <br>
+ <br>
+ <br>
+ 
+ - We have the what `r fontawesome::fa("check")`
+ <br>
+ <br>
+--
+
+ - We have the how `r fontawesome::fa("check")`
+ <br>
+ <br>
+--
+
+ - But surely we should have started with the why `r fontawesome::fa("circle-question")`
+ 
+---
+# `r fontawesome::fa("circle-question")` 
+
+```{r, echo=FALSE,  out.width="90%"}
+knitr::include_graphics("img/ufo.gif")
+```
+
+---
+# #academicfail
+
+```{r}
+knitr::include_graphics("img/usa.png")
+```
+
+
+---
+# Marked point processes
+
+Let $\Lambda(\boldsymbol{x})$ be our spatiotemporal LGCP intensity surface and $m_1(\boldsymbol{x})$ & $m_2(\boldsymbol{x})$ be marks (i.e., characteristics of the point).
+
+<br>
+
+A joint/mark model would then be given by
+
+<br>
+
+$$\begin{array}{l}
+    \text{log}(\Lambda(\boldsymbol{x})) = \text{X}\beta + Z(\boldsymbol{x}) \\ 
+     g(m_1(\boldsymbol{x})) = \tilde{\text{X}\beta} + \gamma_1\: Z(\boldsymbol{x})  + G(\boldsymbol{x})\\
+      h(m_2(\boldsymbol{x})) = \text{X}\beta^\prime + \gamma_2\:Z(\boldsymbol{x}) + K(\boldsymbol{x}).\\
+    \end{array}$$
+
+<br>
+
+Where $Z(\boldsymbol{x})$, $G(\boldsymbol{x})$ & $K(\boldsymbol{x})$ are each spatiotemporal random fields and $g()$ & $h()$ are the link functions for each mark.
+
+---
+# Marked point processes
+<br>
+<br>
+
+.pull-left[
+<img width=400 height=400 src="img/marked_slices.png"/>
+
+]
+
+
+.pull-right[
+<br>
+<br>
+<br>
+$$ 
+\left[
+\begin{matrix}
+1 & \gamma_1 & \gamma_2\\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{matrix}
+\right]$$
+]
+
+---
+# Self-exciting point processes
+
+<br>
+<br>
+<br>
+Points are conditional to the history of the process $H_t$
+
+<br>
+
+$$\lambda(\textbf{s},t|H_t) = \mu(\textbf{s}) + \Sigma_{i:t_i<t}g(s - s_i,t - t_i).$$
+
+
+<br>
+<br>
+
+$$\textrm{log}(l(\boldsymbol{\theta})) = \int_{t, \textbf{s}} \mu(\textbf{s}) + \sum_{i = 1}^n \textrm{log}(\lambda(s_i, t_i)) - \int_{t, \textbf{s}} \sum_{i: t_i < t} g(s - s_i, t - t_i)$$
+---
+# Self-exciting point processes
+
+.center[![](https://cmjt.github.io/project/selfpp/featured_hua3418a03230c5d04b557dd56e4a5f8f4_30096_720x0_resize_lanczos_2.png)]
+
+
+---
+
+# References
+
+<br>
+<br>
+<br>
+
+ - Kristensen, K., Nielsen, A., Berg, C. W., Skaug, H., and Bell, B. M. (2016). TMB: Automatic Differentiation and Laplace Approximation. Journal of Statistical Software, 70(5), 1–21.
+ 
+ - Lindgren, F., Rue, H. and Lindström, J. (2011). An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 73: 423--498.
+ 
+ - Jones-Todd , C M , Swallow , B , Illian , J B and Toms , M. (2018). A spatiotemporal multispecies model of a semicontinuous response. Journal of the Royal Statistical Society: Series C (Applied Statistics), 67: 705--722.
+
+
+---
+
+# Diolch am wrando 
+
+```{r, eval = FALSE, echo = FALSE}
+## linux <sudo apt-get install cowsay>
+```
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+```{r dragon, echo = FALSE,eval = TRUE, comment = ""}
+system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
+```
+]
+]
+
+
+.pull-right[
+<br>
+.center[`r fontawesome::fa("circle-question")` UFO sightings]
+<br>
+.center[`r fontawesome::fa("twitter")` @cmjonestodd]
+<br>
+.center[`r fontawesome::fa("github")` @cmjt]
+<br>
+.center[`r fontawesome::fa("image")` [cmjt.github.io/slides/random](https://cmjt.github.io/slides/random)]
+]
+
+
+

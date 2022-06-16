@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Charlotte M. Jones-Todd</title>
+    <link>https://cmjt.github.io/project/</link>
+    <description>Recent content in Projects on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    
+	    <atom:link href="https://cmjt.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>(Statistical) Adventure/Puzzle game</title>
+      <link>https://cmjt.github.io/project/puzzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/puzzle/</guid>
+      <description>&lt;p&gt;This project will give you free rein to develop a point and click adventure game with an
+educational focus. The game developed will allow players to explore the theories that
+underpin statistical methodology, It will allow players to adventure their way through
+probability distributions and estimation techniques taught in statistical theory courses.
+The student will be expected to be heavily involved in the creative design process. This
+project will require the student to have some understanding of the statistical theory involved.&lt;/p&gt;
+&lt;p&gt;Familiarity with the game engine Unity (or equivalent) would be an advantage; good grades
+in CS335 and/or CS373 would also be highly desirable.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Estimating parameters of a void process using a Bayesian approach</title>
+      <link>https://cmjt.github.io/project/void/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/void/</guid>
+      <description>&lt;p&gt;This project will involve using a Bayesian approach to estimate parameters of a void point process. No prior knowledge of point processes is required; however, a student should be comfortable with the concepts covered in STATS730 and STATS731.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Flattening the curve (the steep R learning curve)</title>
+      <link>https://cmjt.github.io/project/curve/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/curve/</guid>
+      <description>&lt;p&gt;Remember the first time you learnt R: error messages aplenty and missing brackets in their droves. Now you’ve got a handle on R, it’s your turn to mould the
+learning journey for future newbies.&lt;/p&gt;
+&lt;p&gt;This project will develop an R-based interface that
+exposes new users to common R errors and
+encourages them to problem solve to find the solution.
+This will be specifically targeted to biostatistics
+students who often have not been exposed to R or any
+other programming language. Upon completion the
+interface will eventually be integrated into BIOSCI220.&lt;/p&gt;
+&lt;p&gt;Strong R programming skills would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visualisation of river networks</title>
+      <link>https://cmjt.github.io/project/rivers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/rivers/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://niwa.co.nz/freshwater-and-estuaries/management-tools/river-environment-classification-0&#34;&gt;River Environment Classification (REC)&lt;/a&gt; is a database of catchment spatial attributes, summarised for every segment in New Zealand&amp;rsquo;s network of rivers. Metrics describing hydrology, river bed sediment, fish distributions, invertebrate indices, water quality etc. are available for each river segment.  This project will research methods to best visualise attributes of the connected segments of NZ rivers.&lt;/p&gt;
+&lt;p&gt;Good &lt;code&gt;R&lt;/code&gt; programming skills are required as well as a creative side!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What happens if we ignore self-excitement in point process models?</title>
+      <link>https://cmjt.github.io/project/selfpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/selfpp/</guid>
+      <description>&lt;p&gt;Events cluster in time and space: tweets go viral, flurries of nearby earthquakes occur in quick succession. Temporal and spatial proximity are major factors in the chain reaction of events. However, how and why these spatiotemporal clusters form is much more complex: the mechanisms that generate clusters of events are often self-exciting.&lt;/p&gt;
+&lt;p&gt;This project will look at what happens when self-excitement is ignored. No familiarity with point processes is needed; however, strong R programming skills are required and familiarity with C++ would be advantageous. Good grades in STATS310 and STATS330 would also be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

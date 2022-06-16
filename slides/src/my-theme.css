@@ -1,0 +1,56 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css");
+.title-slide {
+  background-image: url('../img/tag.jpg');
+  background-size: cover;
+}
+.small {
+    font-size: 50%;
+}
+.large {
+    font-size: 150%;
+}
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+}
+.background{
+    background-image: url('../img/tag.jpg');
+    background-size: cover;
+}
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  font-size: 70%;
+}
+.red{
+    color: red;
+}
+.bold{
+    font-weight: bold;
+}
+.card {
+  display: inline-block;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 #00000033;
+  transition: all 0.2s ease-out;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 5px;
+}
+
+.card img {
+  display: block;
+  padding-bottom: 5px;
+  height: 130px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.remark-slide-content {
+    font-size: 26px;
+    padding: 1em 4em 1em 4em;
+}

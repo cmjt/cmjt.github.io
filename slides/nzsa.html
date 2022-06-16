@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Marine mammal exposure to Navy sonar: a continuous-time discrete-space model</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Charlotte M. Jones-Todd   @cmjonestodd" />
+    <link href="nzsa_files/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="nzsa_files/panelset/panelset.css" rel="stylesheet" />
+    <script src="nzsa_files/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="src/my-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Marine mammal exposure to Navy sonar: a continuous-time discrete-space model
+## NZSA UnConference
+### Charlotte M. Jones-Todd <br> <img src="img/twitter.svg" /><span class="citation">@cmjonestodd</span>
+### University of Auckland .typed[]
+### <img src="img/camera.svg" style="width:1.0%" /> .small[Charlotte Dunn]
+
+---
+
+
+
+
+
+
+
+background-image: url("img/tag.jpg")
+.footnote[<i class="fas  fa-camera "></i> Charlotte Dunn]
+.bold[
+- Blainville’s beaked whales tagged between 2009---2015 (Atlantic Undersea Test and Evaluation Center (AUTEC), Bahamas)
+
+- Region regularly used by the US Navy to carry out military exercises with active sonar
+
+- Tags attached on or near the dorsal fin 
+
+- Location estimates of tagged whales were provided by the Argos system
+
+- Sonar information from records in the US Navy’s SPORTS database
+]
+---
+
+
+### ✋ if you use a 🏃 App
+
+--
+
+.center[
+&lt;img src="img/run.png" width="829" height="500" /&gt;
+]
+
+
+---
+
+.center[
+&lt;img src="img/whale.gif" height="600" /&gt;
+]
+
+---
+
+### Continuous-time correlated random walk model (CTCRW) 
+
+For each coordinate `\(c = 1,2\)` of the observed location of an animal at time `\(t\)` ( `\(t = 1,2,...,n\)` ):
+
+
+--
+
+ - instantaneous velocity of the animal `\(v_{ct}\)` is described by a Ornstein-Uhlenbeck process;
+ 
+--
+
+ - integrating over the velocity process gives the location process `\(\mu_{ct}\)`;
+
+--
+
+ - measurement equation is given by `\(y_{ct} = \mu_{ct} + \epsilon_{ct}\)`, where `\(y_{ct}\)` is the `\(c\)`th coordinate of the observed location of an animal at time `\(t\)` with measurement error term `\(\epsilon_{ct}\)`. The joint distribution of `\(\epsilon_{1t}\)` and `\(\epsilon_{2t}\)` is a bivariate `\(t\)`-distribution. 
+
+
+
+---
+
+### Continuous-time correlated random walk model (CTCRW) 
+
+.center[
+&lt;img src="img/track_example.png" width="640" height="400" /&gt;
+]
+
+.footnote[Fitted using the **R** package **argosTrack** Albertsen, C. M. (2017). **argosTrack**:  Fit  Movement Models to Argos Data for Marine Animals.  R package version 1.1.0.] 
+
+---
+
+### Discrete-space continuous-time
+
+A continuous-time Markov model describes how an individual transitions between states in continuous time.
+.center[
+&lt;img src="nzsa_files/figure-html/markov-1.png" width="600" /&gt;
+]
+
+
+---
+
+### Discrete-space continuous-time
+
+
+&lt;br&gt;
+
+Let `\(q_{rs}(t,z(t))\)` represent the immediate risk of moving from one state `\(r\)` to another state `\(s\)`:
+
+&lt;br&gt;
+`$$q_{rs}(t,z(t)) = \text{lim}_{\delta t \rightarrow 0} \mathbb{P}(S(t + \delta t) = s|S(t) = r)/\delta t.$$`
+&lt;br&gt;
+
+These transition rates form a square matrix `\(\bf{Q}\)` with elements `\(q_{rs}\)`.
+
+--
+
+&lt;br&gt;
+
+Here `\(q_{rr}=-\Sigma_{s{\neq}r}q_{rs}\)` (i.e., the rows of **Q** sum to zero and `\(q_{rs}\geq0\)` for `\(r{\neq}s\)`).
+
+---
+
+### Discrete-space continuous-time 
+
+&lt;br&gt;
+
+We have `\(r, s = \{1,2\}\)` where state `\(1=\)` off-range (i.e., outside the area used by the Navy for military operations) and state `\(2=\)` on-range:
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\begin{array}{ccc}
+  \bf{Q} =
+  \left [\begin{array}{cc}
+    q_{1 1} &amp; q_{1 2} \\
+      q_{2 1} &amp; q_{2 2}
+    \end{array}\right ] &amp; \text{where} \: q_{r r} = -q_{r s}, &amp; \text{for}\: r \neq s.
+  \end{array}$$`
+
+---
+  
+### Including exposure information
+
+
+We let 
+
+&lt;br&gt;
+
+`$$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\beta_{0,rs} + u_{k, rs}) + \beta_{1,rs}\text{exp}(- \beta_{2,rs} \mathbf{z}_k(t)),$$`
+
+where
+
+
+`$$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 &amp; \text{during exposure} \\ \geq 0 &amp; \text{otherwise}\end{array} \right.$$`
+
+
+is the number of days since an individual was exposed to a sonar event and `\(\beta_{2,rs} \geq 0\)` `\(\forall\: r \neq s\)`.
+
+---
+
+### Including exposure information
+
+
+We let 
+
+&lt;br&gt;
+
+`$$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\color{red}{\beta_{0,rs}} + u_{k, rs}) + \beta_{1,rs}\text{exp}(- \beta_{2,rs} \mathbf{z}_k(t)),$$`
+
+
+
+where
+
+
+`$$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 &amp; \text{during exposure} \\ \geq 0 &amp; \text{otherwise}\end{array} \right.$$`
+
+is the number of days since an individual was exposed to a sonar event and `\(\beta_{2,rs} \geq 0\)` `\(\forall\: r \neq s\)`.
+
+&lt;br&gt;
+
+.red[some baseline transition rate]
+
+---
+
+### Including exposure information
+
+
+We let 
+
+&lt;br&gt;
+
+`$$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\beta_{0,rs} + u_{k, rs}) + \color{red}{\beta_{1,rs}}\text{exp}(- \beta_{2,rs} \mathbf{z}_k(t)),$$`
+
+
+where
+
+
+`$$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 &amp; \text{during exposure} \\ \geq 0 &amp; \text{otherwise}\end{array} \right.$$`
+
+is the number of days since an individual was exposed to a sonar event and `\(\beta_{2,rs} \geq 0\)` `\(\forall\: r \neq s\)`.
+
+&lt;br&gt;
+
+.red[change in transition rate during exposure]
+
+---
+
+### Including exposure information
+
+
+We let 
+
+&lt;br&gt;
+
+`$$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\beta_{0,rs} + u_{k, rs}) + \beta_{1,rs}\text{exp}(\color{red}{- \beta_{2,rs}} \mathbf{z}_k(t)),$$`
+
+
+where
+
+
+`$$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 &amp; \text{during exposure} \\ \geq 0 &amp; \text{otherwise}\end{array} \right.$$`
+
+is the number of days since an individual was exposed to a sonar event and `\(\beta_{2,rs} \geq 0\)` `\(\forall\: r \neq s\)`.
+
+&lt;br&gt;
+
+.red[exponential decay of transition rates towards some baseline]
+
+---
+
+### Including exposure information
+
+
+We let 
+
+&lt;br&gt;
+
+`$$\text{log}(q_{k, rs}(\mathbf{z}_k(t))) = (\beta_{0,rs} + \color{red}{u_{k, rs}}) + \beta_{1,rs}\text{exp}(- \beta_{2,rs} \mathbf{z}_k(t)),$$`
+
+
+where
+
+`$$\mathbf{z}_k(t)  \left\{ \begin{array}{rl} = 0 &amp; \text{during exposure} \\ \geq 0 &amp; \text{otherwise}\end{array} \right.$$`
+
+
+is the number of days since an individual was exposed to a sonar event and `\(\beta_{2,rs} \geq 0\)` `\(\forall\: r \neq s\)`.
+
+&lt;br&gt;
+
+.red[individual level random effect]
+
+
+
+---
+
+### Likelihood
+
+
+The transition probability matrix `\(\textbf{P}(t) = \text{Exp}(t\textbf{Q}).\)`
+
+&lt;br&gt;
+
+The likelihood, `\(L(\bf{Q})\)`, is calculated as the product over all individuals and all transitions, of the probabilities that individual `\(k\)` is in state `\(S(t_{j + 1})\)` at time `\(t_{j+1}\)` given they were in state `\(S(t_j)\)` at time `\(t_j\)`, evaluated at time `\(t_{j + 1} - t_j\)` (for `\(j = 1,...,n_k\)`):
+
+&lt;br&gt;
+
+`$$L(\boldsymbol{Q}) = \prod_{k, j} L_{k,j} = \prod_{k, j} p_{S(t_j)S(t_{j + 1})}(t_{j + 1} - t_j).$$`
+
+.footnote[Parameter estimates are obtained via minimisation of the negative log-likelihood, log(L(**Q**)), using Template Model Builder (TMB).]
+
+---
+
+
+.center[
+&lt;img src="img/autec_results.png" width="600" height="600" /&gt;
+]
+
+---
+
+
+
+
+.panelset[
+.panel[.panel-name[93232]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale1.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[11164]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale2.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[111670]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale3.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[129715]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale4.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[129719]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale5.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[129720]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale6.png" width="80%" /&gt;
+]
+]
+.panel[.panel-name[129721]
+.center[
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/whale7.png" width="80%" /&gt;
+]
+]
+]
+
+
+---
+
+### Diolch am wrando
+
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+
+```
+## -------------- 
+## Any Questions?
+## --------------
+##     \
+##       \
+##         \
+## 	
+##          __ \ / __
+##        /  \\ | /  \\
+##            \\|/
+##        _.---v---.,_
+##       /            \\  /\\__/\\
+##      /              \\ \\_  _/
+##      |__ @           |_/ /
+##       _/                / 
+##       \\       \\__,     /  
+##    ~~~~\\~~~~~~~~~~~~~~`~~~[EOC]
+```
+]
+]
+.pull-right[
+
+.center[.large[<i class="fab  fa-twitter " style="color:#00ACEE;"></i> @cmjonestodd]]
+&lt;hr&gt;
+*Continuous-time discrete-space models of marine mammal exposure
+to Navy sonar.* (under review) Jones-Todd, C. M., Pirotta, E.,
+Baird, R. W., Durban, J. W., Falcone, E. A., Joyce, T. W., Schorr,
+G. S., Watwood, S., &amp; Thomas, L.
+&lt;hr&gt;
+.center[<i class="fab  fa-github "></i> @cmjt]
+&lt;hr&gt;
+.center[&lt;i class="fas fa-images"&gt;&lt;/i&gt; [cmjt.github.io/slides/nzsa](https://cmjt.github.io/slides/nzsa)]
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+const options = {
+  strings: [
+      '<pre>work with: Enrico Pirotta</pre>', '<pre>work with: John Durban</pre>', '<pre>work with: Diana Claridge</pre>','<pre>work with: Robin Baird</pre>', '<pre>work with: Erin Falcone</pre>', '<pre>work with: Greg Schorr</pre>','<pre>work with: Stephanie Watwood</pre>', '<pre>work with: Len Thomas</pre>'
+  ],
+  typeSpeed: 60,
+  backSpeed: 20,
+  cursorChar: '',
+  loop: true
+};
+
+const typed = new Typed('.typed', options);
+const typed2 = new Typed('.typed-eg', options);
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
