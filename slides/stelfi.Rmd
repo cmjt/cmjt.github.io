@@ -41,7 +41,7 @@ output:
 <br>
 <br>
 
-`r fontawesome::fa("github")` [github.com/cmjt/stelfi](github.com/cmjt/stelfi)
+`r fontawesome::fa("github")` [github.com/cmjt/stelfi](https://github.com/cmjt/stelfi)
 
 `devtools::install_github("cmjt/stelfi")`
 
@@ -328,7 +328,7 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 <br>
 .center[`r fontawesome::fa("twitter")` @cmjonestodd]
 <br>
-.center[`r fontawesome::fa("github")` [github.com/cmjt/stelfi](github.com/cmjt/stelfi)]
+.center[`r fontawesome::fa("github")` [github.com/cmjt/stelfi](https://github.com/cmjt/stelfi)]
 <br>
 .center[`r fontawesome::fa("image")` [cmjt.github.io/slides/stelfi](https://cmjt.github.io/slides/stelfi)]
 ]
