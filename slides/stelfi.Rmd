@@ -96,9 +96,11 @@ fit_inla <- lgcp(cmp, locs, samplers = domain,
                  options = list(control.inla = list(int.strategy = "eb")))
 ```
 .pull-left[
-<br>
-<br>
-<br>
+
+```{r, eval = TRUE, echo = FALSE, fig.align='center', warning=FALSE, message=FALSE, out.width="80%"}
+plot(domain)
+points(locs, pch = 20)
+```
 
 ```{r, eval = TRUE, echo = FALSE, results='asis'}
 df <- data.frame(inlabru = as.numeric(fit_inla$summary.fixed[,1:2]),
@@ -155,6 +157,22 @@ $$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilo
 
 # Fitting a marked LGCP
 
+```{r, echo = FALSE, fig.align='center', warning=FALSE, message=FALSE, out.width="60%", out.height="50%"}
+data(marked, package = "stelfi")
+loc.d <- 3 * cbind(c(0, 1, 1, 0, 0), c(0, 0, 1, 1, 0))
+domain <- sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(loc.d)),'0')))
+require(ggplot2)
+ggplot(marked, aes(x = x, y = y, col = m1)) +
+  geom_point(size = 5) + scale_color_continuous(type = "viridis") +
+  theme_void() + geom_path(data = as.data.frame(loc.d), aes(x = V1, y = V2), inherit.aes = FALSE) +
+  theme(legend.position = "none")
+
+```
+
+---
+
+# Fitting a marked LGCP
+
 $$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$
 $$\Lambda_{m_i}(s) = f^{-1}(\beta_{m_i} + G_{m_i}(s) + \alpha\; G_{pp}(s) + \epsilon_{m_i})$$
 
@@ -204,6 +222,17 @@ $$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i<t}m(\tau_i)\text{exp}(-\beta 
  - `parameters`, starting values of parameters
  - `marks`, (optional) vector of marks
  
+---
+
+# `r fontawesome::fa("circle-question")` Which other ISEC talk `r fontawesome::fa("circle-question")`
+
+<br>
+<br>
+
+```{r, echo = FALSE, eval = TRUE, out.width="100%", fig.align='center'}
+knitr::include_graphics("./img/kai.png")
+```
+
 ---
 
 # `r fontawesome::fa("circle-question")` Which other ISEC talk `r fontawesome::fa("circle-question")`
@@ -272,31 +301,7 @@ background-image: url("https://i.pinimg.com/736x/06/2e/73/062e7390f17068792d3547
 
 ---
 
-# Mesh quality `meshmetrics()`
 
-```{r, echo = FALSE, eval = TRUE, out.width="70%", fig.align='center'}
-knitr::include_graphics("https://raw.githubusercontent.com/cmjt/meshmetrics/master/README_files/figure-markdown_strict/triang_properties-1.png")
-```
-
-
-
- - radius-edge ratio $= \frac{R}{l_\text{min}}$, where $R$ is the circumradius and $l_\text{min}$ is the length of the shortest edge
- - radius ratio $= \frac{r}{R}$ where $r$ is the inradius.
-
----
-
-# Mesh quality `meshmetrics()`
-
-```{r, eval = TRUE, echo = FALSE, message = FALSE, warning = FALSE, fig.align='center', out.width="60%"}
-require(INLA)
-data(horse_mesh, package = "stelfi")
-p1 <- plot_mesh(horse_mesh)
-p2 <- plot_mesh(horse_mesh, FALSE)
-require(patchwork)
-p1 / p2
-```
-
----
 
 # Selfexciting spatial models
 
@@ -323,15 +328,17 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 
 
 .pull-right[
-<br>
-.center[`r fontawesome::fa("circle-question")`: @TiagoMarques `r emo::ji("whale")` clicks]
-<br>
+.center[`r fontawesome::fa("circle-question")` @TiagoMarques, Session 39, 1st July]
 .center[`r fontawesome::fa("twitter")` @cmjonestodd]
-<br>
-.center[`r fontawesome::fa("github")` [stelfi](https://github.com/cmjt/stelfi)]
-<br>
-.center[`r fontawesome::fa("image")` [https://cmjt.github.io/slides/stelfi]
-]
+.center[`r fontawesome::fa("github")` [`stelfi`](https://github.com/cmjt/stelfi)]
+.center[`r fontawesome::fa("image")` [cmjt.github.io/slides/stelfi](https://cmjt.github.io/slides/stelfi)]
 
+```{r, echo = FALSE, eval = TRUE, out.width="50%", fig.align='center'}
+knitr::include_graphics("https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-RGB-300.jpg")
+```
+```{r, echo = FALSE, eval = TRUE, out.width="20%", fig.align='center'}
+knitr::include_graphics("https://community.apan.org/resized-image/__size/320x240/__key/communityserver-wikis-components-files/00-00-00-17-10/AOARD-Logo_5F00_transp.png")
+```
+]
 
 
