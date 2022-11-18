@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # Modelling spatiotemporal point patterns: a new era of point process models
 ]
 .subtitle[
-## Charlotte M. Jones-Todd    <img src="img/twitter.svg" style="width:3.0%" /> <span style="color:#FFBF00"><span class="citation">@cmjonestodd</span></span>
+## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
 ]
 .author[
 ### NZSA UnConference, November 22nd – 23rd 2022
@@ -131,12 +131,12 @@ class: center, middle, inverse, title-slide
 &lt;br&gt;
 
 + **Stroma cells** <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-  + **Smaller clusters** in patients that died
-  + **Fewer voids** in patients that died
+  + Smaller clusters in patients that died
+  + Fewer voids in patients that died
   
 
 + **Tumour cells** <svg aria-hidden="true" role="img" viewBox="0 0 320 512" style="height:1em;width:0.62em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
-  + **Fewer clusters** in patients that died
+  + Fewer clusters in patients that died
 
 
 ---
@@ -164,7 +164,7 @@ Intensity surface `\(\rightarrow\)` `\(\{\Lambda(x): x \in {\rm I\!R}^{k+1}\}\)`
  &lt;br&gt;
 
 Overall spatiotemporal intensity 
-`$$\mu = \int_{{\rm I\!R^{k+1}}} \Lambda(x)dx$$` 
+`$$\lambda(x) = \int_{{\rm I\!R^{k+1}}} \Lambda(x)dx$$` 
 where `$$\Lambda(x) = \textrm{exp}(\bf{X}\beta + Z(x))$$` 
 
 for Gaussian random field, `\(Z(x)\)`, with mean `\(\boldsymbol{\mu}\)`, variance-covariance matrix `\(\boldsymbol{Q}^{-1}\)`
@@ -207,9 +207,7 @@ class: inverse, center, middle
 &lt;br&gt;
 &lt;br&gt;
   
- + The `\(\alpha_{m_j}\)` are coefficient(s) linking the point process and the `\(\text{n}_\text{mark}\)` mark(s), `\(m_j\)` `\((j = 1, ..., \text{n}_\text{mark})\)`
-
- + The form of `\(M_j(s)\)` and `\(f^{-1}()\)` depends on the assumed distribution of the marks
+The `\(\alpha_{m_j}\)` are coefficient(s) linking the point process and the `\(\text{n}_\text{mark}\)` mark(s), `\(m_j\)` `\((j = 1, ..., \text{n}_\text{mark})\)`, and the form of `\(M_j(s)\)` and `\(f^{-1}()\)` depends on the assumed distribution of the marks.
 
 
 ---
@@ -309,11 +307,11 @@ Each `\(\mathbf{x_j}(\mathbf{s}_i,t),\: (j=1,2,3)\)` is a spatio-temporal random
 &lt;br&gt;
 
 + **Collared doves** <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:green;overflow:visible;position:relative;"><path d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z"/></svg>
-  + Areas of **high** occurrence related to areas of **high** house sparrow occurrence and abundance
+  + areas of high occurrence related to areas of high house sparrow occurrence and abundance
   
 
 + **Sparrowhawks** <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M328.4 393.5C318.7 402.6 303.5 402.1 294.5 392.4C287.1 384.5 274.4 376 256 376C237.6 376 224.9 384.5 217.5 392.4C208.5 402.1 193.3 402.6 183.6 393.5C173.9 384.5 173.4 369.3 182.5 359.6C196.7 344.3 221.4 328 256 328C290.6 328 315.3 344.3 329.5 359.6C338.6 369.3 338.1 384.5 328.4 393.5zM144.4 240C144.4 231.2 147.9 223.2 153.7 217.4L122.9 207.2C114.6 204.4 110 195.3 112.8 186.9C115.6 178.6 124.7 174 133.1 176.8L229.1 208.8C237.4 211.6 241.1 220.7 239.2 229.1C236.4 237.4 227.3 241.1 218.9 239.2L208.1 235.6C208.3 237 208.4 238.5 208.4 240C208.4 257.7 194 272 176.4 272C158.7 272 144.4 257.7 144.4 240V240zM368.4 240C368.4 257.7 354 272 336.4 272C318.7 272 304.4 257.7 304.4 240C304.4 238.4 304.5 236.8 304.7 235.3L293.1 239.2C284.7 241.1 275.6 237.4 272.8 229.1C270 220.7 274.6 211.6 282.9 208.8L378.9 176.8C387.3 174 396.4 178.6 399.2 186.9C401.1 195.3 397.4 204.4 389.1 207.2L358.9 217.2C364.7 223 368.4 231.1 368.4 240H368.4zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464z"/></svg>
-  + Areas of **high** occurrence related to areas of **low** house sparrow occurrence and abundance
+  + areas of high occurrence related to areas of low house sparrow occurrence and abundance
 
 
 ---
@@ -388,11 +386,11 @@ class: inverse, center, middle
 
  + `\(\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263\)` baseline sightings
 
- + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`
+ + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`. 
 
- + Expected number of *triggered sightings* per sighting `\(\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3\)`
+ + Expected number of descendants per sighting `\(\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3\)`
  
- + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days
+ + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days.
 
 
 ---

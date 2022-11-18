@@ -1,7 +1,7 @@
 ---
 title: "Modelling spatiotemporal point patterns: a new era of point process models"
 author: "NZSA UnConference, November 22nd -- 23rd 2022"
-subtitle: "Charlotte M. Jones-Todd &nbsp;&nbsp; ![](img/twitter.svg){width=3%} <span style='color:#FFBF00'>@cmjonestodd</span>"
+subtitle: "Charlotte M. Jones-Todd &nbsp;&nbsp;[![](img/twitter.svg){width=3%}@cmjonestodd](https://twitter.com/cmjonestodd)"
 institute: "![](img/uoa-logo.png ){width=3%} University of Auckland"
 date: ""
 header-includes:
@@ -122,12 +122,12 @@ knitr::include_graphics("img/cancer_nn.png")
 <br>
 
 + **Stroma cells** `r fontawesome::fa("check", fill = "green")`
-  + **Smaller clusters** in patients that died
-  + **Fewer voids** in patients that died
+  + Smaller clusters in patients that died
+  + Fewer voids in patients that died
   
 
 + **Tumour cells** `r fontawesome::fa("xmark", fill = "red")`
-  + **Fewer clusters** in patients that died
+  + Fewer clusters in patients that died
 
 
 ---
@@ -157,7 +157,7 @@ Intensity surface $\rightarrow$ $\{\Lambda(x): x \in {\rm I\!R}^{k+1}\}$ .small[
  <br>
 
 Overall spatiotemporal intensity 
-$$\mu = \int_{{\rm I\!R^{k+1}}} \Lambda(x)dx$$ 
+$$\lambda(x) = \int_{{\rm I\!R^{k+1}}} \Lambda(x)dx$$ 
 where $$\Lambda(x) = \textrm{exp}(\bf{X}\beta + Z(x))$$ 
 
 for Gaussian random field, $Z(x)$, with mean $\boldsymbol{\mu}$, variance-covariance matrix $\boldsymbol{Q}^{-1}$
@@ -202,9 +202,7 @@ $$\begin{aligned}
 <br>
 <br>
   
- + The $\alpha_{m_j}$ are coefficient(s) linking the point process and the $\text{n}_\text{mark}$ mark(s), $m_j$ $(j = 1, ..., \text{n}_\text{mark})$
-
- + The form of $M_j(s)$ and $f^{-1}()$ depends on the assumed distribution of the marks
+The $\alpha_{m_j}$ are coefficient(s) linking the point process and the $\text{n}_\text{mark}$ mark(s), $m_j$ $(j = 1, ..., \text{n}_\text{mark})$, and the form of $M_j(s)$ and $f^{-1}()$ depends on the assumed distribution of the marks.
 
 
 ---
@@ -268,11 +266,11 @@ Each $\mathbf{x_j}(\mathbf{s}_i,t),\: (j=1,2,3)$ is a spatio-temporal random eff
 <br>
 
 + **Collared doves** `r fontawesome::fa("heart", fill = "green")`
-  + Areas of **high** occurrence related to areas of **high** house sparrow occurrence and abundance
+  + areas of high occurrence related to areas of high house sparrow occurrence and abundance
   
 
 + **Sparrowhawks** `r fontawesome::fa("face-angry", fill = "red")`
-  + Areas of **high** occurrence related to areas of **low** house sparrow occurrence and abundance
+  + areas of high occurrence related to areas of low house sparrow occurrence and abundance
 
 
 ---
@@ -330,11 +328,11 @@ $$\lambda(t) = \mu + \alpha \Sigma_{i:\tau_i<t}\text{exp}(-\beta * (t-\tau_i)) +
 
  + $\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263$ baseline sightings
 
- + Expected number of sightings triggered by any one sighting $\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}$
+ + Expected number of sightings triggered by any one sighting $\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}$. 
 
- + Expected number of *triggered sightings* per sighting $\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3$
+ + Expected number of descendants per sighting $\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3$
  
- + Rate of decay for the self-excitement $\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11$ days
+ + Rate of decay for the self-excitement $\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11$ days.
 
 
 ---
