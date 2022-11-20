@@ -158,7 +158,7 @@ Intensity surface $\rightarrow$ $\{\Lambda(x): x \in {\rm I\!R}^{k+1}\}$ .small[
 
 Overall spatiotemporal intensity 
 $$\lambda(x) = \int_{{\rm I\!R^{k+1}}} \Lambda(x)dx$$ 
-where $$\Lambda(x) = \textrm{exp}(\bf{X}\beta + Z(x))$$ 
+where $$\Lambda(x) = \textrm{exp}(\bf{X}\beta + Z(x) + \epsilon)$$ 
 
 for Gaussian random field, $Z(x)$, with mean $\boldsymbol{\mu}$, variance-covariance matrix $\boldsymbol{Q}^{-1}$
 
@@ -285,18 +285,29 @@ class: inverse, center, middle
 
 .footnote[.tiny[First to yell out the correct answer gets my permission to skip the queue @ morning tea]]
 
-.center[
-<img src="img/sasquatch.png" width ="60%" />
-]
-
 <video width="500" height="20"  controls>
   <source src="img/whoop.mp3" type="video/mp4">
 </video>
 
+--
+
+.center[
+<img src="img/sasquatch.png" width ="60%" />
+]
 
 
+---
+# `r fontawesome::fa("circle-question")` Sasquatch/Bigfoot
+
+.pull-left[
+<br>
+<br>
+![](https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Patterson%E2%80%93Gimlin_film_frame_352.jpg/230px-Patterson%E2%80%93Gimlin_film_frame_352.jpg)]
+
+.pull-right[<img src = https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pikes_peak_highway_big_foot.jpg/450px-Pikes_peak_highway_big_foot.jpg width=60%/>]
 
 
+[![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
 
 ---
 
@@ -378,9 +389,7 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 ]
 
 .pull-right[
-.center[`r fontawesome::fa("circle-question")` 
 
-[<img src="http://www.bfro.net/images/templates/LogoSpin.gif?a;a;a;" width ="20%" />](http://www.bfro.net/)]
 <br>
 .center[[`r anicon::faa('twitter', animate='float', rtext='@cmjonestodd')`](https://twitter.com/cmjonestodd)]
 <br>
