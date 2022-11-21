@@ -389,8 +389,12 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 ]
 
 .pull-right[
-
-<br>
+.center[
+<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" />
+]
+.center[
+<img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" />
+]
 .center[[`r anicon::faa('twitter', animate='float', rtext='@cmjonestodd')`](https://twitter.com/cmjonestodd)]
 <br>
 .center[[`r anicon::faa("github", animate="float")` @cmjt](https://github.com/cmjt)]
