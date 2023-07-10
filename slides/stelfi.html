@@ -3,54 +3,95 @@
   <head>
     <title>The R package stelfi</title>
     <meta charset="utf-8" />
-    <meta name="author" content="ISEC 2022  " />
-    <script src="stelfi_files/header-attrs-2.11/header-attrs.js"></script>
-    <link href="stelfi_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
-    <link href="stelfi_files/remark-css-0.0.1/rladies-fonts.css" rel="stylesheet" />
-    <script src="stelfi_files/kePrint-0.0.1/kePrint.js"></script>
-    <link href="stelfi_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <meta name="author" content="Spatial Statistics 2023  " />
+    <script src="stelfi_files/header-attrs/header-attrs.js"></script>
+    <link href="stelfi_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="stelfi_files/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="stelfi_files/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="stelfi_files/fontawesome/js/fontawesome-all.min.js"></script>
     <link rel="stylesheet" href="src/simple.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # The <code>R</code> package <code>stelfi</code>
-## Charlotte M. Jones-Todd
-### ISEC 2022 <br>
-### <img src="img/uoa-logo.png" style="width:3.0%" /> University of Auckland <br> <img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span> <br>
+]
+.subtitle[
+## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
+]
+.author[
+### Spatial Statistics 2023 <br>
+]
+.institute[
+### <img src="img/uoa-logo.png" style="width:3.0%" /> University of Auckland
+]
+.date[
 ### .typed[]
+]
 
 ---
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M554.9 154.5c-17.62-35.25-68.12-35.38-85.87 0c-87 174.3-84.1 165.9-84.1 181.5c0 44.13 57.25 80 128 80s127.1-35.88 127.1-80C639.1 319.9 641.4 327.3 554.9 154.5zM439.1 320l71.96-144l72.17 144H439.1zM256 336c0-16.12 1.375-8.75-85.12-181.5c-17.62-35.25-68.12-35.38-85.87 0c-87 174.3-84.1 165.9-84.1 181.5c0 44.13 57.25 80 127.1 80S256 380.1 256 336zM127.9 176L200.1 320H55.96L127.9 176zM495.1 448h-143.1V153.3C375.5 143 393.1 121.8 398.4 96h113.6c17.67 0 31.1-14.33 31.1-32s-14.33-32-31.1-32h-128.4c-14.62-19.38-37.5-32-63.62-32S270.1 12.62 256.4 32H128C110.3 32 96 46.33 96 64S110.3 96 127.1 96h113.6c5.25 25.75 22.87 47 46.37 57.25V448H144c-26.51 0-48.01 21.49-48.01 48c0 8.836 7.165 16 16 16h416c8.836 0 16-7.164 16-16C544 469.5 522.5 448 495.1 448z"/></svg>
+
+
+
+# `stelfi`
+
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>CRAN: R package version 0.0.1. (2022)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/stelfi_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zM125.8 177.3L51.1 320H204.9L130.2 177.3c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3zM128 128c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 402.6 178.2 416 128 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 155c8.7-16.6 25.9-27 44.7-27zm384 48c-.9 0-1.7 .5-2.2 1.3L435.1 320H588.9L514.2 177.3c-.4-.8-1.3-1.3-2.2-1.3zm-44.7-21c8.7-16.6 25.9-27 44.7-27s36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 402.6 562.2 416 512 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 155z"/></svg>
 
 ![](img/inla_tmb_meme.png)
+
 ---
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M152.1 38.16C161.9 47.03 162.7 62.2 153.8 72.06L81.84 152.1C77.43 156.9 71.21 159.8 64.63 159.1C58.05 160.2 51.69 157.6 47.03 152.1L7.029 112.1C-2.343 103.6-2.343 88.4 7.029 79.03C16.4 69.66 31.6 69.66 40.97 79.03L63.08 101.1L118.2 39.94C127 30.09 142.2 29.29 152.1 38.16V38.16zM152.1 198.2C161.9 207 162.7 222.2 153.8 232.1L81.84 312.1C77.43 316.9 71.21 319.8 64.63 319.1C58.05 320.2 51.69 317.6 47.03 312.1L7.029 272.1C-2.343 263.6-2.343 248.4 7.029 239C16.4 229.7 31.6 229.7 40.97 239L63.08 261.1L118.2 199.9C127 190.1 142.2 189.3 152.1 198.2V198.2zM224 96C224 78.33 238.3 64 256 64H480C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H256C238.3 128 224 113.7 224 96V96zM224 256C224 238.3 238.3 224 256 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H256C238.3 288 224 273.7 224 256zM160 416C160 398.3 174.3 384 192 384H480C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416zM0 416C0 389.5 21.49 368 48 368C74.51 368 96 389.5 96 416C96 442.5 74.51 464 48 464C21.49 464 0 442.5 0 416z"/></svg> `stelfi`
+# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `stelfi`
 
 &lt;br&gt;
 &lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
 
 `TMB`: `R` package for fitting latent variable models
   - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
   - User specifies which function arguments the Laplace approximation should be applied to
   
-&lt;br&gt;
-&lt;br&gt;
-
-<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [stelfi](https://github.com/cmjt/stelfi)
-
-`devtools::install_github("cmjt/stelfi")`
-
-`stelfi::compile_stelfi()`
-
 
       
 ---
 
-# Ftting a spatial LGCP  
+# Spatial LGCP  
 
 
  
@@ -69,50 +110,13 @@ class: center, middle, inverse, title-slide
 `fit &lt;- fit_lgcp(locs, sp, smesh, parameters)`
 
  - `locs`, matrix of locations
- - `sp`, spatial domain
+ - `sf`, an `sf` object of the spatial domain
  - `smesh`, a `INLA::inla.mesh.2d` object
  - `parameters`, vector of parameter starting values
 
 ---
 
-# vs. `inlabru`
-
-
-.pull-left[
-
-&lt;img src="stelfi_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
-&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; inlabru &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; stelfi &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Intercept &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.487 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.448 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; SE &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.135 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.090 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-]
-
-.pull-right[
-
-&lt;img src="stelfi_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-# Ftting a spatiotemporal LGCP 
+# Spatiotemporal LGCP 
 
 &lt;br&gt;
 &lt;br&gt;
@@ -125,24 +129,20 @@ class: center, middle, inverse, title-slide
 
 --
 
-`fit_lgcp(locs, sp, smesh, tmesh, parameters)`
+`fit_lgcp(locs, sf, smesh, tmesh, parameters)`
 
  - `locs`, matrix of locations
- - `sp`, spatial domain
+ - `sf`, an `sf` object of the spatial domain
  - `smesh`, a `INLA::inla.mesh.2d` object
  - `tmesh`,  a `INLA::inla.mesh.1d` object
  - `parameters`, vector of parameter starting values
- 
 
 ---
 
-# Fitting a marked LGCP
+# A marked LGCP
 
-&lt;img src="stelfi_files/figure-html/unnamed-chunk-5-1.png" width="60%" height="50%" style="display: block; margin: auto;" /&gt;
-
----
-
-# Fitting a marked LGCP
+&lt;br&gt;
+&lt;br&gt;
 
 `$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$`
 `$$\Lambda_{m_i}(s) = f^{-1}(\beta_{m_i} + G_{m_i}(s) + \alpha\; G_{pp}(s) + \epsilon_{m_i})$$`
@@ -151,23 +151,134 @@ class: center, middle, inverse, title-slide
  - `\(\alpha\)` are coefficient(s) linking the point process and the mark(s). 
 
  - `\(\Lambda_{m_i}(s)\)` depends on the assumed distribution of the marks e.g.,
-    - if Poisson, intensity/rate 
-    - if binomial, probability of success (user must supply the number of trials) 
-    - if normal, the mean (user must supply the standard deviation)
+   
+   1. If `\(m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)\)` then `\(M_j(\boldsymbol{s}) =  \mu_j(s)\)` and `\(f^{-1} = \text{I()}\)`,
+   2. If `\(m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  \Lambda_j(s)\)` and `\(f^{-1} = \text{exp()}\)`,
+   3. If `\(m_j \sim \text{Binomial}(n_j, p_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  p_j(s)\)` and `\(f^{-1} = \text{logit()}\)`, and
+   4. If `\(m_j \sim \text{Gamma}(\text{shape}_j(\boldsymbol{s}), \text{scale}_j)\)` then `\(M_j(\boldsymbol{s}) =  \text{shape}_j(\boldsymbol{s})\)` and `\(f^{-1} = \text{log()}\)`.
+ 
+---
 
---
+# A marked LGCP
 
-`fit_mlgcp(locs, marks, sp,  smesh, parameters, methods, fields)`
+&lt;br&gt;
+&lt;br&gt;
+
+`fit_mlgcp(locs, marks, sf,  smesh, parameters, methods, fields, covariates)`
 
   - `marks`, matrix of marks at each location in `locs`
   - `methods`, integer(s) choice of mark distribution(s)
   - `fields`, binary vector, should a mark specific random field be included
+  - `covariates`, a matrix of covariates can be set on either the marks, or LGCP, or both.
   
 ---
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> 
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M272 0C289.7 0 304 14.33 304 32C304 49.67 289.7 64 272 64H256V98.45C293.5 104.2 327.7 120 355.7 143L377.4 121.4C389.9 108.9 410.1 108.9 422.6 121.4C435.1 133.9 435.1 154.1 422.6 166.6L398.5 190.8C419.7 223.3 432 262.2 432 304C432 418.9 338.9 512 224 512C109.1 512 16 418.9 16 304C16 200 92.32 113.8 192 98.45V64H176C158.3 64 144 49.67 144 32C144 14.33 158.3 0 176 0L272 0zM248 192C248 178.7 237.3 168 224 168C210.7 168 200 178.7 200 192V320C200 333.3 210.7 344 224 344C237.3 344 248 333.3 248 320V192z"/></svg>
+.footnote[.tiny[First to yell out the correct answer gets my permission to skip the queue @ lunch tomorrow]]
 
-&lt;img src="https://i.pinimg.com/originals/b5/4c/59/b54c59ca34b9bdbbd3c79a2da444dada.jpg" height="70%" style="display: block; margin: auto;" /&gt;
+&lt;video width="500" height="20"  controls&gt;
+  &lt;source src="img/whoop.mp3" type="video/mp4"&gt;
+&lt;/video&gt;
+
+--
+
+.center[
+&lt;img src="img/sasquatch.png" width ="60%" /&gt;
+]
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> Sasquatch/Bigfoot
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+![](https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Patterson%E2%80%93Gimlin_film_frame_352.jpg/230px-Patterson%E2%80%93Gimlin_film_frame_352.jpg)]
+
+.pull-right[&lt;img src = https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pikes_peak_highway_big_foot.jpg/450px-Pikes_peak_highway_big_foot.jpg width=60%/&gt;]
+
+
+[![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
+---
+
+
+
+# A marked LGCP example
+
+Setting `\(m_i = 1\)` if the Bigfoot sighting is classified as clear (Class A) and  `\(m_i = 0\)` if the sighting is not (class B). 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/bf_marked.jpg" width ="80%" /&gt;
+]
+
+
+---
+
+# Probability of a first-hand sighing
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+The joint model we fit is
+
+
+`$$\Lambda(\boldsymbol{s}) = \text{exp}(\beta_0 + \beta_1 x_{\text{elev}}(s) +  G(\boldsymbol{s}) + \epsilon)$$`
+`$$\text{logit}(p(\boldsymbol{s}))^{-1} = \beta_{0^m} + \beta_1^m x_{\text{elev}}(s) + G_m(\boldsymbol{s}) +\alpha_{m}\; G(\boldsymbol{s}) + \epsilon_{m}$$`
+
+where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intensity of all sightings is, as previously, `\(\Lambda(\boldsymbol{s})\)`. A spatial covariate, `\(x_{\text{elev}}(s)\)` the elevation in kilometres 
+
+
+---
+
+# A joint model
+ 
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+ | Parameter | est.    | se   |
+ |-----------|---------|------|
+ | `\(\beta_0\)` | -0.823  | 0.358 | 
+ | `\(\beta_1\)` | 0.114  | 0.251  |
+ | `\(\beta_0^m\)` | 0.227  | 0.284 |
+ | `\(\beta_1^m\)` | -0.372  | 0.178 |
+ | `\(\alpha_m\)` | 0.044  | 0.063 |
+]
+
+.pull-right[
+&lt;img src="img/bf_joined.png" height ="70%" /&gt;
+]
+
+
+---
+# Probability of a first-hand sighing
+
+
+.center[
+&lt;img src="img/bf_prob.png" height ="70%" /&gt;
+]
+
+
+
+
+---
+
+# But, is seeing Bigfoot contagious?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
 
 ---
 
@@ -191,34 +302,30 @@ $$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}m(\tau_i)\text{exp}(-\be
  - `parameters`, starting values of parameters
  - `marks`, (optional) vector of marks
  
----
-
-# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg> Which other ISEC talk <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
-
-&lt;br&gt;
-&lt;br&gt;
-
-&lt;img src="./img/kai.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
-
-# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg> Which other ISEC talk <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg>
-
-`$$\lambda_j(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}m(\tau_i)\text{exp}(-\beta_j * (t-\tau_i))$$`
-
-`$$\text{log}(\beta_j) \sim \text{Normal}(0, \sigma^2)$$`
-
---
+# So, is seeing Bigfoot contagious?
 
 &lt;br&gt;
 &lt;br&gt;
 
-&lt;img src="./img/kaikoura.png" width="80%" style="display: block; margin: auto;" /&gt;
+`$$\lambda(t) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\beta * (t-\tau_i)) + \epsilon$$`
+&lt;br&gt;
+&lt;br&gt;
 
+ +  `\(n = 972\)` sightings over `\(\text{T} = 2188\)` days
+
+ + `\(\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263\)` baseline sightings
+
+ + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`. 
+
+ + Expected number of descendants per sighting `\(\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3\)`
+ 
+ + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days.
 
 ---
 
-# Inhomogeneous Hawkes process 
+# Extension: An inhomogeneous Hawkes process 
 
 &lt;br&gt;
 &lt;br&gt;
@@ -235,37 +342,32 @@ $$\lambda(t) = \mu(t) + \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\beta * (t-\tau
  - `background_integral`, integral of `background`
  - `background_param`, starting values of parameters for `\(\mu(t)\)`
  
----
- 
-# `show_hawkes()`
-
-
-
-&lt;img src="stelfi_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
-
----
- 
-# `show_hawkes_GOF()`
-
-&lt;img src="stelfi_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-background-image: url("https://i.pinimg.com/736x/06/2e/73/062e7390f17068792d3547db6a2d2be9--be-patient-under-construction.jpg")
+# Everything in the pot: a spatiotemporal self-exciting process 
 
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\lambda(\boldsymbol{s},t) = \mu +  G(\boldsymbol{s}) + \alpha \Sigma_{i:\tau_i&lt;t}(\text{exp}(-\beta * (t-\tau_i)) K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i)) + \epsilon$$`
+
+where `\(\mu\)` is the background rate, `\(\beta\)` is the rate of temporal decay, `\(\alpha\)` is the increase in intensity after an event, `\(\tau_i\)` are the event times, and `\(\boldsymbol{x}_i\)` are the event locations `\(G(\boldsymbol{s})\)` is an (optional) Gaussian random field. 
+
+Spatial self-excitement kernel is given by `\(K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i) \sim \text{Normal}(0, \boldsymbol{Q^{-1}})\)`, can either be time-independent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\)` or time-dependent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\times (t_j - t_i)\)` for `\(t_j &gt; t_i\)`.
 
 ---
 
+# Spatiotemporal self-exciting process 
 
-
-# Selfexciting spatial models
-
-&lt;img src="img/hawkes_spat.png" width="90%" style="display: block; margin: auto;" /&gt;
+.center[
+&lt;img src="img/stelfi.png" width ="70%" /&gt;
+]
 
 
 ---
 
-# Diolch am wrando 
+# <span>&lt;i class="fas  fa-image faa-flash animated "&gt;&lt;/i&gt;</span> cmjt.github.io/slides/stelfi
 
 
 
@@ -273,9 +375,9 @@ background-image: url("https://i.pinimg.com/736x/06/2e/73/062e7390f17068792d3547
 .animate__animated.animate__bounceInDown[
 
 ```
- [1] " ____________"                                                               
- [2] "&lt; Questions? &gt;"                                                              
- [3] " ------------"                                                               
+ [1] " __________________"                                                         
+ [2] "&lt; Diolch am wrando &gt;"                                                        
+ [3] " ------------------"                                                         
  [4] "      \\                    / \\  //\\"                                      
  [5] "       \\    |\\___/|      /   \\//  \\\\"                                   
  [6] "            /0  0  \\__  /    //  | \\ \\    "                               
@@ -296,15 +398,17 @@ background-image: url("https://i.pinimg.com/736x/06/2e/73/062e7390f17068792d3547
 ]
 ]
 
-
 .pull-right[
-.center[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z"/></svg> @TiagoMarques, Session 39, 1st July]
-.center[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.4 151.7c.325 4.548 .325 9.097 .325 13.65 0 138.7-105.6 298.6-298.6 298.6-59.45 0-114.7-17.22-161.1-47.11 8.447 .974 16.57 1.299 25.34 1.299 49.06 0 94.21-16.57 130.3-44.83-46.13-.975-84.79-31.19-98.11-72.77 6.498 .974 12.99 1.624 19.82 1.624 9.421 0 18.84-1.3 27.61-3.573-48.08-9.747-84.14-51.98-84.14-102.1v-1.299c13.97 7.797 30.21 12.67 47.43 13.32-28.26-18.84-46.78-51.01-46.78-87.39 0-19.49 5.197-37.36 14.29-52.95 51.65 63.67 129.3 105.3 216.4 109.8-1.624-7.797-2.599-15.92-2.599-24.04 0-57.83 46.78-104.9 104.9-104.9 30.21 0 57.5 12.67 76.67 33.14 23.72-4.548 46.46-13.32 66.6-25.34-7.798 24.37-24.37 44.83-46.13 57.83 21.12-2.273 41.58-8.122 60.43-16.24-14.29 20.79-32.16 39.31-52.63 54.25z"/></svg> @cmjonestodd]
-.center[<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [`stelfi`](https://github.com/cmjt/stelfi)]
-.center[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M447.1 32h-384C28.64 32-.0091 60.65-.0091 96v320c0 35.35 28.65 64 63.1 64h384c35.35 0 64-28.65 64-64V96C511.1 60.65 483.3 32 447.1 32zM111.1 96c26.51 0 48 21.49 48 48S138.5 192 111.1 192s-48-21.49-48-48S85.48 96 111.1 96zM446.1 407.6C443.3 412.8 437.9 416 432 416H82.01c-6.021 0-11.53-3.379-14.26-8.75c-2.73-5.367-2.215-11.81 1.334-16.68l70-96C142.1 290.4 146.9 288 152 288s9.916 2.441 12.93 6.574l32.46 44.51l93.3-139.1C293.7 194.7 298.7 192 304 192s10.35 2.672 13.31 7.125l128 192C448.6 396 448.9 402.3 446.1 407.6z"/></svg> [cmjt.github.io/slides/stelfi](https://cmjt.github.io/slides/stelfi)]
+.center[
+&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /&gt;
+]
+.center[
+&lt;img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" /&gt;
+]
+.center[[<span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;@cmjonestodd</span>](https://twitter.com/cmjonestodd)]
+&lt;br&gt;
+.center[[<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)]
 
-&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-RGB-300.jpg" width="50%" style="display: block; margin: auto;" /&gt;
-&lt;img src="https://community.apan.org/resized-image/__size/320x240/__key/communityserver-wikis-components-files/00-00-00-17-10/AOARD-Logo_5F00_transp.png" width="20%" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -357,6 +461,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
