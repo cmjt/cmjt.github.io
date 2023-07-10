@@ -12,10 +12,10 @@
     
     <item>
       <title>Slides</title>
-      <link>https://cmjt.github.io/talks/talks/</link>
+      <link>https://cmjt.github.io/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cmjt.github.io/talks/talks/</guid>
+      <guid>https://cmjt.github.io/talks/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -36,14 +36,14 @@
 &lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/rladies.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ISEC2022&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/stelfi&#34;&gt;https://cmjt.github.io/slides/stelfi&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/stelfi.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;NZSA2022&lt;/td&gt;
+&lt;td&gt;NZSA 2022&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/nzsa_2022&#34;&gt;https://cmjt.github.io/slides/nzsa_2022&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/nzsa_2022.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spatial Statistics 2023&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/stelfi&#34;&gt;https://cmjt.github.io/slides/stelfi&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/stelfi.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

@@ -400,6 +400,3 @@ system2("cowsay", args = "-f dragon 'Questions?'", stdout = TRUE)
 .center[[`r anicon::faa("github", animate="float")` @cmjt](https://github.com/cmjt)]
 
 ]
-
-
-
