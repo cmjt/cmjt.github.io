@@ -45,11 +45,7 @@ namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style =
 .center[
 <img src="img/hawked_fitted.png" width ="90%" />
 ]
----
 
-# `r fontawesome::fa(name = "scale-balanced")`
-
-![](img/inla_tmb_meme.png)
 
 ---
 
@@ -86,7 +82,7 @@ $G(\underline{s})$ has a Matérn covariance defined by $\tau$ and $\kappa$, wher
 
 --
 
-`fit <- fit_lgcp(locs, sp, smesh, parameters)`
+`fit_lgcp(locs, sf, smesh, parameters)`
 
  - `locs`, matrix of locations
  - `sf`, an `sf` object of the spatial domain
@@ -103,8 +99,8 @@ $G(\underline{s})$ has a Matérn covariance defined by $\tau$ and $\kappa$, wher
 
 $$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilon)$$
  - $\beta_0$, intercept
-  - $G(\underline{s}, t)$, a spatiotemporal GMRF
-  - $\epsilon$, error 
+ - $G(\underline{s}, t)$, a spatiotemporal GMRF
+ - $\epsilon$, error 
 
 --
 
@@ -124,12 +120,12 @@ $$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilo
 <br>
 
 $$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$
-$$\Lambda_{m_i}(s) = f^{-1}(\beta_{m_i} + G_{m_i}(s) + \alpha\; G_{pp}(s) + \epsilon_{m_i})$$
+$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$
 
 
- - $\alpha$ are coefficient(s) linking the point process and the mark(s). 
+ - $\alpha_j$ ($j = 1, ..., n_{\text{marks}}$) are coefficient(s) linking the point process and the mark(s). 
 
- - $\Lambda_{m_i}(s)$ depends on the assumed distribution of the marks e.g.,
+ - $\Lambda_{m_j}(s)$ depends on the assumed distribution of the marks e.g.,
    
    1. If $m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)$ then $M_j(\boldsymbol{s}) =  \mu_j(s)$ and $f^{-1} = \text{I()}$,
    2. If $m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))$ then $M_j(\boldsymbol{s}) =  \Lambda_j(s)$ and $f^{-1} = \text{exp()}$,

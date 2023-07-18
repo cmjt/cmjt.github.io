@@ -3,8 +3,7 @@
   <head>
     <title>The R package stelfi</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Spatial Statistics 2023  " />
-    <script src="stelfi_files/header-attrs/header-attrs.js"></script>
+    <meta name="author" content="Spatial Statistics 2023" />
     <link href="stelfi_files/remark-css/metropolis.css" rel="stylesheet" />
     <link href="stelfi_files/remark-css/rladies-fonts.css" rel="stylesheet" />
     <link href="stelfi_files/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
@@ -19,7 +18,7 @@ class: center, middle, inverse, title-slide
 # The <code>R</code> package <code>stelfi</code>
 ]
 .subtitle[
-## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
+## Charlotte M. Jones-Todd   <span class="citation">[![](img/twitter.svg){width=3%}@cmjonestodd]</span>(<a href="https://twitter.com/cmjonestodd" class="uri">https://twitter.com/cmjonestodd</a>)
 ]
 .author[
 ### Spatial Statistics 2023 <br>
@@ -66,11 +65,7 @@ class: center, middle, inverse, title-slide
 .center[
 &lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
 ]
----
 
-# <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zM125.8 177.3L51.1 320H204.9L130.2 177.3c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3zM128 128c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 402.6 178.2 416 128 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 155c8.7-16.6 25.9-27 44.7-27zm384 48c-.9 0-1.7 .5-2.2 1.3L435.1 320H588.9L514.2 177.3c-.4-.8-1.3-1.3-2.2-1.3zm-44.7-21c8.7-16.6 25.9-27 44.7-27s36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 402.6 562.2 416 512 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 155z"/></svg>
-
-![](img/inla_tmb_meme.png)
 
 ---
 
@@ -107,7 +102,7 @@ class: center, middle, inverse, title-slide
 
 --
 
-`fit &lt;- fit_lgcp(locs, sp, smesh, parameters)`
+`fit_lgcp(locs, sf, smesh, parameters)`
 
  - `locs`, matrix of locations
  - `sf`, an `sf` object of the spatial domain
@@ -124,8 +119,8 @@ class: center, middle, inverse, title-slide
 
 `$$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilon)$$`
  - `\(\beta_0\)`, intercept
-  - `\(G(\underline{s}, t)\)`, a spatiotemporal GMRF
-  - `\(\epsilon\)`, error 
+ - `\(G(\underline{s}, t)\)`, a spatiotemporal GMRF
+ - `\(\epsilon\)`, error 
 
 --
 
@@ -145,12 +140,12 @@ class: center, middle, inverse, title-slide
 &lt;br&gt;
 
 `$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$`
-`$$\Lambda_{m_i}(s) = f^{-1}(\beta_{m_i} + G_{m_i}(s) + \alpha\; G_{pp}(s) + \epsilon_{m_i})$$`
+`$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$`
 
 
- - `\(\alpha\)` are coefficient(s) linking the point process and the mark(s). 
+ - `\(\alpha_j\)` ($j = 1, ..., n_{\text{marks}}$) are coefficient(s) linking the point process and the mark(s). 
 
- - `\(\Lambda_{m_i}(s)\)` depends on the assumed distribution of the marks e.g.,
+ - `\(\Lambda_{m_j}(s)\)` depends on the assumed distribution of the marks e.g.,
    
    1. If `\(m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)\)` then `\(M_j(\boldsymbol{s}) =  \mu_j(s)\)` and `\(f^{-1} = \text{I()}\)`,
    2. If `\(m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  \Lambda_j(s)\)` and `\(f^{-1} = \text{exp()}\)`,
@@ -410,8 +405,6 @@ Spatial self-excitement kernel is given by `\(K_i(\boldsymbol{s} - \boldsymbol{x
 .center[[<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)]
 
 ]
-
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
