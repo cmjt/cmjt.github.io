@@ -3,7 +3,8 @@
   <head>
     <title>The R package stelfi</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Spatial Statistics 2023" />
+    <meta name="author" content="Spatial Statistics 2023  " />
+    <script src="stelfi_files/header-attrs/header-attrs.js"></script>
     <link href="stelfi_files/remark-css/metropolis.css" rel="stylesheet" />
     <link href="stelfi_files/remark-css/rladies-fonts.css" rel="stylesheet" />
     <link href="stelfi_files/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
@@ -18,7 +19,7 @@ class: center, middle, inverse, title-slide
 # The <code>R</code> package <code>stelfi</code>
 ]
 .subtitle[
-## Charlotte M. Jones-Todd   <span class="citation">[![](img/twitter.svg){width=3%}@cmjonestodd]</span>(<a href="https://twitter.com/cmjonestodd" class="uri">https://twitter.com/cmjonestodd</a>)
+## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
 ]
 .author[
 ### Spatial Statistics 2023 <br>
@@ -143,7 +144,7 @@ class: center, middle, inverse, title-slide
 `$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$`
 
 
- - `\(\alpha_j\)`, `\(j = 1, ..., n_\text{marks}\)`, are coefficient(s) linking the point process and the mark(s). 
+ - `\(\alpha_j\)` ( `\(j = 1, ..., n_\text{marks}\)` ) are coefficient(s) linking the point process and the mark(s). 
 
  - `\(\Lambda_{m_j}(s)\)` depends on the assumed distribution of the marks e.g.,
    
@@ -286,6 +287,8 @@ where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intens
 $$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}m(\tau_i)\text{exp}(-\beta * (t-\tau_i)) $$ 
 
  - `\(\mu\)`, background rate
+ - `\(\alpha\)`, increase in intensity after an event
+ - `\(\beta\)`, rate of decay
  - `\(m(t)\)`, temporal mark
  - `\(\Sigma_{i:\tau_i&lt;t} \cdots\)`, historic dependence 
  
@@ -312,11 +315,11 @@ $$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}m(\tau_i)\text{exp}(-\be
 
  + `\(\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263\)` baseline sightings
 
- + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`. 
+ + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`
 
  + Expected number of descendants per sighting `\(\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3\)`
  
- + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days.
+ + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days
 
 ---
 
@@ -405,6 +408,8 @@ Spatial self-excitement kernel is given by `\(K_i(\boldsymbol{s} - \boldsymbol{x
 .center[[<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)]
 
 ]
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

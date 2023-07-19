@@ -123,7 +123,7 @@ $$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$
 $$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$
 
 
- - $\alpha_j$, $j = 1, ..., n_\text{marks}$, are coefficient(s) linking the point process and the mark(s). 
+ - $\alpha_j$ ( $j = 1, ..., n_\text{marks}$ ) are coefficient(s) linking the point process and the mark(s). 
 
  - $\Lambda_{m_j}(s)$ depends on the assumed distribution of the marks e.g.,
    
@@ -266,6 +266,8 @@ where $m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))$ and the spatial intensity 
 $$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i<t}m(\tau_i)\text{exp}(-\beta * (t-\tau_i)) $$ 
 
  - $\mu$, background rate
+ - $\alpha$, increase in intensity after an event
+ - $\beta$, rate of decay
  - $m(t)$, temporal mark
  - $\Sigma_{i:\tau_i<t} \cdots$, historic dependence 
  
@@ -292,11 +294,11 @@ $$\lambda(t) = \mu + \alpha \Sigma_{i:\tau_i<t}\text{exp}(-\beta * (t-\tau_i)) +
 
  + $\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263$ baseline sightings
 
- + Expected number of sightings triggered by any one sighting $\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}$. 
+ + Expected number of sightings triggered by any one sighting $\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}$
 
  + Expected number of descendants per sighting $\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3$
  
- + Rate of decay for the self-excitement $\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11$ days.
+ + Rate of decay for the self-excitement $\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11$ days
 
 ---
 
