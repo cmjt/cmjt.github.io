@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Self-exciting point process models</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="self_exciting_files/header-attrs/header-attrs.js"></script>
+    <link href="self_exciting_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="self_exciting_files/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="self_exciting_files/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="self_exciting_files/fontawesome/js/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="src/simple.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Self-exciting point process models
+]
+.subtitle[
+## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
+]
+.author[
+### 
+]
+.institute[
+### <img src="img/uoa-logo.png" style="width:3.0%" /> University of Auckland
+]
+.date[
+### .typed[]
+]
+
+---
+
+
+
+
+--- 
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> I am not a robot
+
+
+
+&lt;img src="img/recaptcha.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> 
+
+.center[
+&lt;img src="img/niwa.png" width ="60%" /&gt;
+]
+
+
+
+---
+
+
+# A self-exciting point process (Hawkes model)
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+`$$\lambda(t) = \color{red} \mu + \color{blue} \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\color{green}\beta * (t-\tau_i))$$` 
+
+ - `\(\color{red} \mu\)`, background rate
+ - `\(\color{blue} \alpha\)`, increase in intensity after an event
+ - `\(\color{green}\beta\)`, exponential decay
+ - `\(\Sigma_{i:\tau_i&lt;t} \cdots\)`, historic dependence
+ - `\(\frac{\color{blue} \alpha}{\color{green}\beta}\)`, branching ratio (average number events triggered by an event)
+ - `\(\frac{1}{\color{green}\beta}\)`, rate of decay of self-excitement
+ 
+.center[
+&lt;img src="img/hawkes_example.png" width ="50%" /&gt;
+]
+
+---
+
+# Log-likelihood (it's nasty)
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\sum_{i=1}^k \text{log} \left [\lambda + \alpha \sum_{j=1}^{i-1}\text{exp}(-\beta(t_i - t_j))\right ] -\lambda t_k + \frac{\alpha}{\beta} \sum_{i=1}^k \left [ \text{exp}(-\beta(t_k - t_i)) - 1\right ]$$`
+`$$\vdots$$`
+
+`$$\sum_{i=1}^k \text{log} \left [\lambda + \alpha A(i)\right ] -\lambda t_k + \frac{\alpha}{\beta} \sum_{i=1}^k \left [ \text{exp}(-\beta(t_k - t_i)) - 1\right ]$$`
+where, 
+
+`$$A(i) = \text{exp}(-\beta(t_i - t_{i-1}))(1 + A(i-1)).$$`
+
+---
+
+# Temporal rate of retweets 
+
+
+.center[
+&lt;img src="img/niwa_fit.png" width ="80%" /&gt;
+]
+
+---
+
+# Temporal rate of retweets 
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\lambda(t) = \color{red} \mu + \color{blue} \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\color{green}\beta * (t-\tau_i))$$` 
+
+ +  `\(n = 4890\)` retweets over `\(\text{T} = 3143\)` mins (~2 days)
+
+ + `\(\color{red} {\hat{\mu}} \text{T} = 0.063 \times 3143 \sim 198\)` 'baseline' tweets
+
+ + Expected number of retweets triggered by any one tweet `\(\frac{\color{blue}{\hat{\alpha}}}{\color{green}{\hat{\beta}}} \sim 0.94\)`
+ 
+ + Rate of decay for the self-excitement `\(\frac{1}{\color{green}{\hat{\beta}}} = \frac{1}{0.079} \sim 12\)` mins
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> 
+
+&lt;video width="500" height="20"  controls&gt;
+  &lt;source src="img/whale.mp3" type="video/mp4"&gt;
+&lt;/video&gt;
+
+--
+
+.center[
+&lt;img src="img/whale_data.png" width ="60%" /&gt;
+]
+
+---
+
+# A self-exciting cue rate model
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+`$$\lambda(t) = \color{red} {\mu(t)} + \color{blue} \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\color{green}\beta * (t-\tau_i))$$`
+
+where
+
+`$$\text{log}(\color{red} {\mu(t)}) = \beta_{1} I_{s(t)} + \beta_2 d(t) + \beta_3 r(t)$$`
+
+ - `\(d(t)\)`, depth
+ - `\(r(t)\)`, rate of descent (+ve when descending, -ve when ascending)
+ - `\(I_{s(t)} = 0\)` on 'surface' `\(= 1\)` when in 'deep water'
+
+---
+
+# Underdispersion
+
+&lt;br&gt;
+&lt;br&gt;
+
+Now, a Hawkes Process is an inhomogeneous Poisson process:
+
+ + at any time `\(\tau_i\)` the number of events `\(N(t) \sim \text{Poisson}( \int_0^{\tau_i} \lambda(t) dt)\)`,
+ + therefore the difference between the compensators `\(\int_0^{\tau_i} \lambda(t) dt\)` for consecutive events assumes an exponential distribution with mean 1...
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+But, this is not the case here so, we assume a Weibull distribution with dispersion parameter `\(k\)`
+ 
+  + when `\(k = 1\)` we have an exponential distribution again.
+
+
+
+---
+
+# Cue rate
+
+
+.center[
+&lt;img src="img/whale_fit.jpeg" width ="70%" /&gt;
+]
+
+---
+
+# Depth covariate (mark)
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/whale_betas.png" width ="90%" /&gt;
+]
+
+---
+
+# Dispersion parameter
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+.center[
+&lt;img src="img/whale_dispersion.png" width ="90%" /&gt;
+]
+
+---
+
+# `stelfi`
+
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>CRAN: R package version 0.0.1. (2022)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/stelfi_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `INLA`
+
+Integrated Nested Laplace Approximation (INLA)
+
+--
+ 
+  - Approximate Bayesian inference for Latent Gaussian Models
+  
+  - `INLA`verse
+    - `INLABMA`
+    - `inlabru`
+    - `INLAMSM`
+    - `nmaINLA`
+    - `rSPDE` 
+    - ...
+
+
+---
+
+# INLA-SPDE
+
+&lt;br&gt;
+&lt;br&gt;
+
+![](img/lgcp-fit.png)
+
+---
+
+# Spatial LGCP  
+
+&lt;br&gt;
+&lt;br&gt;
+ 
+`$$\Lambda(\underline{s}) = \text{exp}(\boldsymbol{X \beta} + G(\underline{s}) + \epsilon)$$`
+
+  - `\(\boldsymbol{X \beta}\)`, design matrix
+  - `\(G(\underline{s})\)`, Gaussian Markov Random Field (GMRF)
+  - `\(\epsilon\)`, error 
+
+`\(G(\underline{s})\)` has a Matérn covariance with parameters `\(\tau\)` and `\(\kappa\)`, where  
+  - `\(r=\frac{\sqrt{8}}{\kappa}\)` is the range, and 
+  - `\(\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}\)` standard deviation
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `TMB`
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+ Template Model builder (`TMB`) `R` package for fitting latent variable models
+  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
+  - The objective function (and its derivatives) can be called from `R`
+  - The user can specify that the Laplace approximation should be applied to any subset of the function arguments
+     - Yields marginal likelihood in latent variable model
+  - Standard deviations of any parameter, or derived parameter, obtained by the delta method
+
+
+
+---
+
+# `TMB` in summary
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+A TMB project consists of an `R` file and a `C++` file. The R file does pre- and post processing of data in addition to maximizing the log-likelihood contained in *.cpp.
+
+The purpose of the C++ program is to evaluate the objective function. The program is compiled and called from R, where it can be fed to a function minimizer (e.g., `nlminb()`).
+
+---
+
+# `TMB` in summary
+
+![](https://kaskr.github.io/adcomp/TMB_components.png)
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> 
+
+&lt;video width="500" height="20"  controls&gt;
+  &lt;source src="img/whoop.mp3" type="video/mp4"&gt;
+&lt;/video&gt;
+
+--
+
+.center[
+&lt;img src="img/sasquatch.png" width ="60%" /&gt;
+]
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> Sasquatch/Bigfoot
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+![](https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Patterson%E2%80%93Gimlin_film_frame_352.jpg/230px-Patterson%E2%80%93Gimlin_film_frame_352.jpg)]
+
+.pull-right[&lt;img src = https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pikes_peak_highway_big_foot.jpg/450px-Pikes_peak_highway_big_foot.jpg width=60%/&gt;]
+
+
+[![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
+---
+
+
+
+# A marked LGCP
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$`
+`$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$`
+
+
+ - `\(\alpha_j\)` ( `\(j = 1, ..., n_\text{marks}\)` ) are coefficient(s) linking the point process and the mark(s). 
+
+ - `\(\Lambda_{m_j}(s)\)` depends on the assumed distribution of the marks e.g.,
+   
+   1. If `\(m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)\)` then `\(M_j(\boldsymbol{s}) =  \mu_j(s)\)` and `\(f^{-1} = \text{I()}\)`,
+   2. If `\(m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  \Lambda_j(s)\)` and `\(f^{-1} = \text{exp()}\)`,
+   3. If `\(m_j \sim \text{Binomial}(n_j, p_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  p_j(s)\)` and `\(f^{-1} = \text{logit()}\)`, and
+   4. If `\(m_j \sim \text{Gamma}(\text{shape}_j(\boldsymbol{s}), \text{scale}_j)\)` then `\(M_j(\boldsymbol{s}) =  \text{shape}_j(\boldsymbol{s})\)` and `\(f^{-1} = \text{log()}\)`.
+ 
+
+---
+
+# A marked LGCP example
+
+Setting `\(m_i = 1\)` if the Bigfoot sighting is classified as clear (Class A) and  `\(m_i = 0\)` if the sighting is not (class B). 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/bf_marked.jpg" width ="80%" /&gt;
+]
+
+
+---
+
+# Probability of a first-hand sighing
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+The joint model we fit is
+
+
+`$$\Lambda(\boldsymbol{s}) = \text{exp}(\beta_0 + \beta_1 x_{\text{elev}}(s) +  G(\boldsymbol{s}) + \epsilon)$$`
+`$$\text{logit}(p(\boldsymbol{s}))^{-1} = \beta_{0^m} + \beta_1^m x_{\text{elev}}(s) + G_m(\boldsymbol{s}) +\alpha_{m}\; G(\boldsymbol{s}) + \epsilon_{m}$$`
+
+where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intensity of all sightings is, as previously, `\(\Lambda(\boldsymbol{s})\)`. A spatial covariate, `\(x_{\text{elev}}(s)\)` the elevation in kilometers 
+
+
+---
+
+# A joint model
+ 
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+ | Parameter | est.    | se   |
+ |-----------|---------|------|
+ | `\(\beta_0\)` | -0.823  | 0.358 | 
+ | `\(\beta_1\)` | 0.114  | 0.251  |
+ | `\(\beta_0^m\)` | 0.227  | 0.284 |
+ | `\(\beta_1^m\)` | -0.372  | 0.178 |
+ | `\(\alpha_m\)` | 0.044  | 0.063 |
+]
+
+.pull-right[
+&lt;img src="img/bf_joined.png" height ="70%" /&gt;
+]
+
+
+---
+# Probability of a first-hand sighing
+
+
+.center[
+&lt;img src="img/bf_prob.png" height ="70%" /&gt;
+]
+
+
+
+
+---
+
+# But, is seeing Bigfoot contagious?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+
+
+---
+# So, is seeing Bigfoot contagious?
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\lambda(t) = \color{red} \mu + \color{blue} \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\color{green}\beta * (t-\tau_i))$$` 
+&lt;br&gt;
+&lt;br&gt;
+
+ +  `\(n = 972\)` sightings over `\(\text{T} = 2188\)` days
+
+ + `\(\color{red} {\hat{\mu}} \text{T} = 0.12 \times 2188 \sim 263\)` baseline sightings
+
+ + Expected number of sightings triggered by any one sighting `\(\frac{ \color{blue}{\hat{\alpha}}}{ \color{green}{\hat{\beta}}} = \frac{0.06}{0.09} = \frac{2}{3}\)`
+
+ + Expected number of descendants per sighting `\(\frac{\color{green}{\hat{\beta}}}{\color{green}{\hat{\beta}} - \color{blue}{\hat{\alpha}}} = \frac{0.09}{0.09 - 0.06} = 3\)`
+ 
+ + Rate of decay for the self-excitement `\(\frac{1}{\color{green}{\hat{\beta}}} = \frac{1}{0.09} \sim 11\)` days
+
+---
+
+# A spatiotemporal self-exciting process 
+
+&lt;br&gt;
+&lt;br&gt;
+
+  `$$\lambda(\boldsymbol{s},t) = \color{red} \mu + \color{blue} \alpha \Sigma_{i:\tau_i&lt;t}\left [ \text{exp}(-\color{green}\beta * (t-\tau_i)) \color{purple}{K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i)} \right ] + \color{orange} {G(\boldsymbol{s})} + \epsilon$$`
+
+where `\(\boldsymbol{x}_i\)` are the spatial locations.
+
+The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i)} \sim \text{Normal}(0, \boldsymbol{Q^{-1}})\)`, can either be time-independent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\)` or time-dependent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\times (t_j - t_i)\)` for `\(t_j &gt; t_i\)`.
+
+`\(\color{orange} {G(\boldsymbol{s})}\)` is an (optional) Gaussian random field. 
+
+---
+# Reported Bigfoot sightings
+
+
+.center[
+&lt;img src="img/sasquatch.png" width ="60%" /&gt;
+]
+
+
+---
+
+# Spatiotemporal self-exciting process 
+
+.center[
+&lt;img src="img/stelfi.png" width ="70%" /&gt;
+]
+
+
+
+---
+
+# Other work:  Self-exciting SCR
+
+.footnote[.tiny[Alec van Helsdingen's work inspired by Ben Stevenson, don't ask me too many questions :)]]
+
+ The idea is to model `\(\lambda_{ij}(t)\)`, the 'intensity' of animal `\(i\)` at camera `\(j\)` over time `\(t\)`:
+ 
+ `$$\lambda_{ij}(t) = \mu_0 \left[H_{ij} + \text{exp}(-\beta (t - \tau_i(t)))(S_{ij}(t) - H_{ij})\right]$$`
+  - `\(H_{ij}\)` bivariate normal centered on the 'home range'
+  - `\(S_{ij}(t)\)` bivariate normal 'spike' in intensity immediately after detection centered on the camera
+ 
+--
+
+.pull-left[
+&lt;img src="img/t00.png" width ="70%" /&gt;
+]
+
+--
+
+.pull-right[
+&lt;img src="img/gif.gif" width ="70%" /&gt;
+]
+
+
+
+
+---
+
+# Other work 
+
+
+ 
+ - Networks using the SPDE
+
+.center[
+&lt;img src="img/vector.png" width ="70%" /&gt;
+]
+
+--
+
+ - GOF, WIP
+
+---
+
+
+# <span>&lt;i class="fas  fa-image faa-flash animated "&gt;&lt;/i&gt;</span> cmjt.github.io/slides/self-exciting
+
+
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+
+```
+ [1] " __________________"                                                         
+ [2] "&lt; Diolch am wrando &gt;"                                                        
+ [3] " ------------------"                                                         
+ [4] "      \\                    / \\  //\\"                                      
+ [5] "       \\    |\\___/|      /   \\//  \\\\"                                   
+ [6] "            /0  0  \\__  /    //  | \\ \\    "                               
+ [7] "           /     /  \\/_/    //   |  \\  \\  "                               
+ [8] "           @_^_@'/   \\/_   //    |   \\   \\ "                              
+ [9] "           //_^_/     \\/_ //     |    \\    \\"                             
+[10] "        ( //) |        \\///      |     \\     \\"                           
+[11] "      ( / /) _|_ /   )  //       |      \\     _\\"                          
+[12] "    ( // /) '/,_ _ _/  ( ; -.    |    _ _\\.-~        .-~~~^-."              
+[13] "  (( / / )) ,-{        _      `-.|.-~-.           .~         `."             
+[14] " (( // / ))  '/\\      /                 ~-. _ .-~      .-~^-.  \\"          
+[15] " (( /// ))      `.   {            }                   /      \\  \\"         
+[16] "  (( / ))     .----~-.\\        \\-'                 .~         \\  `. \\^-."
+[17] "             ///.----..&gt;        \\             _ -~             `.  ^-`  ^-_"
+[18] "               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~"  
+[19] "                                                                  /.-~"      
+```
+]
+]
+
+.pull-right[
+.center[
+&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /&gt;
+]
+.center[
+&lt;img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" /&gt;
+]
+.center[[<span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;@cmjonestodd</span>](https://twitter.com/cmjonestodd)]
+&lt;br&gt;
+.center[[<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)]
+
+]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+const options = {
+  strings: [
+      '<pre>work with: Alec van Helsdingen</pre>', '<pre>work with: Tiago Marques</pre>'
+  ],
+  typeSpeed: 60,
+  backSpeed: 20,
+  cursorChar: '',
+  loop: true
+};
+
+const typed = new Typed('.typed', options);
+const typed2 = new Typed('.typed-eg', options);
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
