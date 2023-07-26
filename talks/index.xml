@@ -61,8 +61,22 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cmjt.github.io/talks/teaching/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://stats-uoa.github.io/BIOSCI220/&#34;&gt;BIOSCI220: Quantitative Biology&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&#34;selected-courses-taught-at-uoa&#34;&gt;Selected courses taught at UoA&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://stats-uoa.github.io/BIOSCI220/&#34;&gt;BIOSCI220: Quantitative Biology&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://stats-uoa.github.io/BIOSCI738/&#34;&gt;BIOSCI738: Advanced Biological Data Analysis&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;rshiny-applications&#34;&gt;RShiny Applications&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://statbiscuit.shinyapps.io/vested/&#34;&gt;vested&lt;/a&gt;: virtual experiments to teach experimental design.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://statbiscuit.github.io/swots/&#34;&gt;&lt;strong&gt;s&lt;/strong&gt;tatbiscuit &lt;strong&gt;wor&lt;/strong&gt;ksheet&lt;strong&gt;s&lt;/strong&gt;&lt;/a&gt; (swots) that go hand in hand with courses I teach (&lt;a href=&#34;https://github.com/statbiscuit/statbiscuits/tree/master/swots&#34;&gt;source code here&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/probable&#34;&gt;probable&lt;/a&gt;: an RShiny application that allows students to explore the shapes of probability distributions(&lt;a href=&#34;https://github.com/cmjt/statbiscuits/tree/master/probable&#34;&gt;source code&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/penguin/&#34;&gt;RShiny application introducing linear additive model with the Palmer penguins dataset&lt;/a&gt;. Link to the &lt;a href=&#34;https://github.com/statbiscuit/statbiscuits/tree/master/dashboards/penguin&#34;&gt;source code&lt;/a&gt; and link to more info about &lt;a href=&#34;https://github.com/allisonhorst/palmerpenguins&#34;&gt;the data&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/genart/&#34;&gt;Using aRt as an introduction to linear modelling&lt;/a&gt; inspired by &lt;a href=&#34;https://djnavarro.net/&#34;&gt;Danielle Navarro&amp;rsquo;s&lt;/a&gt; blog &lt;a href=&#34;https://blog.djnavarro.net/water-colours&#34;&gt;Notes from a data witch: Art, jasmines, and the water colours&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;other-teaching-related-materials&#34;&gt;Other teaching related materials&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/statbiscuit/swots/blob/master/README.md&#34;&gt;Gifs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/statbiscuit&#34;&gt;Statbiscuit GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
