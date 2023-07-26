@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # Self-exciting point process models
 ]
 .subtitle[
-## Charlotte M. Jones-Todd   <a href="https://twitter.com/cmjonestodd"><img src="img/twitter.svg" style="width:3.0%" /><span class="citation">@cmjonestodd</span></a>
+## Charlotte M. Jones-Todd
 ]
 .author[
 ### 
@@ -184,16 +184,6 @@ But, this is not the case here so, we assume a Weibull distribution with dispers
 &lt;img src="img/whale_fit.jpeg" width ="70%" /&gt;
 ]
 
----
-
-# Depth covariate (mark)
-
-&lt;br&gt;
-&lt;br&gt;
-
-.center[
-&lt;img src="img/whale_betas.png" width ="90%" /&gt;
-]
 
 ---
 
@@ -354,30 +344,7 @@ The purpose of the C++ program is to evaluate the objective function. The progra
 [![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
 ---
 
-
-
 # A marked LGCP
-
-&lt;br&gt;
-&lt;br&gt;
-
-`$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$`
-`$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$`
-
-
- - `\(\alpha_j\)` ( `\(j = 1, ..., n_\text{marks}\)` ) are coefficient(s) linking the point process and the mark(s). 
-
- - `\(\Lambda_{m_j}(s)\)` depends on the assumed distribution of the marks e.g.,
-   
-   1. If `\(m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)\)` then `\(M_j(\boldsymbol{s}) =  \mu_j(s)\)` and `\(f^{-1} = \text{I()}\)`,
-   2. If `\(m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  \Lambda_j(s)\)` and `\(f^{-1} = \text{exp()}\)`,
-   3. If `\(m_j \sim \text{Binomial}(n_j, p_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  p_j(s)\)` and `\(f^{-1} = \text{logit()}\)`, and
-   4. If `\(m_j \sim \text{Gamma}(\text{shape}_j(\boldsymbol{s}), \text{scale}_j)\)` then `\(M_j(\boldsymbol{s}) =  \text{shape}_j(\boldsymbol{s})\)` and `\(f^{-1} = \text{log()}\)`.
- 
-
----
-
-# A marked LGCP example
 
 Setting `\(m_i = 1\)` if the Bigfoot sighting is classified as clear (Class A) and  `\(m_i = 0\)` if the sighting is not (class B). 
 
@@ -391,20 +358,20 @@ Setting `\(m_i = 1\)` if the Bigfoot sighting is classified as clear (Class A) a
 
 ---
 
-# Probability of a first-hand sighing
+# A joint model
 
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 
-The joint model we fit is
+The model:
 
 
 `$$\Lambda(\boldsymbol{s}) = \text{exp}(\beta_0 + \beta_1 x_{\text{elev}}(s) +  G(\boldsymbol{s}) + \epsilon)$$`
 `$$\text{logit}(p(\boldsymbol{s}))^{-1} = \beta_{0^m} + \beta_1^m x_{\text{elev}}(s) + G_m(\boldsymbol{s}) +\alpha_{m}\; G(\boldsymbol{s}) + \epsilon_{m}$$`
 
-where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intensity of all sightings is, as previously, `\(\Lambda(\boldsymbol{s})\)`. A spatial covariate, `\(x_{\text{elev}}(s)\)` the elevation in kilometers 
+where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intensity of all sightings is, as previously, `\(\Lambda(\boldsymbol{s})\)`. A spatial covariate, `\(x_{\text{elev}}(s)\)` the elevation in kilometers. 
 
 
 ---
@@ -510,14 +477,14 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 
 ---
 
-# Other work:  Self-exciting SCR
+# Other work:  self-exciting SCR
 
 .footnote[.tiny[Alec van Helsdingen's work inspired by Ben Stevenson, don't ask me too many questions :)]]
 
  The idea is to model `\(\lambda_{ij}(t)\)`, the 'intensity' of animal `\(i\)` at camera `\(j\)` over time `\(t\)`:
  
  `$$\lambda_{ij}(t) = \mu_0 \left[H_{ij} + \text{exp}(-\beta (t - \tau_i(t)))(S_{ij}(t) - H_{ij})\right]$$`
-  - `\(H_{ij}\)` bivariate normal centered on the 'home range'
+  - `\(H_{ij}\)` bivariate normal centered on the home range
   - `\(S_{ij}(t)\)` bivariate normal 'spike' in intensity immediately after detection centered on the camera
  
 --
@@ -554,8 +521,6 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 ---
 
 
-# <span>&lt;i class="fas  fa-image faa-flash animated "&gt;&lt;/i&gt;</span> cmjt.github.io/slides/self-exciting
-
 
 
 .pull-left[
@@ -587,15 +552,14 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 
 .pull-right[
 .center[
-&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /&gt;
-]
-.center[
+&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /&gt; &amp;nbsp; &amp;nbsp;
 &lt;img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" /&gt;
 ]
 .center[[<span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;@cmjonestodd</span>](https://twitter.com/cmjonestodd)]
 &lt;br&gt;
 .center[[<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)]
-
+&lt;br&gt;
+.center[[<span>&lt;i class="fab  fa-google faa-float animated "&gt;&lt;/i&gt;</span> cmjt.github.io](https://cmjt.github.io)]
 ]
 
 
