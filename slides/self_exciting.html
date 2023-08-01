@@ -46,6 +46,156 @@ class: center, middle, inverse, title-slide
 
 ---
 
+# Patterns in points
+
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>Statistics in Medicine (2018)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>Identifying prognostic structural features in tissue sections of colon cancer patients using point pattern analysis</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Jones-Todd, Charlotte M. et. al.</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/Jones-Todd_2018_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+
+
+.center[
+&lt;img src="img/cancer_im.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `INLA`
+
+Integrated Nested Laplace Approximation (INLA)
+
+--
+ 
+  - Approximate Bayesian inference for Latent Gaussian Models
+  
+  - `INLA`verse
+    - `INLABMA`
+    - `inlabru`
+    - `INLAMSM`
+    - `nmaINLA`
+    - `rSPDE` 
+    - ...
+
+
+
+---
+
+# Spatial LGCP  
+
+&lt;br&gt;
+&lt;br&gt;
+ 
+`$$\Lambda(\underline{s}) = \text{exp}(\boldsymbol{X \beta} + G(\underline{s}) + \epsilon)$$`
+
+  - `\(\boldsymbol{X \beta}\)`, design matrix
+  - `\(G(\underline{s})\)`, Gaussian Markov Random Field (GMRF)
+  - `\(\epsilon\)`, error 
+
+`\(G(\underline{s})\)` has a Matérn covariance with parameters `\(\tau\)` and `\(\kappa\)`, where  
+  - `\(r=\frac{\sqrt{8}}{\kappa}\)` is the range, and 
+  - `\(\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}\)` standard deviation
+
+---
+
+# INLA-SPDE
+
+&lt;br&gt;
+&lt;br&gt;
+
+![](img/lgcp-fit.png)
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `TMB`
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+ Template Model builder (`TMB`) `R` package for fitting latent variable models
+  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
+  - The objective function (and its derivatives) can be called from `R`
+  - The user can specify that the Laplace approximation should be applied to any subset of the function arguments
+     - Yields marginal likelihood in latent variable model
+  - Standard deviations of any parameter, or derived parameter, obtained by the delta method
+
+
+
+---
+
+# `TMB` in summary
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+A TMB project consists of an `R` file and a `C++` file. The R file does pre- and post processing of data in addition to maximizing the log-likelihood contained in *.cpp.
+
+The purpose of the C++ program is to evaluate the objective function. The program is compiled and called from R, where it can be fed to a function minimizer (e.g., `nlminb()`).
+
+---
+
+# `TMB` in summary
+
+![](https://kaskr.github.io/adcomp/TMB_components.png)
+
+---
+
+# `stelfi`
+
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>CRAN: R package version 0.0.1. (2022)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/stelfi_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+
+---
+
+
 # <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> 
 
 .center[
@@ -197,122 +347,6 @@ But, this is not the case here so, we assume a Weibull distribution with dispers
 .center[
 &lt;img src="img/whale_dispersion.png" width ="90%" /&gt;
 ]
-
----
-
-# `stelfi`
-
-
-
-<table class="visual-citation">
-  <tr>
-    <td>
-      <div style="width:600px">
-        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
-          <span>CRAN: R package version 0.0.1. (2022)</span>
-        </div>
-        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
-          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
-        </div>
-        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
-          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
-        </div>
-      </div>
-    </td>
-    <td>
-      <img src="qr/stelfi_qr.png" alt="QR code"/>
-    </td>
-  </tr>
-</table>
-&lt;br&gt;
-&lt;br&gt;
-
-.center[
-&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
-]
-
----
-
-# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `INLA`
-
-Integrated Nested Laplace Approximation (INLA)
-
---
- 
-  - Approximate Bayesian inference for Latent Gaussian Models
-  
-  - `INLA`verse
-    - `INLABMA`
-    - `inlabru`
-    - `INLAMSM`
-    - `nmaINLA`
-    - `rSPDE` 
-    - ...
-
-
----
-
-# INLA-SPDE
-
-&lt;br&gt;
-&lt;br&gt;
-
-![](img/lgcp-fit.png)
-
----
-
-# Spatial LGCP  
-
-&lt;br&gt;
-&lt;br&gt;
- 
-`$$\Lambda(\underline{s}) = \text{exp}(\boldsymbol{X \beta} + G(\underline{s}) + \epsilon)$$`
-
-  - `\(\boldsymbol{X \beta}\)`, design matrix
-  - `\(G(\underline{s})\)`, Gaussian Markov Random Field (GMRF)
-  - `\(\epsilon\)`, error 
-
-`\(G(\underline{s})\)` has a Matérn covariance with parameters `\(\tau\)` and `\(\kappa\)`, where  
-  - `\(r=\frac{\sqrt{8}}{\kappa}\)` is the range, and 
-  - `\(\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}\)` standard deviation
-
-
----
-
-# <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M184.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L39 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM256 96c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H288c-17.7 0-32-14.3-32-32zM192 416c0-17.7 14.3-32 32-32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zM80 464c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg> `TMB`
-
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-
-
-
- Template Model builder (`TMB`) `R` package for fitting latent variable models
-  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
-  - The objective function (and its derivatives) can be called from `R`
-  - The user can specify that the Laplace approximation should be applied to any subset of the function arguments
-     - Yields marginal likelihood in latent variable model
-  - Standard deviations of any parameter, or derived parameter, obtained by the delta method
-
-
-
----
-
-# `TMB` in summary
-
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-
-A TMB project consists of an `R` file and a `C++` file. The R file does pre- and post processing of data in addition to maximizing the log-likelihood contained in *.cpp.
-
-The purpose of the C++ program is to evaluate the objective function. The program is compiled and called from R, where it can be fed to a function minimizer (e.g., `nlminb()`).
-
----
-
-# `TMB` in summary
-
-![](https://kaskr.github.io/adcomp/TMB_components.png)
 
 ---
 
@@ -473,13 +507,13 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 &lt;img src="img/stelfi.png" width ="70%" /&gt;
 ]
 
-
-
 ---
+
+
 
 # Other work:  self-exciting SCR
 
-.footnote[.tiny[Alec van Helsdingen's work inspired by Ben Stevenson, don't ask me too many questions :)]]
+.footnote[.tiny[Alec van Helsdingen's work, don't ask me too many questions]]
 
  The idea is to model `\(\lambda_{ij}(t)\)`, the 'intensity' of animal `\(i\)` at camera `\(j\)` over time `\(t\)`:
  
@@ -511,8 +545,7 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 ]
 
 
-.footnote[.tiny[This slide is for Charles, don't ask me too many questions :)]]
-
+.footnote[.tiny[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> what data are these?]]
 
 ---
 
@@ -525,15 +558,81 @@ The spatial self-excitement kernel is given by `\(\color{purple}{K_i(\boldsymbol
 ]
 
 
-.footnote[.tiny[This slide is for Charles, don't ask me too many questions :)]]
-
-
+.footnote[.tiny[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464zM256 336c-18 0-32 14-32 32s13.1 32 32 32c17.1 0 32-14 32-32S273.1 336 256 336zM289.1 128h-51.1C199 128 168 159 168 198c0 13 11 24 24 24s24-11 24-24C216 186 225.1 176 237.1 176h51.1C301.1 176 312 186 312 198c0 8-4 14.1-11 18.1L244 251C236 256 232 264 232 272V288c0 13 11 24 24 24S280 301 280 288V286l45.1-28c21-13 34-36 34-60C360 159 329 128 289.1 128z"/></svg> what data are these?]]
 ---
 
 # GOF
 
 ---
 
+# [<span>&lt;i class="fab  fa-google faa-float animated "&gt;&lt;/i&gt;</span> cmjt.github.io](https://cmjt.github.io)
+
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>Statistics in Medicine (2018)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>Identifying prognostic structural features in tissue sections of colon cancer patients using point pattern analysis</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Jones-Todd, Charlotte M. et. al.</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/Jones-Todd_2018_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+ 
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>Journal of the Royal Statistical Society: Series C (Applied Statistics) (2017)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>A spatiotemporal multispecies model of a semicontinuous response</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Jones‐Todd, Charlotte M. et. al.</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/Jones%E2%80%90Todd_2017_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>CRAN: R package version 0.0.1. (2022)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/stelfi_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+
+---
 
 
 

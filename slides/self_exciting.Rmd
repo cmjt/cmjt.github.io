@@ -44,6 +44,124 @@ knitr::include_graphics("img/recaptcha.jpg")
 
 ---
 
+# Patterns in points
+
+```{r, echo = FALSE, eval = FALSE}
+namedropR::drop_name_crossref("10.1002/sim.8046", use_xaringan = TRUE, style = "newspaper",qr_size = 150, author_size = "8pt", title_size = "12pt", journal_size = "10pt", max_authors = 1)
+```
+
+`r htmltools::includeHTML("visual_citations/Jones-Todd_2018.html")`
+
+
+.center[
+```{r, fig.align='center', out.width="100%"}
+knitr::include_graphics("img/cancer_im.png")
+```
+]
+
+---
+
+# `r fontawesome::fa(name = "list-check")` `INLA`
+
+Integrated Nested Laplace Approximation (INLA)
+
+--
+ 
+  - Approximate Bayesian inference for Latent Gaussian Models
+  
+  - `INLA`verse
+    - `INLABMA`
+    - `inlabru`
+    - `INLAMSM`
+    - `nmaINLA`
+    - `rSPDE` 
+    - ...
+
+
+
+---
+
+# Spatial LGCP  
+
+<br>
+<br>
+ 
+$$\Lambda(\underline{s}) = \text{exp}(\boldsymbol{X \beta} + G(\underline{s}) + \epsilon)$$
+
+  - $\boldsymbol{X \beta}$, design matrix
+  - $G(\underline{s})$, Gaussian Markov Random Field (GMRF)
+  - $\epsilon$, error 
+
+$G(\underline{s})$ has a Matérn covariance with parameters $\tau$ and $\kappa$, where  
+  - $r=\frac{\sqrt{8}}{\kappa}$ is the range, and 
+  - $\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}$ standard deviation
+
+---
+
+# INLA-SPDE
+
+<br>
+<br>
+
+![](img/lgcp-fit.png)
+
+
+---
+
+# `r fontawesome::fa(name = "list-check")` `TMB`
+
+<br>
+<br>
+<br>
+
+
+
+ Template Model builder (`TMB`) `R` package for fitting latent variable models
+  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
+  - The objective function (and its derivatives) can be called from `R`
+  - The user can specify that the Laplace approximation should be applied to any subset of the function arguments
+     - Yields marginal likelihood in latent variable model
+  - Standard deviations of any parameter, or derived parameter, obtained by the delta method
+
+
+
+---
+
+# `TMB` in summary
+
+<br>
+<br>
+<br>
+
+A TMB project consists of an `R` file and a `C++` file. The R file does pre- and post processing of data in addition to maximizing the log-likelihood contained in *.cpp.
+
+The purpose of the C++ program is to evaluate the objective function. The program is compiled and called from R, where it can be fed to a function minimizer (e.g., `nlminb()`).
+
+---
+
+# `TMB` in summary
+
+![](https://kaskr.github.io/adcomp/TMB_components.png)
+
+---
+
+# `stelfi`
+
+```{r, eval = FALSE, echo = FALSE}
+namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style = "newspaper", qr_size = 150, author_size = "8pt", title_size = "12pt", journal_size = "10pt")
+```
+
+`r htmltools::includeHTML("visual_citations/stelfi.html")`
+<br>
+<br>
+
+.center[
+<img src="img/hawked_fitted.png" width ="90%" />
+]
+
+---
+
+
 # `r fontawesome::fa("question-circle")` 
 
 .center[
@@ -195,105 +313,6 @@ But, this is not the case here so, we assume a Weibull distribution with dispers
 .center[
 <img src="img/whale_dispersion.png" width ="90%" />
 ]
-
----
-
-# `stelfi`
-
-```{r, eval = FALSE, echo = FALSE}
-namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style = "newspaper", qr_size = 150, author_size = "8pt", title_size = "12pt", journal_size = "10pt")
-```
-
-`r htmltools::includeHTML("visual_citations/stelfi.html")`
-<br>
-<br>
-
-.center[
-<img src="img/hawked_fitted.png" width ="90%" />
-]
-
----
-
-# `r fontawesome::fa(name = "list-check")` `INLA`
-
-Integrated Nested Laplace Approximation (INLA)
-
---
- 
-  - Approximate Bayesian inference for Latent Gaussian Models
-  
-  - `INLA`verse
-    - `INLABMA`
-    - `inlabru`
-    - `INLAMSM`
-    - `nmaINLA`
-    - `rSPDE` 
-    - ...
-
-
----
-
-# INLA-SPDE
-
-<br>
-<br>
-
-![](img/lgcp-fit.png)
-
----
-
-# Spatial LGCP  
-
-<br>
-<br>
- 
-$$\Lambda(\underline{s}) = \text{exp}(\boldsymbol{X \beta} + G(\underline{s}) + \epsilon)$$
-
-  - $\boldsymbol{X \beta}$, design matrix
-  - $G(\underline{s})$, Gaussian Markov Random Field (GMRF)
-  - $\epsilon$, error 
-
-$G(\underline{s})$ has a Matérn covariance with parameters $\tau$ and $\kappa$, where  
-  - $r=\frac{\sqrt{8}}{\kappa}$ is the range, and 
-  - $\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}$ standard deviation
-
-
----
-
-# `r fontawesome::fa(name = "list-check")` `TMB`
-
-<br>
-<br>
-<br>
-
-
-
- Template Model builder (`TMB`) `R` package for fitting latent variable models
-  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
-  - The objective function (and its derivatives) can be called from `R`
-  - The user can specify that the Laplace approximation should be applied to any subset of the function arguments
-     - Yields marginal likelihood in latent variable model
-  - Standard deviations of any parameter, or derived parameter, obtained by the delta method
-
-
-
----
-
-# `TMB` in summary
-
-<br>
-<br>
-<br>
-
-A TMB project consists of an `R` file and a `C++` file. The R file does pre- and post processing of data in addition to maximizing the log-likelihood contained in *.cpp.
-
-The purpose of the C++ program is to evaluate the objective function. The program is compiled and called from R, where it can be fed to a function minimizer (e.g., `nlminb()`).
-
----
-
-# `TMB` in summary
-
-![](https://kaskr.github.io/adcomp/TMB_components.png)
 
 ---
 
@@ -454,13 +473,13 @@ $\color{orange} {G(\boldsymbol{s})}$ is an (optional) Gaussian random field.
 <img src="img/stelfi.png" width ="70%" />
 ]
 
-
-
 ---
+
+
 
 # Other work:  self-exciting SCR
 
-.footnote[.tiny[Alec van Helsdingen's work inspired by Ben Stevenson, don't ask me too many questions :)]]
+.footnote[.tiny[Alec van Helsdingen's work, don't ask me too many questions]]
 
  The idea is to model $\lambda_{ij}(t)$, the 'intensity' of animal $i$ at camera $j$ over time $t$:
  
@@ -492,8 +511,7 @@ $\color{orange} {G(\boldsymbol{s})}$ is an (optional) Gaussian random field.
 ]
 
 
-.footnote[.tiny[This slide is for Charles, don't ask me too many questions :)]]
-
+.footnote[.tiny[`r fontawesome::fa("question-circle")` what data are these?]]
 
 ---
 
@@ -506,15 +524,24 @@ $\color{orange} {G(\boldsymbol{s})}$ is an (optional) Gaussian random field.
 ]
 
 
-.footnote[.tiny[This slide is for Charles, don't ask me too many questions :)]]
-
-
+.footnote[.tiny[`r fontawesome::fa("question-circle")` what data are these?]]
 ---
 
 # GOF
 
 ---
 
+# [`r anicon::faa("google", animate="float")` cmjt.github.io](https://cmjt.github.io)
+
+
+
+`r htmltools::includeHTML("visual_citations/Jones-Todd_2018.html")`
+ 
+`r htmltools::includeHTML("visual_citations/Jones‐Todd_2017.html")`
+
+`r htmltools::includeHTML("visual_citations/stelfi.html")`
+
+---
 
 ```{r, eval = FALSE, echo = FALSE}
 ## linux <sudo apt-get install cowsay>
