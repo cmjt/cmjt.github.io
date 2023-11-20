@@ -1,9 +1,9 @@
 ---
 title: "The `R` package `stelfi`"
-author: "Spatial Statistics 2023 <br>"
-subtitle: "Charlotte M. Jones-Todd &nbsp;&nbsp;[![](img/twitter.svg){width=3%}@cmjonestodd](https://twitter.com/cmjonestodd)"
-institute: "![](img/uoa-logo.png ){width=3%} University of Auckland"
-date: ".typed[]"
+author: "Biometrics in the Bay of Islands, 2023 <br>"
+subtitle: "Charlotte M. Jones-Todd, &nbsp;&nbsp; ![](img/uoa-logo.png ){width=3%} University of Auckland"
+institute: ".typed[]\n"
+date: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](img/qr.png){width=30%}"
 header-includes:
    - \usepackage{xcolor}
    - \usepackage{amsmath}
@@ -34,9 +34,6 @@ require(tidyverse)
 
 # `stelfi`
 
-```{r, eval = FALSE, echo = FALSE}
-namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style = "newspaper", qr_size = 150, author_size = "8pt", title_size = "12pt", journal_size = "10pt")
-```
 
 `r htmltools::includeHTML("visual_citations/stelfi.html")`
 <br>
@@ -49,7 +46,7 @@ namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style =
 
 ---
 
-# `r fontawesome::fa(name = "list-check")` `stelfi`
+# `r fontawesome::fa(name = "list-check")`
 
 <br>
 <br>
@@ -62,13 +59,29 @@ namedropR::drop_name("bib.bib", cite_key = "stelfi",use_xaringan = TRUE, style =
   - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
   - User specifies which function arguments the Laplace approximation should be applied to
   
+--
 
+Models in `stelfi` are fitted via maximum likelihood using `TMB` via a range of custom written `C++` templates
+  
+---
+
+# Spatial LGCP  
+
+<br>
+<br>
+<br>
+<br>
+
+
+.center[
+<img src = "img/rfs_cov.png" width ="90%" />
+]
       
 ---
 
 # Spatial LGCP  
 
-
+<br>
  
 $$\Lambda(\underline{s}) = \text{exp}(\beta_0 + G(\underline{s}) + \epsilon)$$
 
@@ -111,6 +124,20 @@ $$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilo
  - `smesh`, a `INLA::inla.mesh.2d` object
  - `tmesh`,  a `INLA::inla.mesh.1d` object
  - `parameters`, vector of parameter starting values
+
+
+---
+
+# A marked LGCP
+
+<br>
+
+
+.center[
+<img src = "img/marked_slices.png" /img>
+]
+   
+
 
 ---
 
@@ -318,11 +345,30 @@ $$\lambda(t) = \mu(t) + \alpha \Sigma_{i:\tau_i<t}\text{exp}(-\beta * (t-\tau_i)
  - `background`, user supplied $\mu(t)$
  - `background_integral`, integral of `background`
  - `background_param`, starting values of parameters for $\mu(t)$
- 
+
 
 ---
 
-# Everything in the pot: a spatiotemporal self-exciting process 
+# Extension: A marked Hawkes process 
+
+<br>
+<br>
+Conditional intensity for the $j^{th}$ ( $j = 1, ..., N$ )
+
+$$\lambda(t)^{j*} = \mu_j + \Sigma_{k = 1}^N\Sigma_{i:\tau_i<t} \alpha_{jk} e^{(-\beta_j * (t-\tau_i))}$$ 
+
+ - $j, k  \in (1, ..., N)$
+ - $\alpha_{jk}$, is the excitement caused by the $k^{th}$ stream on the $j^{th}$
+ 
+--
+
+`fit_mhawkes(times, stream, patameters)`
+
+ - `stream`, character vector specifying the stream ID of each observation in `times`
+
+---
+
+# Everything in the pot: spatiotemporal self-excitment
 
 <br>
 <br>
@@ -344,7 +390,7 @@ Spatial self-excitement kernel is given by $K_i(\boldsymbol{s} - \boldsymbol{x}_
 
 ---
 
-# `r anicon::faa("image", animate="flash")` cmjt.github.io/slides/stelfi
+# [`r anicon::faa("github", animate="float")` @cmjt](https://github.com/cmjt)
 
 ```{r, eval = FALSE, echo = FALSE}
 ## linux <sudo apt-get install cowsay>
@@ -361,14 +407,12 @@ system2("cowsay", args = "-f dragon 'Diolch am wrando'", stdout = TRUE)
 
 .pull-right[
 .center[
-<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" />
+<img src="img/qr.png" width ="40%" />
 ]
 .center[
+<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" />
 ]
-.center[[`r anicon::faa('twitter', animate='float', rtext='@cmjonestodd')`](https://twitter.com/cmjonestodd)]
-<br>
-.center[[`r anicon::faa("github", animate="float")` @cmjt](https://github.com/cmjt)]
 
 ]
 
