@@ -1,47 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://cmjt.github.io/authors/admin/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/authors/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/tags/bara/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/categories/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/void/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/pp/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/tags/honours/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/tags/masters/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/popty/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/publication_types/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/puzzle/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/talks/talks/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/popty/bara/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/popty/starter/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/tags/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/talks/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/talks/teaching/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/rivers/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://cmjt.github.io/project/selfpp/</loc>
   </url>
+  
 </urlset>
