@@ -99,6 +99,7 @@ background-size: fill
 ]
 
 ---
+<<<<<<< HEAD
 class: inverse
 
 .center[
@@ -106,6 +107,8 @@ class: inverse
 ]
 
 ---
+=======
+>>>>>>> 86c368a1ff958839c7027e16929b633d31890b35
 
 ## NIWA
 
@@ -136,9 +139,13 @@ class: inverse
 
 ---
 
+<<<<<<< HEAD
 ## `r fontawesome::fa("question-circle")` Back to academia
 
 
+=======
+## `r fontawesome::fa("question-circle")` Academia
+>>>>>>> 86c368a1ff958839c7027e16929b633d31890b35
 
 .center[
 <img src="img/split.png"/>
@@ -259,6 +266,7 @@ knitr::include_graphics("img/run.png")
 
 ---
 
+<<<<<<< HEAD
 
 .pull-left[
 ## The data
@@ -271,6 +279,8 @@ knitr::include_graphics("img/run.png")
 
 ---
 
+=======
+>>>>>>> 86c368a1ff958839c7027e16929b633d31890b35
 ### Continuous-time correlated random walk model (CTCRW) 
 
 For each coordinate $c = 1,2$ of the observed location of an animal at time $t$ ( $t = 1,2,...,n$ ):
