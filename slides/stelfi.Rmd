@@ -59,7 +59,6 @@ require(tidyverse)
   - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
   - User specifies which function arguments the Laplace approximation should be applied to
   
---
 
 Models in `stelfi` are fitted via maximum likelihood using `TMB` via a range of custom written `C++` templates
   
@@ -407,11 +406,9 @@ system2("cowsay", args = "-f dragon 'Diolch am wrando'", stdout = TRUE)
 
 .pull-right[
 .center[
-<img src="img/qr.png" width ="40%" />
-]
-.center[
-<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="20%" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="20%" />
+<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="30%" /> 
+
+<img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="30%" />
 ]
 
 ]
