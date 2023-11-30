@@ -707,25 +707,21 @@ class:inverse
 
 # ![](https://www.stats.org.nz/wp-content/uploads/2017/09/NZSA-logo-words-e1505785105112-1.png) 
 
-
-
 **Many of you who are not studying statistics may find yourself in a role with some stats responsibilities.**
 
+.pull-left[
+<img src="img/community.jpg" height=400/>
+]
+
+.pull-right[
+`r icon::fa_desktop()` [stats.org.nz](https://www.stats.org.nz)
 
 - Free for students
 - Early Career section with meetups/activities
 - Mentoring program
-
----
-
-
-# ![](https://www.stats.org.nz/wp-content/uploads/2017/09/NZSA-logo-words-e1505785105112-1.png) 
-
-
-.center[
-`r icon::fa_desktop()` [stats.org.nz](https://www.stats.org.nz)
-<iframe src="https://www.stats.org.nz/nzsa-student-early-career-statisticians-network-secs/" width="900"  height="400"></iframe>
 ]
+
+
 
 
 ---
