@@ -1,0 +1,28 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css");
+.title-slide {
+  background-image: url('../img/lgcp.png');
+  background-size: contain;
+}
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+}
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  font-size: 50%;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+.small {
+    font-size: 50%;
+}
+.large {
+    font-size: 150%;
+}

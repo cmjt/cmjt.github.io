@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The R package stelfi</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Biometrics in the Bay of Islands, 2023  " />
+    <script src="stelfi_files/header-attrs/header-attrs.js"></script>
+    <link href="stelfi_files/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="stelfi_files/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="stelfi_files/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="stelfi_files/fontawesome/js/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="src/simple.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# The <code>R</code> package <code>stelfi</code>
+]
+.subtitle[
+## Charlotte M. Jones-Todd,    <img src="img/uoa-logo.png" style="width:3.0%" /> University of Auckland
+]
+.author[
+### Biometrics in the Bay of Islands, 2023 <br>
+]
+.institute[
+### <p>.typed[]</p>
+]
+.date[
+###                                                                                                             <img src="img/qr.png" style="width:30.0%" />
+]
+
+---
+
+
+
+
+# `stelfi`
+
+
+<table class="visual-citation">
+  <tr>
+    <td>
+      <div style="width:600px">
+        <div class="top-row" style="font-size: 10pt;font-family: &#39;Open Sans&#39;, &#39;Arial&#39;, &#39;Helvetica&#39;, sans-serif;font-weight: bold;text-align: left;color:#EE9900;margin-bottom: 10px;">
+          <span>CRAN: R package version 1.0.1. (2023)</span>
+        </div>
+        <div class="title-row" style="font-size: 12pt;font-family: &#39;Bitter&#39;, &#39;Palatino&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: 600;text-align: left;color:#000000;margin-bottom:15px;">
+          <span>stelfi: Hawkes and Log-Gaussian Cox Point Processes Using Template Model Builder</span>
+        </div>
+        <div class="author-row" style="font-size: 8pt;font-family: &#39;Bitter‘, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;font-weight: normal;text-align: left;color:#000000;">
+          <span>Charlotte M. Jones-Todd; Alec van Helsdingen</span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <img src="qr/stelfi_qr.png" alt="QR code"/>
+    </td>
+  </tr>
+</table>
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+`TMB`: `R` package for fitting latent variable models
+  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
+  - User specifies which function arguments the Laplace approximation should be applied to
+  
+
+Models in `stelfi` are fitted via maximum likelihood using `TMB` via a range of custom written `C++` templates
+  
+---
+
+# Spatial LGCP  
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+.center[
+&lt;img src = "img/rfs_cov.png" width ="90%" /&gt;
+]
+      
+---
+
+# Spatial LGCP  
+
+&lt;br&gt;
+ 
+`$$\Lambda(\underline{s}) = \text{exp}(\beta_0 + G(\underline{s}) + \epsilon)$$`
+
+  - `\(\beta_0\)`, intercept
+  - `\(G(\underline{s})\)`, Gaussian Markov Random Field (GMRF)
+  - `\(\epsilon\)`, error 
+
+`\(G(\underline{s})\)` has a Matérn covariance defined by `\(\tau\)` and `\(\kappa\)`, where  
+  - `\(r=\frac{\sqrt{8}}{\kappa}\)` is the range, and 
+  - `\(\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}\)` standard deviation
+
+--
+
+`fit_lgcp(locs, sf, smesh, parameters)`
+
+ - `locs`, matrix of locations
+ - `sf`, an `sf` object of the spatial domain
+ - `smesh`, a `INLA::inla.mesh.2d` object
+ - `parameters`, vector of parameter starting values
+
+---
+
+# Spatiotemporal LGCP 
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+`$$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilon)$$`
+ - `\(\beta_0\)`, intercept
+ - `\(G(\underline{s}, t)\)`, a spatiotemporal GMRF
+ - `\(\epsilon\)`, error 
+
+--
+
+`fit_lgcp(locs, sf, smesh, tmesh, parameters)`
+
+ - `locs`, matrix of locations
+ - `sf`, an `sf` object of the spatial domain
+ - `smesh`, a `INLA::inla.mesh.2d` object
+ - `tmesh`,  a `INLA::inla.mesh.1d` object
+ - `parameters`, vector of parameter starting values
+
+
+---
+
+# A marked LGCP
+
+&lt;br&gt;
+
+
+.center[
+&lt;img src = "img/marked_slices.png" /img&gt;
+]
+   
+
+
+---
+
+# A marked LGCP
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$`
+`$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$`
+
+
+ - `\(\alpha_j\)` ( `\(j = 1, ..., n_\text{marks}\)` ) are coefficient(s) linking the point process and the mark(s). 
+
+ - `\(\Lambda_{m_j}(s)\)` depends on the assumed distribution of the marks e.g.,
+   
+   1. If `\(m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)\)` then `\(M_j(\boldsymbol{s}) =  \mu_j(s)\)` and `\(f^{-1} = \text{I()}\)`,
+   2. If `\(m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  \Lambda_j(s)\)` and `\(f^{-1} = \text{exp()}\)`,
+   3. If `\(m_j \sim \text{Binomial}(n_j, p_j(\boldsymbol{s}))\)` then `\(M_j(\boldsymbol{s}) =  p_j(s)\)` and `\(f^{-1} = \text{logit()}\)`, and
+   4. If `\(m_j \sim \text{Gamma}(\text{shape}_j(\boldsymbol{s}), \text{scale}_j)\)` then `\(M_j(\boldsymbol{s}) =  \text{shape}_j(\boldsymbol{s})\)` and `\(f^{-1} = \text{log()}\)`.
+ 
+---
+
+# A marked LGCP
+
+&lt;br&gt;
+&lt;br&gt;
+
+`fit_mlgcp(locs, marks, sf,  smesh, parameters, methods, fields, covariates)`
+
+  - `marks`, matrix of marks at each location in `locs`
+  - `methods`, integer(s) choice of mark distribution(s)
+  - `fields`, binary vector, should a mark specific random field be included
+  - `covariates`, a matrix of covariates can be set on either the marks, or LGCP, or both.
+  
+---
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg> 
+
+.footnote[.tiny[First to yell out the correct answer gets my permission to skip the queue @ lunch tomorrow]]
+
+&lt;video width="500" height="20"  controls&gt;
+  &lt;source src="img/whoop.mp3" type="video/mp4"&gt;
+&lt;/video&gt;
+
+--
+
+.center[
+&lt;img src="img/sasquatch.png" width ="60%" /&gt;
+]
+
+
+---
+
+# <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg> Sasquatch/Bigfoot
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+![](https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Patterson%E2%80%93Gimlin_film_frame_352.jpg/230px-Patterson%E2%80%93Gimlin_film_frame_352.jpg)]
+
+.pull-right[&lt;img src = https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pikes_peak_highway_big_foot.jpg/450px-Pikes_peak_highway_big_foot.jpg width=60%/&gt;]
+
+
+[![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
+---
+
+
+
+# A marked LGCP example
+
+Setting `\(m_i = 1\)` if the Bigfoot sighting is classified as clear (Class A) and  `\(m_i = 0\)` if the sighting is not (class B). 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/bf_marked.jpg" width ="80%" /&gt;
+]
+
+
+---
+
+# Probability of a first-hand sighing
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+The joint model we fit is
+
+
+`$$\Lambda(\boldsymbol{s}) = \text{exp}(\beta_0 + \beta_1 x_{\text{elev}}(s) +  G(\boldsymbol{s}) + \epsilon)$$`
+`$$\text{logit}(p(\boldsymbol{s}))^{-1} = \beta_{0^m} + \beta_1^m x_{\text{elev}}(s) + G_m(\boldsymbol{s}) +\alpha_{m}\; G(\boldsymbol{s}) + \epsilon_{m}$$`
+
+where `\(m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))\)` and the spatial intensity of all sightings is, as previously, `\(\Lambda(\boldsymbol{s})\)`. A spatial covariate, `\(x_{\text{elev}}(s)\)` the elevation in kilometres 
+
+
+---
+
+# A joint model
+ 
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+ | Parameter | est.    | se   |
+ |-----------|---------|------|
+ | `\(\beta_0\)` | -0.823  | 0.358 | 
+ | `\(\beta_1\)` | 0.114  | 0.251  |
+ | `\(\beta_0^m\)` | 0.227  | 0.284 |
+ | `\(\beta_1^m\)` | -0.372  | 0.178 |
+ | `\(\alpha_m\)` | 0.044  | 0.063 |
+]
+
+.pull-right[
+&lt;img src="img/bf_joined.png" height ="70%" /&gt;
+]
+
+
+---
+# Probability of a first-hand sighing
+
+
+.center[
+&lt;img src="img/bf_prob.png" height ="70%" /&gt;
+]
+
+
+
+
+---
+
+# But, is seeing Bigfoot contagious?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="img/hawked_fitted.png" width ="90%" /&gt;
+]
+
+---
+
+# ETAS-type model
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+$$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}m(\tau_i)\text{exp}(-\beta * (t-\tau_i)) $$ 
+
+ - `\(\mu\)`, background rate
+ - `\(\alpha\)`, increase in intensity after an event
+ - `\(\beta\)`, rate of decay
+ - `\(m(t)\)`, temporal mark
+ - `\(\Sigma_{i:\tau_i&lt;t} \cdots\)`, historic dependence 
+ 
+--
+
+`fit_hawkes(times, parameters, marks)`
+
+ - `times`, vector of times
+ - `parameters`, starting values of parameters
+ - `marks`, (optional) vector of marks
+ 
+
+---
+# So, is seeing Bigfoot contagious?
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\lambda(t) = \mu + \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\beta * (t-\tau_i)) + \epsilon$$`
+&lt;br&gt;
+&lt;br&gt;
+
+ +  `\(n = 972\)` sightings over `\(\text{T} = 2188\)` days
+
+ + `\(\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263\)` baseline sightings
+
+ + Expected number of sightings triggered by any one sighting `\(\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}\)`
+
+ + Expected number of descendants per sighting `\(\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3\)`
+ 
+ + Rate of decay for the self-excitement `\(\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11\)` days
+
+---
+
+# Extension: An inhomogeneous Hawkes process 
+
+&lt;br&gt;
+&lt;br&gt;
+
+$$\lambda(t) = \mu(t) + \alpha \Sigma_{i:\tau_i&lt;t}\text{exp}(-\beta * (t-\tau_i)) $$ 
+
+- `\(\mu(t)\)`, varying background rate
+
+--
+
+`fit_hawkes_cbf(times, parameters, background, background_integral, background_param)`
+
+ - `background`, user supplied `\(\mu(t)\)`
+ - `background_integral`, integral of `background`
+ - `background_param`, starting values of parameters for `\(\mu(t)\)`
+
+
+---
+
+# Extension: A marked Hawkes process 
+
+&lt;br&gt;
+&lt;br&gt;
+Conditional intensity for the `\(j^{th}\)` ( `\(j = 1, ..., N\)` )
+
+`$$\lambda(t)^{j*} = \mu_j + \Sigma_{k = 1}^N\Sigma_{i:\tau_i&lt;t} \alpha_{jk} e^{(-\beta_j * (t-\tau_i))}$$` 
+
+ - `\(j, k  \in (1, ..., N)\)`
+ - `\(\alpha_{jk}\)`, is the excitement caused by the `\(k^{th}\)` stream on the `\(j^{th}\)`
+ 
+--
+
+`fit_mhawkes(times, stream, patameters)`
+
+ - `stream`, character vector specifying the stream ID of each observation in `times`
+
+---
+
+# Everything in the pot: spatiotemporal self-excitment
+
+&lt;br&gt;
+&lt;br&gt;
+
+`$$\lambda(\boldsymbol{s},t) = \mu +  G(\boldsymbol{s}) + \alpha \Sigma_{i:\tau_i&lt;t}(\text{exp}(-\beta * (t-\tau_i)) K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i)) + \epsilon$$`
+
+where `\(\mu\)` is the background rate, `\(\beta\)` is the rate of temporal decay, `\(\alpha\)` is the increase in intensity after an event, `\(\tau_i\)` are the event times, and `\(\boldsymbol{x}_i\)` are the event locations `\(G(\boldsymbol{s})\)` is an (optional) Gaussian random field. 
+
+Spatial self-excitement kernel is given by `\(K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i) \sim \text{Normal}(0, \boldsymbol{Q^{-1}})\)`, can either be time-independent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\)` or time-dependent where `\(\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 &amp; \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y &amp; \sigma_y^2 \end{bmatrix}\times (t_j - t_i)\)` for `\(t_j &gt; t_i\)`.
+
+---
+
+# Spatiotemporal self-exciting process 
+
+.center[
+&lt;img src="img/stelfi.png" width ="70%" /&gt;
+]
+
+
+---
+
+# [<span>&lt;i class="fab  fa-github faa-float animated "&gt;&lt;/i&gt;</span> @cmjt](https://github.com/cmjt)
+
+
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+
+```
+ [1] " __________________"                                                         
+ [2] "&lt; Diolch am wrando &gt;"                                                        
+ [3] " ------------------"                                                         
+ [4] "      \\                    / \\  //\\"                                      
+ [5] "       \\    |\\___/|      /   \\//  \\\\"                                   
+ [6] "            /0  0  \\__  /    //  | \\ \\    "                               
+ [7] "           /     /  \\/_/    //   |  \\  \\  "                               
+ [8] "           @_^_@'/   \\/_   //    |   \\   \\ "                              
+ [9] "           //_^_/     \\/_ //     |    \\    \\"                             
+[10] "        ( //) |        \\///      |     \\     \\"                           
+[11] "      ( / /) _|_ /   )  //       |      \\     _\\"                          
+[12] "    ( // /) '/,_ _ _/  ( ; -.    |    _ _\\.-~        .-~~~^-."              
+[13] "  (( / / )) ,-{        _      `-.|.-~-.           .~         `."             
+[14] " (( // / ))  '/\\      /                 ~-. _ .-~      .-~^-.  \\"          
+[15] " (( /// ))      `.   {            }                   /      \\  \\"         
+[16] "  (( / ))     .----~-.\\        \\-'                 .~         \\  `. \\^-."
+[17] "             ///.----..&gt;        \\             _ -~             `.  ^-`  ^-_"
+[18] "               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~"  
+[19] "                                                                  /.-~"      
+```
+]
+]
+
+.pull-right[
+.center[
+&lt;img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="30%" /&gt; 
+
+&lt;img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="30%" /&gt;
+]
+
+]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+const options = {
+  strings: [
+      '<pre>work with: Alec van Helsdingen</pre>', '<pre>work with: Xiangjie Xue</pre>'
+  ],
+  typeSpeed: 60,
+  backSpeed: 20,
+  cursorChar: '',
+  loop: true
+};
+
+const typed = new Typed('.typed', options);
+const typed2 = new Typed('.typed-eg', options);
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

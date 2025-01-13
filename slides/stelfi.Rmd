@@ -1,0 +1,416 @@
+---
+title: "The `R` package `stelfi`"
+author: "Biometrics in the Bay of Islands, 2023 <br>"
+subtitle: "Charlotte M. Jones-Todd, &nbsp;&nbsp; ![](img/uoa-logo.png ){width=3%} University of Auckland"
+institute: ".typed[]\n"
+date: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](img/qr.png){width=30%}"
+header-includes:
+   - \usepackage{xcolor}
+   - \usepackage{amsmath}
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "src/typed_stelfi.js"
+    css: ["src/simple.css", metropolis, rladies-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "libs/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+     
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(message = FALSE,cache = TRUE, echo = FALSE, warning = FALSE, fig.align='center')
+require(tidyverse)
+```
+
+# `stelfi`
+
+
+`r htmltools::includeHTML("visual_citations/stelfi.html")`
+<br>
+<br>
+
+.center[
+<img src="img/hawked_fitted.png" width ="90%" />
+]
+
+
+---
+
+# `r fontawesome::fa(name = "list-check")`
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+`TMB`: `R` package for fitting latent variable models
+  - Calculates first and second order derivatives of the likelihood function by AD (or any objective function written in `C++`)
+  - User specifies which function arguments the Laplace approximation should be applied to
+  
+
+Models in `stelfi` are fitted via maximum likelihood using `TMB` via a range of custom written `C++` templates
+  
+---
+
+# Spatial LGCP  
+
+<br>
+<br>
+<br>
+<br>
+
+
+.center[
+<img src = "img/rfs_cov.png" width ="90%" />
+]
+      
+---
+
+# Spatial LGCP  
+
+<br>
+ 
+$$\Lambda(\underline{s}) = \text{exp}(\beta_0 + G(\underline{s}) + \epsilon)$$
+
+  - $\beta_0$, intercept
+  - $G(\underline{s})$, Gaussian Markov Random Field (GMRF)
+  - $\epsilon$, error 
+
+$G(\underline{s})$ has a Matérn covariance defined by $\tau$ and $\kappa$, where  
+  - $r=\frac{\sqrt{8}}{\kappa}$ is the range, and 
+  - $\sigma=\frac{1}{\sqrt{4\pi\kappa^2\tau^2}}$ standard deviation
+
+--
+
+`fit_lgcp(locs, sf, smesh, parameters)`
+
+ - `locs`, matrix of locations
+ - `sf`, an `sf` object of the spatial domain
+ - `smesh`, a `INLA::inla.mesh.2d` object
+ - `parameters`, vector of parameter starting values
+
+---
+
+# Spatiotemporal LGCP 
+
+<br>
+<br>
+
+
+$$\Lambda(\underline{s}, t) = \text{exp}(\beta_0 + G(\underline{s}, t) + \epsilon)$$
+ - $\beta_0$, intercept
+ - $G(\underline{s}, t)$, a spatiotemporal GMRF
+ - $\epsilon$, error 
+
+--
+
+`fit_lgcp(locs, sf, smesh, tmesh, parameters)`
+
+ - `locs`, matrix of locations
+ - `sf`, an `sf` object of the spatial domain
+ - `smesh`, a `INLA::inla.mesh.2d` object
+ - `tmesh`,  a `INLA::inla.mesh.1d` object
+ - `parameters`, vector of parameter starting values
+
+
+---
+
+# A marked LGCP
+
+<br>
+
+
+.center[
+<img src = "img/marked_slices.png" /img>
+]
+   
+
+
+---
+
+# A marked LGCP
+
+<br>
+<br>
+
+$$\Lambda_{pp}(s) = \text{exp}(\beta_{pp} + G_{pp}(s) + \epsilon_{pp})$$
+$$\Lambda_{m_j}(s) = f^{-1}(\beta_{m_j} + G_{m_j}(s) + \alpha_j\; G_{pp}(s) + \epsilon_{m_j})$$
+
+
+ - $\alpha_j$ ( $j = 1, ..., n_\text{marks}$ ) are coefficient(s) linking the point process and the mark(s). 
+
+ - $\Lambda_{m_j}(s)$ depends on the assumed distribution of the marks e.g.,
+   
+   1. If $m_j \sim \text{Normal}(\mu_j(\boldsymbol{s}), \sigma_j)$ then $M_j(\boldsymbol{s}) =  \mu_j(s)$ and $f^{-1} = \text{I()}$,
+   2. If $m_j \sim \text{Poisson}(\Lambda_j(\boldsymbol{s}))$ then $M_j(\boldsymbol{s}) =  \Lambda_j(s)$ and $f^{-1} = \text{exp()}$,
+   3. If $m_j \sim \text{Binomial}(n_j, p_j(\boldsymbol{s}))$ then $M_j(\boldsymbol{s}) =  p_j(s)$ and $f^{-1} = \text{logit()}$, and
+   4. If $m_j \sim \text{Gamma}(\text{shape}_j(\boldsymbol{s}), \text{scale}_j)$ then $M_j(\boldsymbol{s}) =  \text{shape}_j(\boldsymbol{s})$ and $f^{-1} = \text{log()}$.
+ 
+---
+
+# A marked LGCP
+
+<br>
+<br>
+
+`fit_mlgcp(locs, marks, sf,  smesh, parameters, methods, fields, covariates)`
+
+  - `marks`, matrix of marks at each location in `locs`
+  - `methods`, integer(s) choice of mark distribution(s)
+  - `fields`, binary vector, should a mark specific random field be included
+  - `covariates`, a matrix of covariates can be set on either the marks, or LGCP, or both.
+  
+---
+# `r fontawesome::fa("question-circle")` 
+
+.footnote[.tiny[First to yell out the correct answer gets my permission to skip the queue @ lunch tomorrow]]
+
+<video width="500" height="20"  controls>
+  <source src="img/whoop.mp3" type="video/mp4">
+</video>
+
+--
+
+.center[
+<img src="img/sasquatch.png" width ="60%" />
+]
+
+
+---
+
+# `r fontawesome::fa("circle-question")` Sasquatch/Bigfoot
+
+.pull-left[
+<br>
+<br>
+![](https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Patterson%E2%80%93Gimlin_film_frame_352.jpg/230px-Patterson%E2%80%93Gimlin_film_frame_352.jpg)]
+
+.pull-right[<img src = https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pikes_peak_highway_big_foot.jpg/450px-Pikes_peak_highway_big_foot.jpg width=60%/>]
+
+
+[![Bigfoot Field Researchers Organization](https://www.bfro.net/images/bionics_v1_1213.jpg)](https://www.bfro.net/)
+---
+
+
+
+# A marked LGCP example
+
+Setting $m_i = 1$ if the Bigfoot sighting is classified as clear (Class A) and  $m_i = 0$ if the sighting is not (class B). 
+
+<br>
+<br>
+
+.center[
+<img src="img/bf_marked.jpg" width ="80%" />
+]
+
+
+---
+
+# Probability of a first-hand sighing
+
+<br>
+<br>
+<br>
+<br>
+
+The joint model we fit is
+
+
+$$\Lambda(\boldsymbol{s}) = \text{exp}(\beta_0 + \beta_1 x_{\text{elev}}(s) +  G(\boldsymbol{s}) + \epsilon)$$
+$$\text{logit}(p(\boldsymbol{s}))^{-1} = \beta_{0^m} + \beta_1^m x_{\text{elev}}(s) + G_m(\boldsymbol{s}) +\alpha_{m}\; G(\boldsymbol{s}) + \epsilon_{m}$$
+
+where $m(s) \sim \text{Bernoulli}(p(\boldsymbol{s}))$ and the spatial intensity of all sightings is, as previously, $\Lambda(\boldsymbol{s})$. A spatial covariate, $x_{\text{elev}}(s)$ the elevation in kilometres 
+
+
+---
+
+# A joint model
+ 
+.pull-left[
+<br>
+<br>
+<br>
+
+ | Parameter | est.    | se   |
+ |-----------|---------|------|
+ | $\beta_0$ | -0.823  | 0.358 | 
+ | $\beta_1$ | 0.114  | 0.251  |
+ | $\beta_0^m$ | 0.227  | 0.284 |
+ | $\beta_1^m$ | -0.372  | 0.178 |
+ | $\alpha_m$ | 0.044  | 0.063 |
+]
+
+.pull-right[
+<img src="img/bf_joined.png" height ="70%" />
+]
+
+
+---
+# Probability of a first-hand sighing
+
+
+.center[
+<img src="img/bf_prob.png" height ="70%" />
+]
+
+
+
+
+---
+
+# But, is seeing Bigfoot contagious?
+
+<br>
+<br>
+<br>
+
+.center[
+<img src="img/hawked_fitted.png" width ="90%" />
+]
+
+---
+
+# ETAS-type model
+
+<br>
+<br>
+
+
+$$\lambda(t; m(t)) = \mu + \alpha \Sigma_{i:\tau_i<t}m(\tau_i)\text{exp}(-\beta * (t-\tau_i)) $$ 
+
+ - $\mu$, background rate
+ - $\alpha$, increase in intensity after an event
+ - $\beta$, rate of decay
+ - $m(t)$, temporal mark
+ - $\Sigma_{i:\tau_i<t} \cdots$, historic dependence 
+ 
+--
+
+`fit_hawkes(times, parameters, marks)`
+
+ - `times`, vector of times
+ - `parameters`, starting values of parameters
+ - `marks`, (optional) vector of marks
+ 
+
+---
+# So, is seeing Bigfoot contagious?
+
+<br>
+<br>
+
+$$\lambda(t) = \mu + \alpha \Sigma_{i:\tau_i<t}\text{exp}(-\beta * (t-\tau_i)) + \epsilon$$
+<br>
+<br>
+
+ +  $n = 972$ sightings over $\text{T} = 2188$ days
+
+ + $\hat{\mu} \text{T} = 0.12 \times 2188 \sim 263$ baseline sightings
+
+ + Expected number of sightings triggered by any one sighting $\frac{\hat{\alpha}}{\hat{\beta}} = \frac{0.06}{0.09} = \frac{2}{3}$
+
+ + Expected number of descendants per sighting $\frac{\hat{\beta}}{\hat{\beta} - \hat{\alpha}} = \frac{0.09}{0.09 - 0.06} = 3$
+ 
+ + Rate of decay for the self-excitement $\frac{1}{\hat{\beta}} = \frac{1}{0.09} \sim 11$ days
+
+---
+
+# Extension: An inhomogeneous Hawkes process 
+
+<br>
+<br>
+
+$$\lambda(t) = \mu(t) + \alpha \Sigma_{i:\tau_i<t}\text{exp}(-\beta * (t-\tau_i)) $$ 
+
+- $\mu(t)$, varying background rate
+
+--
+
+`fit_hawkes_cbf(times, parameters, background, background_integral, background_param)`
+
+ - `background`, user supplied $\mu(t)$
+ - `background_integral`, integral of `background`
+ - `background_param`, starting values of parameters for $\mu(t)$
+
+
+---
+
+# Extension: A marked Hawkes process 
+
+<br>
+<br>
+Conditional intensity for the $j^{th}$ ( $j = 1, ..., N$ )
+
+$$\lambda(t)^{j*} = \mu_j + \Sigma_{k = 1}^N\Sigma_{i:\tau_i<t} \alpha_{jk} e^{(-\beta_j * (t-\tau_i))}$$ 
+
+ - $j, k  \in (1, ..., N)$
+ - $\alpha_{jk}$, is the excitement caused by the $k^{th}$ stream on the $j^{th}$
+ 
+--
+
+`fit_mhawkes(times, stream, patameters)`
+
+ - `stream`, character vector specifying the stream ID of each observation in `times`
+
+---
+
+# Everything in the pot: spatiotemporal self-excitment
+
+<br>
+<br>
+
+$$\lambda(\boldsymbol{s},t) = \mu +  G(\boldsymbol{s}) + \alpha \Sigma_{i:\tau_i<t}(\text{exp}(-\beta * (t-\tau_i)) K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i)) + \epsilon$$
+
+where $\mu$ is the background rate, $\beta$ is the rate of temporal decay, $\alpha$ is the increase in intensity after an event, $\tau_i$ are the event times, and $\boldsymbol{x}_i$ are the event locations $G(\boldsymbol{s})$ is an (optional) Gaussian random field. 
+
+Spatial self-excitement kernel is given by $K_i(\boldsymbol{s} - \boldsymbol{x}_i, t - \tau_i) \sim \text{Normal}(0, \boldsymbol{Q^{-1}})$, can either be time-independent where $\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 & \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y & \sigma_y^2 \end{bmatrix}$ or time-dependent where $\boldsymbol{Q^{-1}} = \begin{bmatrix} \sigma_x^2 & \rho \sigma_x \sigma_y \\ \rho \sigma_x \sigma_y & \sigma_y^2 \end{bmatrix}\times (t_j - t_i)$ for $t_j > t_i$.
+
+---
+
+# Spatiotemporal self-exciting process 
+
+.center[
+<img src="img/stelfi.png" width ="70%" />
+]
+
+
+---
+
+# [`r anicon::faa("github", animate="float")` @cmjt](https://github.com/cmjt)
+
+```{r, eval = FALSE, echo = FALSE}
+## linux <sudo apt-get install cowsay>
+## devtools::install_github('emitanaka/anicon')
+```
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+```{r dragon, echo = FALSE,eval = TRUE, comment = ""}
+system2("cowsay", args = "-f dragon 'Diolch am wrando'", stdout = TRUE)
+```
+]
+]
+
+.pull-right[
+.center[
+<img src="https://www.royalsociety.org.nz/assets/Uploads/Marsden-logo-rgb-96dpi.jpg" width ="30%" /> 
+
+<img src="https://inro.pdn.ac.lk/assets/images/opportunities/AOARD.png" width ="30%" />
+]
+
+]
+
+

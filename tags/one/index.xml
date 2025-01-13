@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>one on Charlotte M. Jones-Todd</title>
+    <link>https://cmjt.github.io/tags/one/</link>
+    <description>Recent content in one on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    
+	    <atom:link href="https://cmjt.github.io/tags/one/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Back-end database for a suite of CSS &amp; JS R-focussed casual/puzzle games</title>
+      <link>https://cmjt.github.io/project/minigames/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/minigames/</guid>
+      <description>&lt;p&gt;I use a suite of R-focussed CSS and JS casual/puzzle games as lecture icebreakers (see &lt;a href=&#34;https://statbiscuit.github.io/mini_games/&#34;&gt;here&lt;/a&gt;). The goal of this project will is to capture usage and completion stats for any given session and create a simple back-end system that records usage data and completion statistics for each game session.&lt;/p&gt;
+&lt;p&gt;This project is suited to students with a strong programming background.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

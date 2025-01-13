@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>two on Charlotte M. Jones-Todd</title>
+    <link>https://cmjt.github.io/tags/two/</link>
+    <description>Recent content in two on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    
+	    <atom:link href="https://cmjt.github.io/tags/two/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Comparing peer- and tutor-grading</title>
+      <link>https://cmjt.github.io/project/peer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/peer/</guid>
+      <description>&lt;p&gt;Carrying out peer assessment/review helps students engage with the material and often is found to enhance their self-reflection and critical thinking abilities. Peer assessment provides opportunities for students to learn from one another by exposing them to other possible solutions and mistakes. This has been shown to foster a deeper understanding of the subject. This project will examine the validity of peer grading in a biostatistics assignment by developing statistical methods to compare peer-assigned grades with tutor-assigned grades.&lt;/p&gt;
+&lt;p&gt;Good grades in STATS302 and STATS330 would be an advantage.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Estimating equine body weight</title>
+      <link>https://cmjt.github.io/project/horse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/horse/</guid>
+      <description>&lt;p&gt;Hoses don&amp;rsquo;t fit on your kitchen scales! To allow owners to estimate their horse&amp;rsquo;s body weight many estimation equations have been developed. These equations use simple to take morphometric measurements (e.g., height, girth circumference etc.) alongside breed etc. and allow owners to predict their horse&amp;rsquo;s weight without requiring access to expensive weighing equipment. However, many of these equations assume that the measurements taken are exact (i.e., without error) and they therefore fail to propagate this uncertainty correctly.&lt;/p&gt;
+&lt;p&gt;This project will develop statistical methods that correctly account for measurement error and more reliably allow the prediction of equine body weights from morphometric measurements. Good grades in STATS302 and STATS330 would be an advantage. You do not need to be a horse lover to take this project, but it might be more fun for you if you are!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Goodness-of-fit for self-exciting point process models</title>
+      <link>https://cmjt.github.io/project/selfpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/selfpp/</guid>
+      <description>&lt;p&gt;Events cluster in time and space: tweets go viral, flurries of nearby earthquakes occur in quick succession. Temporal and spatial proximity are major factors in the chain reaction of events. However, how and why these clusters form is much more complex: the mechanisms that generate clusters of events are often self-exciting.&lt;/p&gt;
+&lt;p&gt;Models (e.g., Hawkes processes) that allow us to account for the inherent self-excitement without demanding knowledge of the generating mechanisms are
+becoming hugely popular in modelling the data examples given above. However,
+beyond the simplest form of the model, we currently lack appropriate measures of fit for these models. This project will look at goodness-of-fit for a range of self-exciting point process models, using simulation-based approaches to better understand how different cross validation regimes etc. affects inference.&lt;/p&gt;
+&lt;p&gt;No familiarity with point processes is needed; however, strong R programming skills are required and familiarity with C++ would be advantageous. Good grades in STATS310 and STATS330 would also be an advantage.&lt;/p&gt;
+&lt;p&gt;Project co-supervised with Alec van Helsdingen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Implementing player-specific feedback</title>
+      <link>https://cmjt.github.io/project/tomato/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/tomato/</guid>
+      <description>&lt;p&gt;The game/software &lt;a href=&#34;https://statbiscuit-tomato-trials.netlify.app/&#34;&gt;Farm Rescue: Tomato Trials&lt;/a&gt;provides (bio)statistics students with the experience of designing an experiment and collecting their own unique dataset in a cost- and hassle-free way. Tomato Trials incorporates complex structural experimental elements to more realistically reflect the conditions experienced in a research scenario. The user choices have a direct link to the statistical analysis choices they will have to make as the user choices they are asked to make will inherently be linked to the structural choices of the designs.&lt;/p&gt;
+&lt;p&gt;The main aim of this project is to develop player-specific reactive feedback to the user-chosen experimental design (e.g., D-optimality etc.). In addition, the project will focus on developing a workflow for automated feedback focusing on appropriately estimating and accounting for all sources of variation in the virtual experiment.&lt;/p&gt;
+&lt;p&gt;Familiarity with experimental design techniques and good programming skills are expected.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Void process parameter estimation</title>
+      <link>https://cmjt.github.io/project/void/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/project/void/</guid>
+      <description>&lt;p&gt;A set of locations in space is a spatial point pattern: earthquake epicenters, locations of trees, animal habitats etc. The arrangement of these points is generated by a combination of deterministic and stochastic mechanisms and is modelled using a point process.&lt;/p&gt;
+&lt;p&gt;A void point process has regions devoid of points where you might otherwise expect to see points given the background intensity of the process. These areas are termed &amp;lsquo;voids&amp;rsquo; and may represent, for example, regions of a forest where storm damage has resulted in missing trees.&lt;/p&gt;
+&lt;p&gt;Previous work has estimated parameters of a void point process using a pseudo-likelihood-based approach. This project aims to investigate using a Bayesian framework (e.g., MCMC) to fit such models and compare the reliability of the method to the Palm likelihood approach.&lt;/p&gt;
+&lt;p&gt;No prior knowledge of point processes is required; however, a student should be comfortable with the concepts covered in STATS730 and STATS731.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

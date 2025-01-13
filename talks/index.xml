@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Charlotte M. Jones-Todd</title>
+    <link>https://cmjt.github.io/talks/</link>
+    <description>Recent content in Talks on Charlotte M. Jones-Todd</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    
+	    <atom:link href="https://cmjt.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Slides</title>
+      <link>https://cmjt.github.io/talks/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/talks/talks/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Conference&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;#vISEC2020&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/visec2020&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/visec2020.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NZSA 2022&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/nzsa_2022&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/nzsa_2022.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;St Andrews &amp;amp; Glasgow seminar&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/self_exciting&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/self_exciting.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Biometrics in the Bay of Islands 2023&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/stelfi&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/stelfi.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NZMASP 2023&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://cmjt.github.io/slides/nzmasp_2023&#34;&gt;Slides&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/cmjt/webpage/blob/master/static/slides/nzmasp_2023.Rmd&#34;&gt;Rmarkdown file&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>https://cmjt.github.io/talks/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cmjt.github.io/talks/teaching/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Selected courses taught at UoA&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stats-uoa.github.io/BIOSCI220/&#34;&gt;BIOSCI220: Quantitative Biology&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stats-uoa.github.io/BIOSCI738/&#34;&gt;BIOSCI738: Advanced Biological Data Analysis&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RShiny Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://statbiscuit.shinyapps.io/vested/&#34;&gt;vested&lt;/a&gt;: virtual experiments to teach experimental design.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://statbiscuit.github.io/swots/&#34;&gt;&lt;strong&gt;s&lt;/strong&gt;tatbiscuit &lt;strong&gt;wor&lt;/strong&gt;ksheet&lt;strong&gt;s&lt;/strong&gt;&lt;/a&gt; (swots) that go hand in hand with courses I teach (&lt;a href=&#34;https://github.com/statbiscuit/statbiscuits/tree/master/swots&#34;&gt;source code here&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/probable&#34;&gt;probable&lt;/a&gt;: an RShiny application that allows students to explore the shapes of probability distributions(&lt;a href=&#34;https://github.com/cmjt/statbiscuits/tree/master/probable&#34;&gt;source code&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/penguin/&#34;&gt;RShiny application introducing linear additive model with the Palmer penguins dataset&lt;/a&gt;. Link to the &lt;a href=&#34;https://github.com/statbiscuit/statbiscuits/tree/master/dashboards/penguin&#34;&gt;source code&lt;/a&gt; and link to more info about &lt;a href=&#34;https://github.com/allisonhorst/palmerpenguins&#34;&gt;the data&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cmjt.shinyapps.io/genart/&#34;&gt;Using aRt as an introduction to linear modelling&lt;/a&gt; inspired by &lt;a href=&#34;https://djnavarro.net/&#34;&gt;Danielle Navarro&amp;rsquo;s&lt;/a&gt; blog &lt;a href=&#34;https://blog.djnavarro.net/water-colours&#34;&gt;Notes from a data witch: Art, jasmines, and the water colours&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Other teaching related materials&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/statbiscuit/swots/blob/master/README.md&#34;&gt;Gifs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/statbiscuit&#34;&gt;Statbiscuit GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
